@@ -1,31 +1,32 @@
 <div align="center">
 
-<h1>
-<img src="assets/logo.svg" height="34" alt="" />&nbsp;Vibe Building
-</h1>
+<h2><img src="assets/logo.svg" height="30" alt="" />&nbsp;Vibe Building</h2>
 
-**A deterministic physics engine, not a language model, decides whether a building design is accepted.**
+**Yongqing Jiang**<sup>1&dagger;</sup> &middot; **Haoran Luo**<sup>1*</sup> &middot; **Jianze Wang**<sup>2</sup> &middot; **Xin Zhou**<sup>1</sup> &middot; **Kaoshan Dai**<sup>2</sup> &middot; **Zhiqi Shen**<sup>1*</sup>
 
-Yongqing Jiang<sup>1†</sup>, Haoran Luo<sup>1*</sup>, Jianze Wang<sup>2</sup>, Xin Zhou<sup>1</sup>, Kaoshan Dai<sup>2</sup> &amp; Zhiqi Shen<sup>1*</sup>
+<sup>1</sup>Nanyang Technological University&emsp;&emsp;&emsp;&emsp;<sup>2</sup>Sichuan University
 
-<sup>1</sup>Nanyang Technological University, Singapore &nbsp;&nbsp; <sup>2</sup>Sichuan University, China
-
-<sup>†</sup>Project leader. &nbsp;<sup>*</sup>Corresponding authors.
+&dagger;project leader&emsp;*corresponding authors
 
 [![Project page](https://img.shields.io/badge/Project_page-live-0d8f85)](https://jovanqing.github.io/vibe-building/)
 [![Paper](https://img.shields.io/badge/Paper-PDF-b31b1b)](https://jovanqing.github.io/vibe-building/paper.pdf)
 [![Code](https://img.shields.io/badge/Code-not_released-lightgrey)](#release-plan)
 [![VB-Bench](https://img.shields.io/badge/VB--Bench-not_released-lightgrey)](#release-plan)
 
-[**Project page**](https://jovanqing.github.io/vibe-building/) &nbsp;|&nbsp;
-[**Paper**](https://jovanqing.github.io/vibe-building/paper.pdf) &nbsp;|&nbsp;
-[**Walkthrough**](https://jovanqing.github.io/vibe-building/story.html) &nbsp;|&nbsp;
-[**Gallery**](https://jovanqing.github.io/vibe-building/gallery.html) &nbsp;|&nbsp;
-[**BibTeX**](#citation)
-
-<img src="assets/teaser.png" width="100%" alt="Five systems across four backbone LLMs on verified PASS, held-out seismic and held-out wind">
+[[`Project page`](https://jovanqing.github.io/vibe-building/)]
+[[`Paper`](https://jovanqing.github.io/vibe-building/paper.pdf)]
+[[`Walkthrough`](https://jovanqing.github.io/vibe-building/story.html)]
+[[`Gallery`](https://jovanqing.github.io/vibe-building/gallery.html)]
+[[`BibTeX`](#citation)]
 
 </div>
+
+This work introduces the **Vibe Building** task and **PE-Loop**, an agent in which a deterministic
+physics engine, not a language model, decides whether a building design is accepted. The language
+model proposes discrete revisions and pays nothing for them; the physics engine holds the verdict
+and every decision costs one evaluation of the budget.
+
+<img src="assets/teaser.png" width="100%" alt="Five systems across four backbone LLMs on verified PASS, held-out seismic and held-out wind">
 
 > [!NOTE]
 > This repository is the landing page for the paper. **The code and VB-Bench are not public yet.**
