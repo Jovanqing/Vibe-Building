@@ -1,3 +1,6 @@
 .DS_Store
 __pycache__/
 *.pyc
+
+# 媒体转码的缓存旁证文件，不是产物
+*.stamp

@@ -87,7 +87,7 @@ twenty-two, each with its Rhino massing, its OpenSeesPy frame and its first mode
 | | |
 | :---: | :---: |
 | <img src="assets/demo/torre_velasca.webp" width="330" alt="Brutalist castle keep tower turntable"><br>**Brutalist Castle Keep Tower** · 106 m<br>top-heavy overhang on a slender shaft | <img src="assets/demo/pirelli_tower.webp" width="330" alt="Diamond slab tower turntable"><br>**Diamond Slab Tower** · 127 m<br>slab tapering to a point at both ends |
-| <img src="assets/demo/unite_habitation.webp" width="330" alt="Brutalist mega-slab residential turntable"><br>**Brutalist Mega-Slab Residential** · 59.5 m<br>long slab lifted on pilotis | <img src="assets/demo/johnson_wax_tower.webp" width="330" alt="Cantilevered tree tower turntable"><br>**Cantilevered Tree Tower** · 47 m<br>floors cantilevered off a central core |
+| <img src="assets/demo/unite_habitation.webp" width="330" alt="Brutalist mega-slab residential turntable"><br>**Brutalist Mega-Slab Residential** · 59.5 m<br>long slab lifted on pilotis | <img src="assets/demo/park_hotel_shanghai.webp" width="330" alt="Art deco stepped tower turntable"><br>**Art Deco Stepped Tower** · 84 m<br>setbacks narrowing toward the crown |
 
 [**See all twenty-six, with the full four-stage pipeline →**](https://jovanqing.github.io/vibe-building/#demos)
 
