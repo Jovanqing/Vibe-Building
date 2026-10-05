@@ -15,8 +15,6 @@
 
 [[`Project page`](https://jovanqing.github.io/Vibe-Building/)]
 [[`Paper`](https://jovanqing.github.io/Vibe-Building/paper.pdf)]
-[[`Walkthrough`](https://jovanqing.github.io/Vibe-Building/story.html)]
-[[`Gallery`](https://jovanqing.github.io/Vibe-Building/gallery.html)]
 [[`BibTeX`](#citation)]
 
 </div>
