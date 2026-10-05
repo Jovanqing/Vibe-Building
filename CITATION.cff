@@ -1,0 +1,38 @@
+cff-version: 1.2.0
+message: If you use this work, please cite the paper below.
+title: Vibe Building
+abstract: >-
+  We introduce the Vibe Building task and propose PE-Loop (Physics-Engine-in-the-Loop),
+  an agent in which a deterministic physics engine is the sole source of evaluation
+  signals, while the language model is confined to proposing discrete revisions.
+authors: &authors
+  - family-names: Jiang
+    given-names: Yongqing
+    affiliation: Nanyang Technological University
+  - family-names: Luo
+    given-names: Haoran
+    affiliation: Nanyang Technological University
+  - family-names: Wang
+    given-names: Jianze
+    affiliation: Sichuan University
+  - family-names: Zhou
+    given-names: Xin
+    affiliation: Nanyang Technological University
+  - family-names: Dai
+    given-names: Kaoshan
+    affiliation: Sichuan University
+  - family-names: Shen
+    given-names: Zhiqi
+    affiliation: Nanyang Technological University
+contact:
+  - email: yong.qingjiang@outlook.com
+    family-names: Jiang
+    given-names: Yongqing
+url: https://jovanqing.github.io/vibe-building/
+preferred-citation:
+  type: conference-paper
+  title: Vibe Building
+  authors: *authors
+  collection-title: Submitted to the International Conference on Learning Representations
+  year: 2027
+  notes: Under review
