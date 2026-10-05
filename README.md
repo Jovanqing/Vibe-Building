@@ -2,7 +2,7 @@
 
 <img src="assets/banner.png" width="100%" alt="Vibe Building — a deterministic physics engine, not a language model, decides whether a building design is accepted">
 
-**Yongqing Jiang**<sup>1&dagger;</sup> &middot; **Haoran Luo**<sup>1*</sup> &middot; **Jianze Wang**<sup>2</sup> &middot; **Xin Zhou**<sup>1</sup> &middot; **Kaoshan Dai**<sup>2</sup> &middot; **Zhiqi Shen**<sup>1*</sup>
+[**Yongqing Jiang**](https://yongqingjiang.com/)<sup>1&dagger;</sup> &middot; [**Haoran Luo**](https://haoranluo.net/)<sup>1*</sup> &middot; [**Jianze Wang**](https://scholar.google.com/citations?user=ErWzJ4cAAAAJ&hl=zh-CN)<sup>2</sup> &middot; [**Xin Zhou**](https://scholar.google.com/citations?user=YpEaYXkAAAAJ&hl=en)<sup>1</sup> &middot; [**Kaoshan Dai**](https://www.researchgate.net/profile/Kaoshan-Dai-2)<sup>2</sup> &middot; [**Zhiqi Shen**](https://scholar.google.com/citations?user=EA2T_lwAAAAJ&hl=en)<sup>1*</sup>
 
 <sup>1</sup>Nanyang Technological University&emsp;&emsp;&emsp;&emsp;<sup>2</sup>Sichuan University
 
