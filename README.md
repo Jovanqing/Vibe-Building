@@ -1,8 +1,8 @@
 <div align="center">
 
-<img src="assets/logo.svg" width="78" alt="">
-
-# Vibe Building
+<h1>
+<img src="assets/logo.svg" height="34" alt="" />&nbsp;Vibe Building
+</h1>
 
 **A deterministic physics engine, not a language model, decides whether a building design is accepted.**
 
