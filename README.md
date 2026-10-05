@@ -1,6 +1,6 @@
 <div align="center">
 
-<h2><img src="assets/logo.svg" height="30" alt="" />&nbsp;Vibe Building</h2>
+<img src="assets/banner.png" width="100%" alt="Vibe Building — a deterministic physics engine, not a language model, decides whether a building design is accepted">
 
 **Yongqing Jiang**<sup>1&dagger;</sup> &middot; **Haoran Luo**<sup>1*</sup> &middot; **Jianze Wang**<sup>2</sup> &middot; **Xin Zhou**<sup>1</sup> &middot; **Kaoshan Dai**<sup>2</sup> &middot; **Zhiqi Shen**<sup>1*</sup>
 
