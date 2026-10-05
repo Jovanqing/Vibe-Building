@@ -8,15 +8,15 @@
 
 &dagger;project leader&emsp;*corresponding authors
 
-[![Project page](https://img.shields.io/badge/Project_page-live-0d8f85)](https://jovanqing.github.io/vibe-building/)
-[![Paper](https://img.shields.io/badge/Paper-PDF-b31b1b)](https://jovanqing.github.io/vibe-building/paper.pdf)
+[![Project page](https://img.shields.io/badge/Project_page-live-0d8f85)](https://jovanqing.github.io/Vibe-Building/)
+[![Paper](https://img.shields.io/badge/Paper-PDF-b31b1b)](https://jovanqing.github.io/Vibe-Building/paper.pdf)
 [![Code](https://img.shields.io/badge/Code-not_released-lightgrey)](#release-plan)
 [![VB-Bench](https://img.shields.io/badge/VB--Bench-not_released-lightgrey)](#release-plan)
 
-[[`Project page`](https://jovanqing.github.io/vibe-building/)]
-[[`Paper`](https://jovanqing.github.io/vibe-building/paper.pdf)]
-[[`Walkthrough`](https://jovanqing.github.io/vibe-building/story.html)]
-[[`Gallery`](https://jovanqing.github.io/vibe-building/gallery.html)]
+[[`Project page`](https://jovanqing.github.io/Vibe-Building/)]
+[[`Paper`](https://jovanqing.github.io/Vibe-Building/paper.pdf)]
+[[`Walkthrough`](https://jovanqing.github.io/Vibe-Building/story.html)]
+[[`Gallery`](https://jovanqing.github.io/Vibe-Building/gallery.html)]
 [[`BibTeX`](#citation)]
 
 </div>
@@ -35,7 +35,7 @@ and every decision costs one evaluation of the budget.
 
 ## News
 
-- **2026-10** &nbsp;Project page is live, with twenty-six buildings carried end to end through the pipeline: [jovanqing.github.io/vibe-building](https://jovanqing.github.io/vibe-building/)
+- **2026-10** &nbsp;Project page is live, with twenty-six buildings carried end to end through the pipeline: [jovanqing.github.io/Vibe-Building](https://jovanqing.github.io/Vibe-Building/)
 - **2026-10** &nbsp;Paper submitted. The PDF is available from the project page.
 
 ## TL;DR
@@ -90,7 +90,7 @@ twenty-two, each with its Rhino massing, its OpenSeesPy frame and its first mode
 | <img src="assets/demo/torre_velasca.webp" width="330" alt="Brutalist castle keep tower turntable"><br>**Brutalist Castle Keep Tower** · 106 m<br>top-heavy overhang on a slender shaft | <img src="assets/demo/pirelli_tower.webp" width="330" alt="Diamond slab tower turntable"><br>**Diamond Slab Tower** · 127 m<br>slab tapering to a point at both ends |
 | <img src="assets/demo/unite_habitation.webp" width="330" alt="Brutalist mega-slab residential turntable"><br>**Brutalist Mega-Slab Residential** · 59.5 m<br>long slab lifted on pilotis | <img src="assets/demo/park_hotel_shanghai.webp" width="330" alt="Art deco stepped tower turntable"><br>**Art Deco Stepped Tower** · 84 m<br>setbacks narrowing toward the crown |
 
-[**See all twenty-six, with the full four-stage pipeline →**](https://jovanqing.github.io/vibe-building/#demos)
+[**See all twenty-six, with the full four-stage pipeline →**](https://jovanqing.github.io/Vibe-Building/#demos)
 
 </div>
 
@@ -181,7 +181,7 @@ Release is gated on the review outcome. Opening an issue to ask about timing is 
 
 This page, the figures above and four turntable animations. The other twenty-two buildings,
 the full four-stage pipeline for each, and every experimental figure live on the
-[project page](https://jovanqing.github.io/vibe-building/), which is built from the same
+[project page](https://jovanqing.github.io/Vibe-Building/), which is built from the same
 artefacts a pipeline run produces. No code, no model weights and no benchmark data are here yet.
 
 ## Citation
