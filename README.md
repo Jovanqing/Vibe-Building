@@ -8,11 +8,13 @@
 
 &dagger;project leader&emsp;*corresponding authors
 
+[![arXiv](https://img.shields.io/badge/arXiv-2610.08156-b31b1b)](https://arxiv.org/abs/2610.08156)
 [![Project page](https://img.shields.io/badge/Project_page-live-0d8f85)](https://jovanqing.github.io/Vibe-Building/)
 [![Paper](https://img.shields.io/badge/Paper-PDF-b31b1b)](https://jovanqing.github.io/Vibe-Building/paper.pdf)
 [![Code](https://img.shields.io/badge/Code-not_released-lightgrey)](#release-plan)
 [![VB-Bench](https://img.shields.io/badge/VB--Bench-not_released-lightgrey)](#release-plan)
 
+[[`arXiv`](https://arxiv.org/abs/2610.08156)]
 [[`Project page`](https://jovanqing.github.io/Vibe-Building/)]
 [[`Paper`](https://jovanqing.github.io/Vibe-Building/paper.pdf)]
 [[`BibTeX`](#citation)]
@@ -33,6 +35,7 @@ and every decision costs one evaluation of the budget.
 
 ## News
 
+- **2026-10-06** &nbsp;Preprint on arXiv: [arXiv:2610.08156](https://arxiv.org/abs/2610.08156)
 - **2026-10** &nbsp;Project page is live, with twenty-six buildings carried end to end through the pipeline: [jovanqing.github.io/Vibe-Building](https://jovanqing.github.io/Vibe-Building/)
 - **2026-10** &nbsp;Paper submitted. The PDF is available from the project page.
 
@@ -185,13 +188,13 @@ artefacts a pipeline run produces. No code, no model weights and no benchmark da
 ## Citation
 
 ```bibtex
-@inproceedings{jiang2027vibebuilding,
-  title     = {Vibe Building},
-  author    = {Jiang, Yongqing and Luo, Haoran and Wang, Jianze and
-               Zhou, Xin and Dai, Kaoshan and Shen, Zhiqi},
-  booktitle = {Submitted to the International Conference on Learning Representations},
-  year      = {2027},
-  note      = {Under review}
+@article{jiang2026vibebuilding,
+  title   = {Vibe Building},
+  author  = {Jiang, Yongqing and Luo, Haoran and Wang, Jianze and
+             Zhou, Xin and Dai, Kaoshan and Shen, Zhiqi},
+  journal = {arXiv preprint arXiv:2610.08156},
+  year    = {2026},
+  doi     = {10.48550/arXiv.2610.08156}
 }
 ```
 

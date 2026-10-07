@@ -29,10 +29,17 @@ contact:
     family-names: Jiang
     given-names: Yongqing
 url: https://jovanqing.github.io/Vibe-Building/
+identifiers:
+  - type: other
+    value: arXiv:2610.08156
+    description: arXiv preprint
+  - type: doi
+    value: 10.48550/arXiv.2610.08156
 preferred-citation:
-  type: conference-paper
+  type: article
   title: Vibe Building
   authors: *authors
-  collection-title: Submitted to the International Conference on Learning Representations
-  year: 2027
-  notes: Under review
+  journal: arXiv preprint arXiv:2610.08156
+  year: 2026
+  doi: 10.48550/arXiv.2610.08156
+  url: https://arxiv.org/abs/2610.08156
