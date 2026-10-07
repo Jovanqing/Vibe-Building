@@ -1,0 +1,2105 @@
+{
+ "total_bytes": 94665176,
+ "files": [
+  {
+   "path": ".nojekyll?v=d41d8cd9",
+   "bytes": 0
+  },
+  {
+   "path": "assets/css/site.css?v=266f1eaa",
+   "bytes": 42918
+  },
+  {
+   "path": "assets/icon/apple-touch-icon.png?v=cffdc6c4",
+   "bytes": 4064
+  },
+  {
+   "path": "assets/icon/favicon-32.png?v=143ad0cc",
+   "bytes": 637
+  },
+  {
+   "path": "assets/icon/favicon.svg?v=0b1456c9",
+   "bytes": 781
+  },
+  {
+   "path": "assets/icon/mark.svg?v=e23304e7",
+   "bytes": 772
+  },
+  {
+   "path": "assets/js/site.js?v=12284be0",
+   "bytes": 13116
+  },
+  {
+   "path": "assets/media/b/absolute_world_1_176m/build_4view.mp4?v=34d28bb3",
+   "bytes": 385949
+  },
+  {
+   "path": "assets/media/b/absolute_world_1_176m/build_4view_poster.webp?v=fff1724c",
+   "bytes": 146212
+  },
+  {
+   "path": "assets/media/b/absolute_world_1_176m/build_iso.mp4?v=d0d4bf56",
+   "bytes": 94866
+  },
+  {
+   "path": "assets/media/b/absolute_world_1_176m/build_iso_poster.webp?v=fb10ece9",
+   "bytes": 50238
+  },
+  {
+   "path": "assets/media/b/absolute_world_1_176m/deformed_png.webp?v=b784982d",
+   "bytes": 59908
+  },
+  {
+   "path": "assets/media/b/absolute_world_1_176m/light_deformed.webp?v=cd6369db",
+   "bytes": 68292
+  },
+  {
+   "path": "assets/media/b/absolute_world_1_176m/light_model.webp?v=ded9f433",
+   "bytes": 142582
+  },
+  {
+   "path": "assets/media/b/absolute_world_1_176m/light_modes.webp?v=fd995e03",
+   "bytes": 152892
+  },
+  {
+   "path": "assets/media/b/absolute_world_1_176m/light_render.webp?v=a4f37e28",
+   "bytes": 32384
+  },
+  {
+   "path": "assets/media/b/absolute_world_1_176m/mode_01.mp4?v=6c508950",
+   "bytes": 160111
+  },
+  {
+   "path": "assets/media/b/absolute_world_1_176m/mode_01_poster.jpg?v=ab80f393",
+   "bytes": 52542
+  },
+  {
+   "path": "assets/media/b/absolute_world_1_176m/model_png.webp?v=d5f91834",
+   "bytes": 61488
+  },
+  {
+   "path": "assets/media/b/absolute_world_1_176m/modes_png.webp?v=9c5ec929",
+   "bytes": 72880
+  },
+  {
+   "path": "assets/media/b/absolute_world_1_176m/render.webp?v=f4335e3b",
+   "bytes": 84784
+  },
+  {
+   "path": "assets/media/b/absolute_world_1_176m/sketch.webp?v=723fb7b2",
+   "bytes": 32360
+  },
+  {
+   "path": "assets/media/b/absolute_world_1_176m/thumb.webp?v=2ea9d5f2",
+   "bytes": 42598
+  },
+  {
+   "path": "assets/media/b/bauhaus_dessau/build_4view.mp4?v=870eaf41",
+   "bytes": 103125
+  },
+  {
+   "path": "assets/media/b/bauhaus_dessau/build_4view_poster.webp?v=845c5b96",
+   "bytes": 43166
+  },
+  {
+   "path": "assets/media/b/bauhaus_dessau/build_iso.mp4?v=68fd0c25",
+   "bytes": 119516
+  },
+  {
+   "path": "assets/media/b/bauhaus_dessau/build_iso_poster.webp?v=7e8ea296",
+   "bytes": 49040
+  },
+  {
+   "path": "assets/media/b/bauhaus_dessau/deformed_png.webp?v=ecab6ddd",
+   "bytes": 45704
+  },
+  {
+   "path": "assets/media/b/bauhaus_dessau/light_model.webp?v=e0a3e21c",
+   "bytes": 412222
+  },
+  {
+   "path": "assets/media/b/bauhaus_dessau/light_render.webp?v=1ef5d6f6",
+   "bytes": 60280
+  },
+  {
+   "path": "assets/media/b/bauhaus_dessau/mode_01.mp4?v=2d9d4cf9",
+   "bytes": 43377
+  },
+  {
+   "path": "assets/media/b/bauhaus_dessau/mode_01_poster.jpg?v=035c0cfd",
+   "bytes": 34826
+  },
+  {
+   "path": "assets/media/b/bauhaus_dessau/model_png.webp?v=d3e2e5a9",
+   "bytes": 74582
+  },
+  {
+   "path": "assets/media/b/bauhaus_dessau/modes_png.webp?v=a690c914",
+   "bytes": 31436
+  },
+  {
+   "path": "assets/media/b/bauhaus_dessau/process_blender.mp4?v=ada2027e",
+   "bytes": 265129
+  },
+  {
+   "path": "assets/media/b/bauhaus_dessau/process_blender_poster.jpg?v=75c8f4a5",
+   "bytes": 6020
+  },
+  {
+   "path": "assets/media/b/bauhaus_dessau/process_rhino.mp4?v=2d64ca2c",
+   "bytes": 92700
+  },
+  {
+   "path": "assets/media/b/bauhaus_dessau/process_rhino_poster.jpg?v=290d75a0",
+   "bytes": 29465
+  },
+  {
+   "path": "assets/media/b/bauhaus_dessau/render.webp?v=1211e299",
+   "bytes": 76830
+  },
+  {
+   "path": "assets/media/b/bauhaus_dessau/sq_build_4view.webp?v=95f7c3f6",
+   "bytes": 360788
+  },
+  {
+   "path": "assets/media/b/bauhaus_dessau/sq_mode_01.webp?v=f327ed78",
+   "bytes": 127978
+  },
+  {
+   "path": "assets/media/b/bauhaus_dessau/sq_process_rhino.webp?v=6d6b6f49",
+   "bytes": 232564
+  },
+  {
+   "path": "assets/media/b/bauhaus_dessau/sq_turntable.webp?v=31791ed1",
+   "bytes": 1719456
+  },
+  {
+   "path": "assets/media/b/bauhaus_dessau/thumb.webp?v=bccf1749",
+   "bytes": 93234
+  },
+  {
+   "path": "assets/media/b/bauhaus_dessau/turntable.mp4?v=d54292d4",
+   "bytes": 906653
+  },
+  {
+   "path": "assets/media/b/bauhaus_dessau/turntable_poster.jpg?v=fb9da0f1",
+   "bytes": 115781
+  },
+  {
+   "path": "assets/media/b/burj_khalifa_828m/build_4view.mp4?v=c991df9d",
+   "bytes": 139411
+  },
+  {
+   "path": "assets/media/b/burj_khalifa_828m/build_4view_poster.webp?v=05b6774f",
+   "bytes": 108624
+  },
+  {
+   "path": "assets/media/b/burj_khalifa_828m/build_iso.mp4?v=962fd94a",
+   "bytes": 88013
+  },
+  {
+   "path": "assets/media/b/burj_khalifa_828m/build_iso_poster.webp?v=3b98852b",
+   "bytes": 40442
+  },
+  {
+   "path": "assets/media/b/burj_khalifa_828m/deformed_png.webp?v=2ebdf0fd",
+   "bytes": 47708
+  },
+  {
+   "path": "assets/media/b/burj_khalifa_828m/light_deformed.webp?v=9ae35671",
+   "bytes": 46008
+  },
+  {
+   "path": "assets/media/b/burj_khalifa_828m/light_model.webp?v=9f4e24e0",
+   "bytes": 233570
+  },
+  {
+   "path": "assets/media/b/burj_khalifa_828m/light_modes.webp?v=e212b302",
+   "bytes": 81046
+  },
+  {
+   "path": "assets/media/b/burj_khalifa_828m/light_render.webp?v=dc6092e7",
+   "bytes": 42696
+  },
+  {
+   "path": "assets/media/b/burj_khalifa_828m/loop.webp?v=9bcd4c60",
+   "bytes": 28672
+  },
+  {
+   "path": "assets/media/b/burj_khalifa_828m/mode_01.mp4?v=9478a61a",
+   "bytes": 84692
+  },
+  {
+   "path": "assets/media/b/burj_khalifa_828m/mode_01_poster.jpg?v=bca5c663",
+   "bytes": 47755
+  },
+  {
+   "path": "assets/media/b/burj_khalifa_828m/model_png.webp?v=fb716af1",
+   "bytes": 65256
+  },
+  {
+   "path": "assets/media/b/burj_khalifa_828m/modes_png.webp?v=05e428d6",
+   "bytes": 37216
+  },
+  {
+   "path": "assets/media/b/burj_khalifa_828m/process_rhino.mp4?v=e77df55e",
+   "bytes": 142518
+  },
+  {
+   "path": "assets/media/b/burj_khalifa_828m/process_rhino_poster.jpg?v=58416add",
+   "bytes": 51498
+  },
+  {
+   "path": "assets/media/b/burj_khalifa_828m/render.webp?v=75dab92b",
+   "bytes": 172872
+  },
+  {
+   "path": "assets/media/b/burj_khalifa_828m/sketch.webp?v=6dccc5ee",
+   "bytes": 31994
+  },
+  {
+   "path": "assets/media/b/burj_khalifa_828m/sq_build_4view.webp?v=0f0d899b",
+   "bytes": 276598
+  },
+  {
+   "path": "assets/media/b/burj_khalifa_828m/sq_mode_01.webp?v=7147eb09",
+   "bytes": 349702
+  },
+  {
+   "path": "assets/media/b/burj_khalifa_828m/sq_process_rhino.webp?v=e31064a0",
+   "bytes": 301312
+  },
+  {
+   "path": "assets/media/b/burj_khalifa_828m/sq_turntable.webp?v=e531f1ec",
+   "bytes": 380632
+  },
+  {
+   "path": "assets/media/b/burj_khalifa_828m/thumb.webp?v=b2173b2b",
+   "bytes": 47698
+  },
+  {
+   "path": "assets/media/b/burj_khalifa_828m/turntable.mp4?v=4f4e2a78",
+   "bytes": 254509
+  },
+  {
+   "path": "assets/media/b/burj_khalifa_828m/turntable_poster.jpg?v=b6e3ba0e",
+   "bytes": 15060
+  },
+  {
+   "path": "assets/media/b/canton_tower_600m/build_4view.mp4?v=e0fd1c8b",
+   "bytes": 194741
+  },
+  {
+   "path": "assets/media/b/canton_tower_600m/build_4view_poster.webp?v=10c25c9f",
+   "bytes": 84248
+  },
+  {
+   "path": "assets/media/b/canton_tower_600m/build_iso.mp4?v=5c4d054d",
+   "bytes": 66500
+  },
+  {
+   "path": "assets/media/b/canton_tower_600m/build_iso_poster.webp?v=e691e32a",
+   "bytes": 29530
+  },
+  {
+   "path": "assets/media/b/canton_tower_600m/deformed_png.webp?v=9a6cc986",
+   "bytes": 44464
+  },
+  {
+   "path": "assets/media/b/canton_tower_600m/light_deformed.webp?v=1e98f26d",
+   "bytes": 43842
+  },
+  {
+   "path": "assets/media/b/canton_tower_600m/light_model.webp?v=74fe7502",
+   "bytes": 141110
+  },
+  {
+   "path": "assets/media/b/canton_tower_600m/light_modes.webp?v=21ac6f54",
+   "bytes": 82730
+  },
+  {
+   "path": "assets/media/b/canton_tower_600m/light_render.webp?v=3dae7e87",
+   "bytes": 28626
+  },
+  {
+   "path": "assets/media/b/canton_tower_600m/mode_01.mp4?v=2c1fa6f0",
+   "bytes": 80356
+  },
+  {
+   "path": "assets/media/b/canton_tower_600m/mode_01_poster.jpg?v=f9fab24e",
+   "bytes": 43934
+  },
+  {
+   "path": "assets/media/b/canton_tower_600m/model_png.webp?v=4018be08",
+   "bytes": 71532
+  },
+  {
+   "path": "assets/media/b/canton_tower_600m/modes_png.webp?v=94d0aaaa",
+   "bytes": 40798
+  },
+  {
+   "path": "assets/media/b/canton_tower_600m/render.webp?v=e015be39",
+   "bytes": 119306
+  },
+  {
+   "path": "assets/media/b/canton_tower_600m/sketch.webp?v=97efe7f0",
+   "bytes": 25738
+  },
+  {
+   "path": "assets/media/b/canton_tower_600m/thumb.webp?v=61e5de2c",
+   "bytes": 32798
+  },
+  {
+   "path": "assets/media/b/casa_del_fascio/build_4view.mp4?v=3d4e989a",
+   "bytes": 136400
+  },
+  {
+   "path": "assets/media/b/casa_del_fascio/build_4view_poster.webp?v=2a99fbf7",
+   "bytes": 55266
+  },
+  {
+   "path": "assets/media/b/casa_del_fascio/build_iso.mp4?v=3e0c6a11",
+   "bytes": 133326
+  },
+  {
+   "path": "assets/media/b/casa_del_fascio/build_iso_poster.webp?v=c2d8fe58",
+   "bytes": 78162
+  },
+  {
+   "path": "assets/media/b/casa_del_fascio/deformed_png.webp?v=a2571ea9",
+   "bytes": 67706
+  },
+  {
+   "path": "assets/media/b/casa_del_fascio/light_model.webp?v=87a039d5",
+   "bytes": 396492
+  },
+  {
+   "path": "assets/media/b/casa_del_fascio/light_render.webp?v=1757f87e",
+   "bytes": 71098
+  },
+  {
+   "path": "assets/media/b/casa_del_fascio/mode_01.mp4?v=b7167ee9",
+   "bytes": 137655
+  },
+  {
+   "path": "assets/media/b/casa_del_fascio/mode_01_poster.jpg?v=9e7fa736",
+   "bytes": 59193
+  },
+  {
+   "path": "assets/media/b/casa_del_fascio/model_png.webp?v=2f253f7e",
+   "bytes": 95588
+  },
+  {
+   "path": "assets/media/b/casa_del_fascio/modes_png.webp?v=bc8a205a",
+   "bytes": 58308
+  },
+  {
+   "path": "assets/media/b/casa_del_fascio/process_blender.mp4?v=50b455e8",
+   "bytes": 217327
+  },
+  {
+   "path": "assets/media/b/casa_del_fascio/process_blender_poster.jpg?v=ca203e96",
+   "bytes": 5948
+  },
+  {
+   "path": "assets/media/b/casa_del_fascio/process_rhino.mp4?v=83cf8b98",
+   "bytes": 155808
+  },
+  {
+   "path": "assets/media/b/casa_del_fascio/process_rhino_poster.jpg?v=42c03a7a",
+   "bytes": 23352
+  },
+  {
+   "path": "assets/media/b/casa_del_fascio/render.webp?v=d16750ec",
+   "bytes": 101658
+  },
+  {
+   "path": "assets/media/b/casa_del_fascio/thumb.webp?v=067388ea",
+   "bytes": 106516
+  },
+  {
+   "path": "assets/media/b/casa_del_fascio/turntable.mp4?v=b53f2abb",
+   "bytes": 693757
+  },
+  {
+   "path": "assets/media/b/casa_del_fascio/turntable_poster.jpg?v=73eec423",
+   "bytes": 93822
+  },
+  {
+   "path": "assets/media/b/centre_pompidou/build_4view.mp4?v=0ea6fbcb",
+   "bytes": 223443
+  },
+  {
+   "path": "assets/media/b/centre_pompidou/build_4view_poster.webp?v=7f6f8825",
+   "bytes": 94528
+  },
+  {
+   "path": "assets/media/b/centre_pompidou/build_iso.mp4?v=3f2824bd",
+   "bytes": 259806
+  },
+  {
+   "path": "assets/media/b/centre_pompidou/build_iso_poster.webp?v=0595b1e1",
+   "bytes": 96172
+  },
+  {
+   "path": "assets/media/b/centre_pompidou/deformed_png.webp?v=15fa913d",
+   "bytes": 101614
+  },
+  {
+   "path": "assets/media/b/centre_pompidou/light_deformed.webp?v=7a07a24b",
+   "bytes": 160432
+  },
+  {
+   "path": "assets/media/b/centre_pompidou/light_model.webp?v=56675b40",
+   "bytes": 790086
+  },
+  {
+   "path": "assets/media/b/centre_pompidou/light_modes.webp?v=9756c08a",
+   "bytes": 136276
+  },
+  {
+   "path": "assets/media/b/centre_pompidou/loop.webp?v=acc560ff",
+   "bytes": 76748
+  },
+  {
+   "path": "assets/media/b/centre_pompidou/mode_01.mp4?v=cf672ee6",
+   "bytes": 169149
+  },
+  {
+   "path": "assets/media/b/centre_pompidou/mode_01_poster.jpg?v=b8111d8d",
+   "bytes": 90695
+  },
+  {
+   "path": "assets/media/b/centre_pompidou/model_png.webp?v=d397b459",
+   "bytes": 172534
+  },
+  {
+   "path": "assets/media/b/centre_pompidou/modes_png.webp?v=485e1fb8",
+   "bytes": 58072
+  },
+  {
+   "path": "assets/media/b/centre_pompidou/thumb.webp?v=48a57782",
+   "bytes": 183292
+  },
+  {
+   "path": "assets/media/b/demo_l_tower/build_4view.mp4?v=ada5d452",
+   "bytes": 148157
+  },
+  {
+   "path": "assets/media/b/demo_l_tower/build_4view_poster.webp?v=cb3582ed",
+   "bytes": 62518
+  },
+  {
+   "path": "assets/media/b/demo_l_tower/build_iso.mp4?v=8cf0c6a4",
+   "bytes": 153108
+  },
+  {
+   "path": "assets/media/b/demo_l_tower/build_iso_poster.webp?v=59dd3c00",
+   "bytes": 75278
+  },
+  {
+   "path": "assets/media/b/demo_l_tower/deformed_png.webp?v=a0872b67",
+   "bytes": 50122
+  },
+  {
+   "path": "assets/media/b/demo_l_tower/light_model.webp?v=1530cb52",
+   "bytes": 495588
+  },
+  {
+   "path": "assets/media/b/demo_l_tower/mode_01.mp4?v=26496ec6",
+   "bytes": 230052
+  },
+  {
+   "path": "assets/media/b/demo_l_tower/mode_01_poster.jpg?v=75cd6f42",
+   "bytes": 67828
+  },
+  {
+   "path": "assets/media/b/demo_l_tower/model_png.webp?v=cf99297f",
+   "bytes": 71358
+  },
+  {
+   "path": "assets/media/b/demo_l_tower/modes_png.webp?v=236cdcee",
+   "bytes": 31516
+  },
+  {
+   "path": "assets/media/b/demo_l_tower/thumb.webp?v=6509416b",
+   "bytes": 103488
+  },
+  {
+   "path": "assets/media/b/design_shanghai_megaframe_632m/build_4view.mp4?v=5029ef9e",
+   "bytes": 181500
+  },
+  {
+   "path": "assets/media/b/design_shanghai_megaframe_632m/build_4view_poster.webp?v=2da2a8cc",
+   "bytes": 110862
+  },
+  {
+   "path": "assets/media/b/design_shanghai_megaframe_632m/build_iso.mp4?v=3e00fbff",
+   "bytes": 87453
+  },
+  {
+   "path": "assets/media/b/design_shanghai_megaframe_632m/build_iso_poster.webp?v=3fab7b85",
+   "bytes": 40762
+  },
+  {
+   "path": "assets/media/b/design_shanghai_megaframe_632m/deformed_png.webp?v=144d5283",
+   "bytes": 45014
+  },
+  {
+   "path": "assets/media/b/design_shanghai_megaframe_632m/light_deformed.webp?v=74a014e4",
+   "bytes": 47034
+  },
+  {
+   "path": "assets/media/b/design_shanghai_megaframe_632m/light_model.webp?v=a088ecd1",
+   "bytes": 208626
+  },
+  {
+   "path": "assets/media/b/design_shanghai_megaframe_632m/light_modes.webp?v=ae9c8bb4",
+   "bytes": 85762
+  },
+  {
+   "path": "assets/media/b/design_shanghai_megaframe_632m/light_render.webp?v=99d2469c",
+   "bytes": 33826
+  },
+  {
+   "path": "assets/media/b/design_shanghai_megaframe_632m/mode_01.mp4?v=0c6f95e5",
+   "bytes": 81962
+  },
+  {
+   "path": "assets/media/b/design_shanghai_megaframe_632m/mode_01_poster.jpg?v=80fd470d",
+   "bytes": 45515
+  },
+  {
+   "path": "assets/media/b/design_shanghai_megaframe_632m/model_png.webp?v=52ed6cd9",
+   "bytes": 67630
+  },
+  {
+   "path": "assets/media/b/design_shanghai_megaframe_632m/modes_png.webp?v=6f7e3dc1",
+   "bytes": 41526
+  },
+  {
+   "path": "assets/media/b/design_shanghai_megaframe_632m/process_rhino.mp4?v=9ef3518c",
+   "bytes": 151969
+  },
+  {
+   "path": "assets/media/b/design_shanghai_megaframe_632m/process_rhino_poster.jpg?v=93b64af7",
+   "bytes": 50212
+  },
+  {
+   "path": "assets/media/b/design_shanghai_megaframe_632m/render.webp?v=f036d56a",
+   "bytes": 155572
+  },
+  {
+   "path": "assets/media/b/design_shanghai_megaframe_632m/sq_build_4view.webp?v=0f842c41",
+   "bytes": 350728
+  },
+  {
+   "path": "assets/media/b/design_shanghai_megaframe_632m/sq_mode_01.webp?v=6d28dce2",
+   "bytes": 329772
+  },
+  {
+   "path": "assets/media/b/design_shanghai_megaframe_632m/sq_process_rhino.webp?v=ea2fd488",
+   "bytes": 285878
+  },
+  {
+   "path": "assets/media/b/design_shanghai_megaframe_632m/sq_turntable.webp?v=6ca89bc7",
+   "bytes": 391712
+  },
+  {
+   "path": "assets/media/b/design_shanghai_megaframe_632m/thumb.webp?v=32d39e65",
+   "bytes": 44856
+  },
+  {
+   "path": "assets/media/b/design_shanghai_megaframe_632m/turntable.mp4?v=ff92dabc",
+   "bytes": 260986
+  },
+  {
+   "path": "assets/media/b/design_shanghai_megaframe_632m/turntable_poster.jpg?v=1ca40803",
+   "bytes": 16296
+  },
+  {
+   "path": "assets/media/b/gherkin_180m/build_4view.mp4?v=71cd0119",
+   "bytes": 350404
+  },
+  {
+   "path": "assets/media/b/gherkin_180m/build_4view_poster.webp?v=ab3c7ce6",
+   "bytes": 176304
+  },
+  {
+   "path": "assets/media/b/gherkin_180m/build_iso.mp4?v=f1b19b85",
+   "bytes": 179905
+  },
+  {
+   "path": "assets/media/b/gherkin_180m/build_iso_poster.webp?v=95276d7b",
+   "bytes": 89338
+  },
+  {
+   "path": "assets/media/b/gherkin_180m/deformed_png.webp?v=286468cb",
+   "bytes": 113024
+  },
+  {
+   "path": "assets/media/b/gherkin_180m/light_deformed.webp?v=695164b7",
+   "bytes": 112994
+  },
+  {
+   "path": "assets/media/b/gherkin_180m/light_model.webp?v=101e0e1a",
+   "bytes": 377178
+  },
+  {
+   "path": "assets/media/b/gherkin_180m/light_modes.webp?v=59930c03",
+   "bytes": 259158
+  },
+  {
+   "path": "assets/media/b/gherkin_180m/light_render.webp?v=16385df4",
+   "bytes": 74204
+  },
+  {
+   "path": "assets/media/b/gherkin_180m/mode_01.mp4?v=7ca14751",
+   "bytes": 337358
+  },
+  {
+   "path": "assets/media/b/gherkin_180m/mode_01_poster.jpg?v=b6fa197b",
+   "bytes": 95288
+  },
+  {
+   "path": "assets/media/b/gherkin_180m/model_png.webp?v=4a93e73b",
+   "bytes": 102656
+  },
+  {
+   "path": "assets/media/b/gherkin_180m/modes_png.webp?v=673e1744",
+   "bytes": 125220
+  },
+  {
+   "path": "assets/media/b/gherkin_180m/render.webp?v=854b2a09",
+   "bytes": 186476
+  },
+  {
+   "path": "assets/media/b/gherkin_180m/sketch.webp?v=b7c67256",
+   "bytes": 30914
+  },
+  {
+   "path": "assets/media/b/gherkin_180m/thumb.webp?v=47e5d74f",
+   "bytes": 92510
+  },
+  {
+   "path": "assets/media/b/hilversum_civic/build_4view.mp4?v=9a27cf52",
+   "bytes": 91828
+  },
+  {
+   "path": "assets/media/b/hilversum_civic/build_4view_poster.webp?v=260bcfc9",
+   "bytes": 49044
+  },
+  {
+   "path": "assets/media/b/hilversum_civic/build_iso.mp4?v=9d109406",
+   "bytes": 102572
+  },
+  {
+   "path": "assets/media/b/hilversum_civic/build_iso_poster.webp?v=7e46501b",
+   "bytes": 56218
+  },
+  {
+   "path": "assets/media/b/hilversum_civic/deformed_png.webp?v=b95e45d5",
+   "bytes": 33768
+  },
+  {
+   "path": "assets/media/b/hilversum_civic/light_model.webp?v=73e4ad08",
+   "bytes": 279146
+  },
+  {
+   "path": "assets/media/b/hilversum_civic/light_render.webp?v=cdb8462c",
+   "bytes": 42450
+  },
+  {
+   "path": "assets/media/b/hilversum_civic/mode_01.mp4?v=d5e39275",
+   "bytes": 49707
+  },
+  {
+   "path": "assets/media/b/hilversum_civic/mode_01_poster.jpg?v=719b27f5",
+   "bytes": 38702
+  },
+  {
+   "path": "assets/media/b/hilversum_civic/model_png.webp?v=6a70d2d4",
+   "bytes": 61530
+  },
+  {
+   "path": "assets/media/b/hilversum_civic/modes_png.webp?v=272db852",
+   "bytes": 29934
+  },
+  {
+   "path": "assets/media/b/hilversum_civic/process_blender.mp4?v=156862fd",
+   "bytes": 161395
+  },
+  {
+   "path": "assets/media/b/hilversum_civic/process_blender_poster.jpg?v=63851c56",
+   "bytes": 6184
+  },
+  {
+   "path": "assets/media/b/hilversum_civic/process_rhino.mp4?v=af005592",
+   "bytes": 152976
+  },
+  {
+   "path": "assets/media/b/hilversum_civic/process_rhino_poster.jpg?v=0d4fc663",
+   "bytes": 31577
+  },
+  {
+   "path": "assets/media/b/hilversum_civic/render.webp?v=610e870c",
+   "bytes": 54424
+  },
+  {
+   "path": "assets/media/b/hilversum_civic/sq_build_4view.webp?v=5157f946",
+   "bytes": 368844
+  },
+  {
+   "path": "assets/media/b/hilversum_civic/sq_mode_01.webp?v=8521bf94",
+   "bytes": 138178
+  },
+  {
+   "path": "assets/media/b/hilversum_civic/sq_process_rhino.webp?v=b452a042",
+   "bytes": 305454
+  },
+  {
+   "path": "assets/media/b/hilversum_civic/sq_turntable.webp?v=d8648f13",
+   "bytes": 944016
+  },
+  {
+   "path": "assets/media/b/hilversum_civic/thumb.webp?v=662d4f2e",
+   "bytes": 74592
+  },
+  {
+   "path": "assets/media/b/hilversum_civic/turntable.mp4?v=d2861a28",
+   "bytes": 479926
+  },
+  {
+   "path": "assets/media/b/hilversum_civic/turntable_poster.jpg?v=03749aa7",
+   "bytes": 63728
+  },
+  {
+   "path": "assets/media/b/johnson_wax_tower/build_4view.mp4?v=4039b648",
+   "bytes": 160033
+  },
+  {
+   "path": "assets/media/b/johnson_wax_tower/build_4view_poster.webp?v=4a36318c",
+   "bytes": 68890
+  },
+  {
+   "path": "assets/media/b/johnson_wax_tower/build_iso.mp4?v=d118cb70",
+   "bytes": 119504
+  },
+  {
+   "path": "assets/media/b/johnson_wax_tower/build_iso_poster.webp?v=ecb4a440",
+   "bytes": 70416
+  },
+  {
+   "path": "assets/media/b/johnson_wax_tower/deformed_png.webp?v=66656e7f",
+   "bytes": 38910
+  },
+  {
+   "path": "assets/media/b/johnson_wax_tower/light_model.webp?v=adbd6a5a",
+   "bytes": 287470
+  },
+  {
+   "path": "assets/media/b/johnson_wax_tower/light_render.webp?v=9351dddd",
+   "bytes": 67362
+  },
+  {
+   "path": "assets/media/b/johnson_wax_tower/mode_01.mp4?v=ba635fe7",
+   "bytes": 235863
+  },
+  {
+   "path": "assets/media/b/johnson_wax_tower/mode_01_poster.jpg?v=4b8d95a2",
+   "bytes": 65441
+  },
+  {
+   "path": "assets/media/b/johnson_wax_tower/model_png.webp?v=2ded8574",
+   "bytes": 58050
+  },
+  {
+   "path": "assets/media/b/johnson_wax_tower/modes_png.webp?v=a2d5d9c8",
+   "bytes": 33794
+  },
+  {
+   "path": "assets/media/b/johnson_wax_tower/process_blender.mp4?v=ec307c63",
+   "bytes": 155997
+  },
+  {
+   "path": "assets/media/b/johnson_wax_tower/process_blender_poster.jpg?v=23c65076",
+   "bytes": 6303
+  },
+  {
+   "path": "assets/media/b/johnson_wax_tower/process_rhino.mp4?v=b4b7d99f",
+   "bytes": 147988
+  },
+  {
+   "path": "assets/media/b/johnson_wax_tower/process_rhino_poster.jpg?v=8c7694bb",
+   "bytes": 27406
+  },
+  {
+   "path": "assets/media/b/johnson_wax_tower/render.webp?v=2833a0c5",
+   "bytes": 82644
+  },
+  {
+   "path": "assets/media/b/johnson_wax_tower/thumb.webp?v=109bab57",
+   "bytes": 77576
+  },
+  {
+   "path": "assets/media/b/johnson_wax_tower/turntable.mp4?v=87e09ccb",
+   "bytes": 477066
+  },
+  {
+   "path": "assets/media/b/johnson_wax_tower/turntable_poster.jpg?v=0f084ecf",
+   "bytes": 70322
+  },
+  {
+   "path": "assets/media/b/lakeside_music_academy/build_4view.mp4?v=fab273b1",
+   "bytes": 147112
+  },
+  {
+   "path": "assets/media/b/lakeside_music_academy/build_4view_poster.webp?v=17702fb4",
+   "bytes": 63862
+  },
+  {
+   "path": "assets/media/b/lakeside_music_academy/build_iso.mp4?v=99bcc611",
+   "bytes": 138804
+  },
+  {
+   "path": "assets/media/b/lakeside_music_academy/build_iso_poster.webp?v=42a7266b",
+   "bytes": 78600
+  },
+  {
+   "path": "assets/media/b/lakeside_music_academy/deformed_png.webp?v=9a1fb7c4",
+   "bytes": 59402
+  },
+  {
+   "path": "assets/media/b/lakeside_music_academy/light_deformed.webp?v=7169d435",
+   "bytes": 84418
+  },
+  {
+   "path": "assets/media/b/lakeside_music_academy/light_model.webp?v=afda81ea",
+   "bytes": 486092
+  },
+  {
+   "path": "assets/media/b/lakeside_music_academy/light_modes.webp?v=d3f27923",
+   "bytes": 96514
+  },
+  {
+   "path": "assets/media/b/lakeside_music_academy/model_png.webp?v=18e7047f",
+   "bytes": 89236
+  },
+  {
+   "path": "assets/media/b/lakeside_music_academy/modes_png.webp?v=a047aaaa",
+   "bytes": 42510
+  },
+  {
+   "path": "assets/media/b/lakeside_music_academy/thumb.webp?v=3c9eb092",
+   "bytes": 128478
+  },
+  {
+   "path": "assets/media/b/lever_house/build_4view.mp4?v=7f706348",
+   "bytes": 162672
+  },
+  {
+   "path": "assets/media/b/lever_house/build_4view_poster.webp?v=16812476",
+   "bytes": 70246
+  },
+  {
+   "path": "assets/media/b/lever_house/build_iso.mp4?v=c3210dea",
+   "bytes": 186386
+  },
+  {
+   "path": "assets/media/b/lever_house/build_iso_poster.webp?v=b5fe912f",
+   "bytes": 104924
+  },
+  {
+   "path": "assets/media/b/lever_house/deformed_png.webp?v=c646959a",
+   "bytes": 60580
+  },
+  {
+   "path": "assets/media/b/lever_house/light_model.webp?v=5918a560",
+   "bytes": 661314
+  },
+  {
+   "path": "assets/media/b/lever_house/light_render.webp?v=341525da",
+   "bytes": 111210
+  },
+  {
+   "path": "assets/media/b/lever_house/mode_01.mp4?v=1cffb33e",
+   "bytes": 400139
+  },
+  {
+   "path": "assets/media/b/lever_house/mode_01_poster.jpg?v=6a7d1d1a",
+   "bytes": 95773
+  },
+  {
+   "path": "assets/media/b/lever_house/model_png.webp?v=ab8cf384",
+   "bytes": 94282
+  },
+  {
+   "path": "assets/media/b/lever_house/modes_png.webp?v=d7895269",
+   "bytes": 51540
+  },
+  {
+   "path": "assets/media/b/lever_house/process_blender.mp4?v=9c65d9d8",
+   "bytes": 198336
+  },
+  {
+   "path": "assets/media/b/lever_house/process_blender_poster.jpg?v=78fd7a68",
+   "bytes": 6317
+  },
+  {
+   "path": "assets/media/b/lever_house/process_rhino.mp4?v=ba43c119",
+   "bytes": 182526
+  },
+  {
+   "path": "assets/media/b/lever_house/process_rhino_poster.jpg?v=ae9c2bb0",
+   "bytes": 37276
+  },
+  {
+   "path": "assets/media/b/lever_house/render.webp?v=a77a033d",
+   "bytes": 138524
+  },
+  {
+   "path": "assets/media/b/lever_house/thumb.webp?v=cdebc244",
+   "bytes": 158974
+  },
+  {
+   "path": "assets/media/b/lever_house/turntable.mp4?v=6dfe2ff2",
+   "bytes": 599944
+  },
+  {
+   "path": "assets/media/b/lever_house/turntable_poster.jpg?v=46210475",
+   "bytes": 85237
+  },
+  {
+   "path": "assets/media/b/mes_rio/build_4view.mp4?v=40e1cc0e",
+   "bytes": 182221
+  },
+  {
+   "path": "assets/media/b/mes_rio/build_4view_poster.webp?v=c9ff416e",
+   "bytes": 74366
+  },
+  {
+   "path": "assets/media/b/mes_rio/build_iso.mp4?v=b3486537",
+   "bytes": 194828
+  },
+  {
+   "path": "assets/media/b/mes_rio/build_iso_poster.webp?v=e2ef55e7",
+   "bytes": 108068
+  },
+  {
+   "path": "assets/media/b/mes_rio/deformed_png.webp?v=2d3e6db7",
+   "bytes": 70638
+  },
+  {
+   "path": "assets/media/b/mes_rio/light_model.webp?v=f9905ec3",
+   "bytes": 757776
+  },
+  {
+   "path": "assets/media/b/mes_rio/light_render.webp?v=bbeed8b4",
+   "bytes": 135156
+  },
+  {
+   "path": "assets/media/b/mes_rio/mode_01.mp4?v=bb98448b",
+   "bytes": 484189
+  },
+  {
+   "path": "assets/media/b/mes_rio/mode_01_poster.jpg?v=922618bb",
+   "bytes": 114848
+  },
+  {
+   "path": "assets/media/b/mes_rio/model_png.webp?v=a87e5e09",
+   "bytes": 104404
+  },
+  {
+   "path": "assets/media/b/mes_rio/modes_png.webp?v=e4b29625",
+   "bytes": 54776
+  },
+  {
+   "path": "assets/media/b/mes_rio/process_blender.mp4?v=38022e08",
+   "bytes": 235122
+  },
+  {
+   "path": "assets/media/b/mes_rio/process_blender_poster.jpg?v=0966c447",
+   "bytes": 6300
+  },
+  {
+   "path": "assets/media/b/mes_rio/process_rhino.mp4?v=c87f64a6",
+   "bytes": 167785
+  },
+  {
+   "path": "assets/media/b/mes_rio/process_rhino_poster.jpg?v=dd1c8ec3",
+   "bytes": 32241
+  },
+  {
+   "path": "assets/media/b/mes_rio/render.webp?v=d5b5f900",
+   "bytes": 175698
+  },
+  {
+   "path": "assets/media/b/mes_rio/thumb.webp?v=54ca024f",
+   "bytes": 181120
+  },
+  {
+   "path": "assets/media/b/mes_rio/turntable.mp4?v=19ef4cde",
+   "bytes": 746834
+  },
+  {
+   "path": "assets/media/b/mes_rio/turntable_poster.jpg?v=2347bec0",
+   "bytes": 102332
+  },
+  {
+   "path": "assets/media/b/park_hotel_shanghai/build_4view.mp4?v=affa96bb",
+   "bytes": 192381
+  },
+  {
+   "path": "assets/media/b/park_hotel_shanghai/build_4view_poster.webp?v=96e1db1f",
+   "bytes": 65960
+  },
+  {
+   "path": "assets/media/b/park_hotel_shanghai/build_iso.mp4?v=11310e88",
+   "bytes": 176555
+  },
+  {
+   "path": "assets/media/b/park_hotel_shanghai/build_iso_poster.webp?v=e2dd160b",
+   "bytes": 74336
+  },
+  {
+   "path": "assets/media/b/park_hotel_shanghai/deformed_png.webp?v=5be176fd",
+   "bytes": 49172
+  },
+  {
+   "path": "assets/media/b/park_hotel_shanghai/light_model.webp?v=b6940934",
+   "bytes": 521666
+  },
+  {
+   "path": "assets/media/b/park_hotel_shanghai/light_render.webp?v=a0c5501f",
+   "bytes": 114378
+  },
+  {
+   "path": "assets/media/b/park_hotel_shanghai/mode_01.mp4?v=33cafaa3",
+   "bytes": 244333
+  },
+  {
+   "path": "assets/media/b/park_hotel_shanghai/mode_01_poster.jpg?v=b26b0ab5",
+   "bytes": 81597
+  },
+  {
+   "path": "assets/media/b/park_hotel_shanghai/model_png.webp?v=b4fb443a",
+   "bytes": 72616
+  },
+  {
+   "path": "assets/media/b/park_hotel_shanghai/modes_png.webp?v=d6b5e5e8",
+   "bytes": 39148
+  },
+  {
+   "path": "assets/media/b/park_hotel_shanghai/process_blender.mp4?v=286815b5",
+   "bytes": 200143
+  },
+  {
+   "path": "assets/media/b/park_hotel_shanghai/process_blender_poster.jpg?v=10c9653c",
+   "bytes": 6316
+  },
+  {
+   "path": "assets/media/b/park_hotel_shanghai/process_rhino.mp4?v=40ef90be",
+   "bytes": 142669
+  },
+  {
+   "path": "assets/media/b/park_hotel_shanghai/process_rhino_poster.jpg?v=2bb14a1a",
+   "bytes": 33981
+  },
+  {
+   "path": "assets/media/b/park_hotel_shanghai/render.webp?v=2103942a",
+   "bytes": 130044
+  },
+  {
+   "path": "assets/media/b/park_hotel_shanghai/thumb.webp?v=e57eec55",
+   "bytes": 119574
+  },
+  {
+   "path": "assets/media/b/park_hotel_shanghai/turntable.mp4?v=48d562c0",
+   "bytes": 565397
+  },
+  {
+   "path": "assets/media/b/park_hotel_shanghai/turntable_poster.jpg?v=cf6cbbe1",
+   "bytes": 84615
+  },
+  {
+   "path": "assets/media/b/pirelli_tower/build_4view.mp4?v=6c610aab",
+   "bytes": 145506
+  },
+  {
+   "path": "assets/media/b/pirelli_tower/build_4view_poster.webp?v=46bb61bc",
+   "bytes": 68732
+  },
+  {
+   "path": "assets/media/b/pirelli_tower/build_iso.mp4?v=c820378a",
+   "bytes": 182627
+  },
+  {
+   "path": "assets/media/b/pirelli_tower/build_iso_poster.webp?v=4a207cc8",
+   "bytes": 100866
+  },
+  {
+   "path": "assets/media/b/pirelli_tower/deformed_png.webp?v=59b02492",
+   "bytes": 70470
+  },
+  {
+   "path": "assets/media/b/pirelli_tower/light_model.webp?v=487e5621",
+   "bytes": 662032
+  },
+  {
+   "path": "assets/media/b/pirelli_tower/light_render.webp?v=300f2b08",
+   "bytes": 109414
+  },
+  {
+   "path": "assets/media/b/pirelli_tower/loop.webp?v=b3efda0d",
+   "bytes": 48498
+  },
+  {
+   "path": "assets/media/b/pirelli_tower/mode_01.mp4?v=d8edfabe",
+   "bytes": 417820
+  },
+  {
+   "path": "assets/media/b/pirelli_tower/mode_01_poster.jpg?v=91a9eb5d",
+   "bytes": 91183
+  },
+  {
+   "path": "assets/media/b/pirelli_tower/model_png.webp?v=1b14211c",
+   "bytes": 90650
+  },
+  {
+   "path": "assets/media/b/pirelli_tower/modes_png.webp?v=2e7c26ef",
+   "bytes": 53694
+  },
+  {
+   "path": "assets/media/b/pirelli_tower/process_blender.mp4?v=2871f40c",
+   "bytes": 209002
+  },
+  {
+   "path": "assets/media/b/pirelli_tower/process_blender_poster.jpg?v=8bb2cf62",
+   "bytes": 6301
+  },
+  {
+   "path": "assets/media/b/pirelli_tower/process_rhino.mp4?v=f5b87b6f",
+   "bytes": 173532
+  },
+  {
+   "path": "assets/media/b/pirelli_tower/process_rhino_poster.jpg?v=faa01e91",
+   "bytes": 40747
+  },
+  {
+   "path": "assets/media/b/pirelli_tower/render.webp?v=a6e8d2d7",
+   "bytes": 130120
+  },
+  {
+   "path": "assets/media/b/pirelli_tower/thumb.webp?v=f38ea631",
+   "bytes": 151372
+  },
+  {
+   "path": "assets/media/b/pirelli_tower/turntable.mp4?v=4012b67e",
+   "bytes": 562488
+  },
+  {
+   "path": "assets/media/b/pirelli_tower/turntable_poster.jpg?v=2bbc9b00",
+   "bytes": 77455
+  },
+  {
+   "path": "assets/media/b/price_tower/build_4view.mp4?v=ac2e2934",
+   "bytes": 177444
+  },
+  {
+   "path": "assets/media/b/price_tower/build_4view_poster.webp?v=022625cb",
+   "bytes": 81888
+  },
+  {
+   "path": "assets/media/b/price_tower/build_iso.mp4?v=25390627",
+   "bytes": 149347
+  },
+  {
+   "path": "assets/media/b/price_tower/build_iso_poster.webp?v=a57772e6",
+   "bytes": 87386
+  },
+  {
+   "path": "assets/media/b/price_tower/deformed_png.webp?v=1e6bfe14",
+   "bytes": 50492
+  },
+  {
+   "path": "assets/media/b/price_tower/light_model.webp?v=86ea9208",
+   "bytes": 419634
+  },
+  {
+   "path": "assets/media/b/price_tower/light_render.webp?v=7e8da98d",
+   "bytes": 80286
+  },
+  {
+   "path": "assets/media/b/price_tower/mode_01.mp4?v=d9fce1ff",
+   "bytes": 263733
+  },
+  {
+   "path": "assets/media/b/price_tower/mode_01_poster.jpg?v=fd24d5bc",
+   "bytes": 76741
+  },
+  {
+   "path": "assets/media/b/price_tower/model_png.webp?v=b085ef9f",
+   "bytes": 59772
+  },
+  {
+   "path": "assets/media/b/price_tower/modes_png.webp?v=4c7ae2d4",
+   "bytes": 38688
+  },
+  {
+   "path": "assets/media/b/price_tower/process_blender.mp4?v=6a5c2e31",
+   "bytes": 186228
+  },
+  {
+   "path": "assets/media/b/price_tower/process_blender_poster.jpg?v=5e000679",
+   "bytes": 6325
+  },
+  {
+   "path": "assets/media/b/price_tower/process_rhino.mp4?v=c46acbb6",
+   "bytes": 132005
+  },
+  {
+   "path": "assets/media/b/price_tower/process_rhino_poster.jpg?v=5dc09ba1",
+   "bytes": 28655
+  },
+  {
+   "path": "assets/media/b/price_tower/render.webp?v=6fd15e76",
+   "bytes": 93000
+  },
+  {
+   "path": "assets/media/b/price_tower/thumb.webp?v=a06aaf1b",
+   "bytes": 104472
+  },
+  {
+   "path": "assets/media/b/price_tower/turntable.mp4?v=7d843cb1",
+   "bytes": 532504
+  },
+  {
+   "path": "assets/media/b/price_tower/turntable_poster.jpg?v=aa827311",
+   "bytes": 71501
+  },
+  {
+   "path": "assets/media/b/psfs_building/build_4view.mp4?v=17f5dbf1",
+   "bytes": 123208
+  },
+  {
+   "path": "assets/media/b/psfs_building/build_4view_poster.webp?v=75b12e48",
+   "bytes": 45150
+  },
+  {
+   "path": "assets/media/b/psfs_building/build_iso.mp4?v=f6ac5592",
+   "bytes": 124362
+  },
+  {
+   "path": "assets/media/b/psfs_building/build_iso_poster.webp?v=c6783e77",
+   "bytes": 57320
+  },
+  {
+   "path": "assets/media/b/psfs_building/deformed_png.webp?v=32577a81",
+   "bytes": 40156
+  },
+  {
+   "path": "assets/media/b/psfs_building/light_model.webp?v=e3b7df7e",
+   "bytes": 357488
+  },
+  {
+   "path": "assets/media/b/psfs_building/light_render.webp?v=5a2be39a",
+   "bytes": 73934
+  },
+  {
+   "path": "assets/media/b/psfs_building/mode_01.mp4?v=fdac5e10",
+   "bytes": 197308
+  },
+  {
+   "path": "assets/media/b/psfs_building/mode_01_poster.jpg?v=7467435e",
+   "bytes": 67200
+  },
+  {
+   "path": "assets/media/b/psfs_building/model_png.webp?v=5c0e6b24",
+   "bytes": 57786
+  },
+  {
+   "path": "assets/media/b/psfs_building/modes_png.webp?v=96f13dcb",
+   "bytes": 27634
+  },
+  {
+   "path": "assets/media/b/psfs_building/process_blender.mp4?v=6f87d473",
+   "bytes": 157285
+  },
+  {
+   "path": "assets/media/b/psfs_building/process_blender_poster.jpg?v=0deb9f9d",
+   "bytes": 6324
+  },
+  {
+   "path": "assets/media/b/psfs_building/process_rhino.mp4?v=0241012c",
+   "bytes": 147315
+  },
+  {
+   "path": "assets/media/b/psfs_building/process_rhino_poster.jpg?v=405b1053",
+   "bytes": 42852
+  },
+  {
+   "path": "assets/media/b/psfs_building/render.webp?v=e5191799",
+   "bytes": 87680
+  },
+  {
+   "path": "assets/media/b/psfs_building/thumb.webp?v=ad8ebac0",
+   "bytes": 82162
+  },
+  {
+   "path": "assets/media/b/psfs_building/turntable.mp4?v=0fc11ba3",
+   "bytes": 427033
+  },
+  {
+   "path": "assets/media/b/psfs_building/turntable_poster.jpg?v=56a925dd",
+   "bytes": 59314
+  },
+  {
+   "path": "assets/media/b/republic_plaza/build_4view.mp4?v=c5b35f57",
+   "bytes": 142641
+  },
+  {
+   "path": "assets/media/b/republic_plaza/build_4view_poster.webp?v=d03cd750",
+   "bytes": 69428
+  },
+  {
+   "path": "assets/media/b/republic_plaza/build_iso.mp4?v=e86c712c",
+   "bytes": 70258
+  },
+  {
+   "path": "assets/media/b/republic_plaza/build_iso_poster.webp?v=8b2b6e97",
+   "bytes": 37562
+  },
+  {
+   "path": "assets/media/b/republic_plaza/deformed_png.webp?v=5f8dfe0c",
+   "bytes": 63906
+  },
+  {
+   "path": "assets/media/b/republic_plaza/light_deformed.webp?v=42335bba",
+   "bytes": 68330
+  },
+  {
+   "path": "assets/media/b/republic_plaza/light_model.webp?v=52f5bf2a",
+   "bytes": 198950
+  },
+  {
+   "path": "assets/media/b/republic_plaza/light_modes.webp?v=7c4613a7",
+   "bytes": 117862
+  },
+  {
+   "path": "assets/media/b/republic_plaza/loop.webp?v=71dfd12e",
+   "bytes": 33960
+  },
+  {
+   "path": "assets/media/b/republic_plaza/mode_01.mp4?v=d27d9401",
+   "bytes": 182381
+  },
+  {
+   "path": "assets/media/b/republic_plaza/mode_01_poster.jpg?v=84145d5a",
+   "bytes": 61494
+  },
+  {
+   "path": "assets/media/b/republic_plaza/model_png.webp?v=a5ba9e56",
+   "bytes": 69712
+  },
+  {
+   "path": "assets/media/b/republic_plaza/modes_png.webp?v=35aa7867",
+   "bytes": 66252
+  },
+  {
+   "path": "assets/media/b/republic_plaza/thumb.webp?v=600a8186",
+   "bytes": 54576
+  },
+  {
+   "path": "assets/media/b/seagram_building/build_4view.mp4?v=c208d691",
+   "bytes": 145641
+  },
+  {
+   "path": "assets/media/b/seagram_building/build_4view_poster.webp?v=1e08e33e",
+   "bytes": 80262
+  },
+  {
+   "path": "assets/media/b/seagram_building/build_iso.mp4?v=0f7a847f",
+   "bytes": 219680
+  },
+  {
+   "path": "assets/media/b/seagram_building/build_iso_poster.webp?v=9f2df653",
+   "bytes": 114652
+  },
+  {
+   "path": "assets/media/b/seagram_building/deformed_png.webp?v=1e5f1563",
+   "bytes": 70324
+  },
+  {
+   "path": "assets/media/b/seagram_building/light_model.webp?v=94d6d635",
+   "bytes": 739844
+  },
+  {
+   "path": "assets/media/b/seagram_building/light_render.webp?v=9643cb56",
+   "bytes": 196160
+  },
+  {
+   "path": "assets/media/b/seagram_building/loop.webp?v=ef8a51aa",
+   "bytes": 54268
+  },
+  {
+   "path": "assets/media/b/seagram_building/mode_01.mp4?v=2e21a8cd",
+   "bytes": 382103
+  },
+  {
+   "path": "assets/media/b/seagram_building/mode_01_poster.jpg?v=dd1657ab",
+   "bytes": 103040
+  },
+  {
+   "path": "assets/media/b/seagram_building/model_png.webp?v=ff059782",
+   "bytes": 98894
+  },
+  {
+   "path": "assets/media/b/seagram_building/modes_png.webp?v=a5f32fc9",
+   "bytes": 52360
+  },
+  {
+   "path": "assets/media/b/seagram_building/process_blender.mp4?v=f805b520",
+   "bytes": 384053
+  },
+  {
+   "path": "assets/media/b/seagram_building/process_blender_poster.jpg?v=116a9638",
+   "bytes": 6256
+  },
+  {
+   "path": "assets/media/b/seagram_building/process_rhino.mp4?v=717931f0",
+   "bytes": 268422
+  },
+  {
+   "path": "assets/media/b/seagram_building/process_rhino_poster.jpg?v=9612d5a5",
+   "bytes": 29505
+  },
+  {
+   "path": "assets/media/b/seagram_building/render.webp?v=e8e2d15e",
+   "bytes": 211704
+  },
+  {
+   "path": "assets/media/b/seagram_building/thumb.webp?v=55f36e64",
+   "bytes": 162314
+  },
+  {
+   "path": "assets/media/b/seagram_building/turntable.mp4?v=97fce20a",
+   "bytes": 657124
+  },
+  {
+   "path": "assets/media/b/seagram_building/turntable_poster.jpg?v=848bcd2a",
+   "bytes": 106524
+  },
+  {
+   "path": "assets/media/b/shanghai_tower/build_4view.mp4?v=bcd9f509",
+   "bytes": 197060
+  },
+  {
+   "path": "assets/media/b/shanghai_tower/build_4view_poster.webp?v=c525edd3",
+   "bytes": 85508
+  },
+  {
+   "path": "assets/media/b/shanghai_tower/build_iso.mp4?v=c6d22cfd",
+   "bytes": 61870
+  },
+  {
+   "path": "assets/media/b/shanghai_tower/build_iso_poster.webp?v=1b6bb022",
+   "bytes": 30580
+  },
+  {
+   "path": "assets/media/b/shanghai_tower/deformed_png.webp?v=350258ee",
+   "bytes": 47650
+  },
+  {
+   "path": "assets/media/b/shanghai_tower/light_deformed.webp?v=29efd3b2",
+   "bytes": 51404
+  },
+  {
+   "path": "assets/media/b/shanghai_tower/light_model.webp?v=f96242ae",
+   "bytes": 172144
+  },
+  {
+   "path": "assets/media/b/shanghai_tower/light_modes.webp?v=6514076a",
+   "bytes": 127876
+  },
+  {
+   "path": "assets/media/b/shanghai_tower/loop.webp?v=f325875e",
+   "bytes": 29108
+  },
+  {
+   "path": "assets/media/b/shanghai_tower/mode_01.mp4?v=12434198",
+   "bytes": 101634
+  },
+  {
+   "path": "assets/media/b/shanghai_tower/mode_01_poster.jpg?v=c78ae1a9",
+   "bytes": 48455
+  },
+  {
+   "path": "assets/media/b/shanghai_tower/model_png.webp?v=4604733c",
+   "bytes": 65038
+  },
+  {
+   "path": "assets/media/b/shanghai_tower/modes_png.webp?v=badfbebd",
+   "bytes": 66236
+  },
+  {
+   "path": "assets/media/b/shanghai_tower/thumb.webp?v=9e23c66a",
+   "bytes": 39668
+  },
+  {
+   "path": "assets/media/b/sydney_opera_house/build_4view.mp4?v=9b1525f3",
+   "bytes": 207160
+  },
+  {
+   "path": "assets/media/b/sydney_opera_house/build_4view_poster.webp?v=fa8a37d9",
+   "bytes": 88308
+  },
+  {
+   "path": "assets/media/b/sydney_opera_house/build_iso.mp4?v=b1b2c4c4",
+   "bytes": 119132
+  },
+  {
+   "path": "assets/media/b/sydney_opera_house/build_iso_poster.webp?v=d824aab5",
+   "bytes": 49018
+  },
+  {
+   "path": "assets/media/b/sydney_opera_house/deformed_png.webp?v=be52c9e0",
+   "bytes": 42418
+  },
+  {
+   "path": "assets/media/b/sydney_opera_house/light_deformed.webp?v=cc74d70e",
+   "bytes": 75802
+  },
+  {
+   "path": "assets/media/b/sydney_opera_house/light_model.webp?v=a19b423d",
+   "bytes": 425350
+  },
+  {
+   "path": "assets/media/b/sydney_opera_house/light_modes.webp?v=c5683661",
+   "bytes": 63354
+  },
+  {
+   "path": "assets/media/b/sydney_opera_house/mode_01.mp4?v=e88db0b1",
+   "bytes": 47074
+  },
+  {
+   "path": "assets/media/b/sydney_opera_house/mode_01_poster.jpg?v=7e82134e",
+   "bytes": 41612
+  },
+  {
+   "path": "assets/media/b/sydney_opera_house/model_png.webp?v=c6e1ad4e",
+   "bytes": 83484
+  },
+  {
+   "path": "assets/media/b/sydney_opera_house/modes_png.webp?v=73cfa6bd",
+   "bytes": 25598
+  },
+  {
+   "path": "assets/media/b/sydney_opera_house/thumb.webp?v=d93061db",
+   "bytes": 99322
+  },
+  {
+   "path": "assets/media/b/taipei_101_508m/build_4view.mp4?v=f7b01dca",
+   "bytes": 236955
+  },
+  {
+   "path": "assets/media/b/taipei_101_508m/build_4view_poster.webp?v=3ed4615f",
+   "bytes": 98914
+  },
+  {
+   "path": "assets/media/b/taipei_101_508m/build_iso.mp4?v=531ec586",
+   "bytes": 71311
+  },
+  {
+   "path": "assets/media/b/taipei_101_508m/build_iso_poster.webp?v=e9727400",
+   "bytes": 31916
+  },
+  {
+   "path": "assets/media/b/taipei_101_508m/deformed_png.webp?v=89f4745a",
+   "bytes": 49778
+  },
+  {
+   "path": "assets/media/b/taipei_101_508m/light_deformed.webp?v=b5616ff4",
+   "bytes": 46136
+  },
+  {
+   "path": "assets/media/b/taipei_101_508m/light_model.webp?v=30888b0a",
+   "bytes": 146790
+  },
+  {
+   "path": "assets/media/b/taipei_101_508m/light_modes.webp?v=64cc3e89",
+   "bytes": 88534
+  },
+  {
+   "path": "assets/media/b/taipei_101_508m/light_render.webp?v=f52ccb06",
+   "bytes": 30834
+  },
+  {
+   "path": "assets/media/b/taipei_101_508m/mode_01.mp4?v=572071c5",
+   "bytes": 89159
+  },
+  {
+   "path": "assets/media/b/taipei_101_508m/mode_01_poster.jpg?v=f53900c2",
+   "bytes": 46342
+  },
+  {
+   "path": "assets/media/b/taipei_101_508m/model_png.webp?v=3018862c",
+   "bytes": 73874
+  },
+  {
+   "path": "assets/media/b/taipei_101_508m/modes_png.webp?v=7b68c732",
+   "bytes": 43610
+  },
+  {
+   "path": "assets/media/b/taipei_101_508m/render.webp?v=3bc48b21",
+   "bytes": 124988
+  },
+  {
+   "path": "assets/media/b/taipei_101_508m/sketch.webp?v=170837a6",
+   "bytes": 24310
+  },
+  {
+   "path": "assets/media/b/taipei_101_508m/thumb.webp?v=f309589f",
+   "bytes": 33558
+  },
+  {
+   "path": "assets/media/b/torre_velasca/build_4view.mp4?v=3ec3cebd",
+   "bytes": 164547
+  },
+  {
+   "path": "assets/media/b/torre_velasca/build_4view_poster.webp?v=7fc2a734",
+   "bytes": 70340
+  },
+  {
+   "path": "assets/media/b/torre_velasca/build_iso.mp4?v=fbcaa5d7",
+   "bytes": 142638
+  },
+  {
+   "path": "assets/media/b/torre_velasca/build_iso_poster.webp?v=212b940d",
+   "bytes": 74930
+  },
+  {
+   "path": "assets/media/b/torre_velasca/deformed_png.webp?v=8bd2db72",
+   "bytes": 51772
+  },
+  {
+   "path": "assets/media/b/torre_velasca/light_model.webp?v=1624427c",
+   "bytes": 548564
+  },
+  {
+   "path": "assets/media/b/torre_velasca/light_render.webp?v=145a0233",
+   "bytes": 103404
+  },
+  {
+   "path": "assets/media/b/torre_velasca/mode_01.mp4?v=1ec0e717",
+   "bytes": 309071
+  },
+  {
+   "path": "assets/media/b/torre_velasca/mode_01_poster.jpg?v=e77221bd",
+   "bytes": 97165
+  },
+  {
+   "path": "assets/media/b/torre_velasca/model_png.webp?v=e9de9042",
+   "bytes": 77834
+  },
+  {
+   "path": "assets/media/b/torre_velasca/modes_png.webp?v=955e3aea",
+   "bytes": 48004
+  },
+  {
+   "path": "assets/media/b/torre_velasca/process_blender.mp4?v=a4dff7f0",
+   "bytes": 213402
+  },
+  {
+   "path": "assets/media/b/torre_velasca/process_blender_poster.jpg?v=48d140ea",
+   "bytes": 6319
+  },
+  {
+   "path": "assets/media/b/torre_velasca/process_rhino.mp4?v=28366770",
+   "bytes": 145863
+  },
+  {
+   "path": "assets/media/b/torre_velasca/process_rhino_poster.jpg?v=3a7a7eee",
+   "bytes": 34885
+  },
+  {
+   "path": "assets/media/b/torre_velasca/render.webp?v=41f2647f",
+   "bytes": 128440
+  },
+  {
+   "path": "assets/media/b/torre_velasca/thumb.webp?v=ff057eb6",
+   "bytes": 124256
+  },
+  {
+   "path": "assets/media/b/torre_velasca/turntable.mp4?v=5eb69755",
+   "bytes": 564313
+  },
+  {
+   "path": "assets/media/b/torre_velasca/turntable_poster.jpg?v=9133c91d",
+   "bytes": 85286
+  },
+  {
+   "path": "assets/media/b/turning_torso_190m/build_4view.mp4?v=1aa536fd",
+   "bytes": 413684
+  },
+  {
+   "path": "assets/media/b/turning_torso_190m/build_4view_poster.webp?v=7241694e",
+   "bytes": 134702
+  },
+  {
+   "path": "assets/media/b/turning_torso_190m/build_iso.mp4?v=74162fbd",
+   "bytes": 105230
+  },
+  {
+   "path": "assets/media/b/turning_torso_190m/build_iso_poster.webp?v=cc536f88",
+   "bytes": 50008
+  },
+  {
+   "path": "assets/media/b/turning_torso_190m/deformed_png.webp?v=b253a256",
+   "bytes": 70152
+  },
+  {
+   "path": "assets/media/b/turning_torso_190m/light_deformed.webp?v=ee42328d",
+   "bytes": 67562
+  },
+  {
+   "path": "assets/media/b/turning_torso_190m/light_model.webp?v=13006dfc",
+   "bytes": 163020
+  },
+  {
+   "path": "assets/media/b/turning_torso_190m/light_modes.webp?v=692bf3ab",
+   "bytes": 132154
+  },
+  {
+   "path": "assets/media/b/turning_torso_190m/light_render.webp?v=2cf4a7da",
+   "bytes": 42800
+  },
+  {
+   "path": "assets/media/b/turning_torso_190m/mode_01.mp4?v=9e797a3a",
+   "bytes": 150297
+  },
+  {
+   "path": "assets/media/b/turning_torso_190m/mode_01_poster.jpg?v=2d215236",
+   "bytes": 54696
+  },
+  {
+   "path": "assets/media/b/turning_torso_190m/model_png.webp?v=0b8a8eb1",
+   "bytes": 66796
+  },
+  {
+   "path": "assets/media/b/turning_torso_190m/modes_png.webp?v=a165cfd6",
+   "bytes": 66800
+  },
+  {
+   "path": "assets/media/b/turning_torso_190m/render.webp?v=083d6bc1",
+   "bytes": 113106
+  },
+  {
+   "path": "assets/media/b/turning_torso_190m/sketch.webp?v=01ef90b3",
+   "bytes": 27896
+  },
+  {
+   "path": "assets/media/b/turning_torso_190m/thumb.webp?v=a6f87d5d",
+   "bytes": 41370
+  },
+  {
+   "path": "assets/media/b/unite_habitation/build_4view.mp4?v=0cee42c9",
+   "bytes": 231039
+  },
+  {
+   "path": "assets/media/b/unite_habitation/build_4view_poster.webp?v=3bd9165e",
+   "bytes": 112360
+  },
+  {
+   "path": "assets/media/b/unite_habitation/build_iso.mp4?v=05122daf",
+   "bytes": 305186
+  },
+  {
+   "path": "assets/media/b/unite_habitation/build_iso_poster.webp?v=4c42a172",
+   "bytes": 184322
+  },
+  {
+   "path": "assets/media/b/unite_habitation/deformed_png.webp?v=cc956e3d",
+   "bytes": 98196
+  },
+  {
+   "path": "assets/media/b/unite_habitation/light_model.webp?v=a1bdf6a2",
+   "bytes": 1188766
+  },
+  {
+   "path": "assets/media/b/unite_habitation/light_render.webp?v=8f3f47a0",
+   "bytes": 202102
+  },
+  {
+   "path": "assets/media/b/unite_habitation/mode_01.mp4?v=05602395",
+   "bytes": 349535
+  },
+  {
+   "path": "assets/media/b/unite_habitation/mode_01_poster.jpg?v=2c9f7c4e",
+   "bytes": 107209
+  },
+  {
+   "path": "assets/media/b/unite_habitation/model_png.webp?v=4486fe18",
+   "bytes": 143074
+  },
+  {
+   "path": "assets/media/b/unite_habitation/modes_png.webp?v=ac9dd1e9",
+   "bytes": 82770
+  },
+  {
+   "path": "assets/media/b/unite_habitation/process_blender.mp4?v=a73c7d0f",
+   "bytes": 393441
+  },
+  {
+   "path": "assets/media/b/unite_habitation/process_blender_poster.jpg?v=8df1662e",
+   "bytes": 6164
+  },
+  {
+   "path": "assets/media/b/unite_habitation/process_rhino.mp4?v=6dbe1c95",
+   "bytes": 191556
+  },
+  {
+   "path": "assets/media/b/unite_habitation/process_rhino_poster.jpg?v=c3e92ca8",
+   "bytes": 33912
+  },
+  {
+   "path": "assets/media/b/unite_habitation/render.webp?v=1190842e",
+   "bytes": 232540
+  },
+  {
+   "path": "assets/media/b/unite_habitation/thumb.webp?v=85ba05a0",
+   "bytes": 278984
+  },
+  {
+   "path": "assets/media/b/unite_habitation/turntable.mp4?v=4b9fedc7",
+   "bytes": 1007132
+  },
+  {
+   "path": "assets/media/b/unite_habitation/turntable_poster.jpg?v=f8d438db",
+   "bytes": 138041
+  },
+  {
+   "path": "assets/media/figures/fig1.webp?v=ca872c40",
+   "bytes": 79366
+  },
+  {
+   "path": "assets/media/figures/fig12.webp?v=87880b54",
+   "bytes": 92292
+  },
+  {
+   "path": "assets/media/figures/fig2c.webp?v=7ba55714",
+   "bytes": 204848
+  },
+  {
+   "path": "assets/media/figures/fig3.webp?v=c6c868ab",
+   "bytes": 247382
+  },
+  {
+   "path": "assets/media/figures/fig4.webp?v=bbbc5886",
+   "bytes": 67260
+  },
+  {
+   "path": "assets/media/figures/fig5.webp?v=50e11d57",
+   "bytes": 306694
+  },
+  {
+   "path": "assets/media/figures/fig_gates_all.webp?v=0f9df989",
+   "bytes": 83694
+  },
+  {
+   "path": "assets/media/figures/fig_judge_hero.webp?v=3bf763d0",
+   "bytes": 56246
+  },
+  {
+   "path": "assets/media/figures/fig_pibuild_hero.webp?v=ba2c5c8f",
+   "bytes": 57434
+  },
+  {
+   "path": "assets/media/figures/fig_results.webp?v=5fff3007",
+   "bytes": 78228
+  },
+  {
+   "path": "assets/media/figures/fig_teaser.webp?v=71f5afa6",
+   "bytes": 75770
+  },
+  {
+   "path": "assets/media/figures/fig_tracka.webp?v=397ae113",
+   "bytes": 55682
+  },
+  {
+   "path": "assets/media/hero/build_iso_poster.jpg?v=146a19bd",
+   "bytes": 88369
+  },
+  {
+   "path": "assets/media/hero/build_iso_scrub.mp4?v=f6c14ca8",
+   "bytes": 3949327
+  },
+  {
+   "path": "assets/media/pipeline/blender.mp4?v=c4844e2e",
+   "bytes": 492615
+  },
+  {
+   "path": "assets/media/pipeline/blender_poster.jpg?v=116a9638",
+   "bytes": 6256
+  },
+  {
+   "path": "assets/media/pipeline/frame.mp4?v=d49ec972",
+   "bytes": 255433
+  },
+  {
+   "path": "assets/media/pipeline/frame_poster.jpg?v=49d92ab8",
+   "bytes": 11037
+  },
+  {
+   "path": "assets/media/pipeline/rhino.mp4?v=4f6c61a6",
+   "bytes": 493658
+  },
+  {
+   "path": "assets/media/pipeline/rhino_poster.jpg?v=9612d5a5",
+   "bytes": 29505
+  },
+  {
+   "path": "assets/media/pipeline/sketch.webp?v=6dccc5ee",
+   "bytes": 31994
+  },
+  {
+   "path": "assets/media/teaser/frame.webp?v=1dd04cf4",
+   "bytes": 822614
+  },
+  {
+   "path": "assets/media/teaser/intro.webp?v=95a627d9",
+   "bytes": 109952
+  },
+  {
+   "path": "assets/media/teaser/massing.webp?v=7c7d45f9",
+   "bytes": 164938
+  },
+  {
+   "path": "b/absolute_world_1_176m.html?v=46559f09",
+   "bytes": 4886
+  },
+  {
+   "path": "b/bauhaus_dessau.html?v=7428d028",
+   "bytes": 9163
+  },
+  {
+   "path": "b/burj_khalifa_828m.html?v=2387d204",
+   "bytes": 5524
+  },
+  {
+   "path": "b/canton_tower_600m.html?v=3145395c",
+   "bytes": 4894
+  },
+  {
+   "path": "b/casa_del_fascio.html?v=d6e9d0b7",
+   "bytes": 8358
+  },
+  {
+   "path": "b/centre_pompidou.html?v=10d4ce30",
+   "bytes": 38303
+  },
+  {
+   "path": "b/demo_l_tower.html?v=5bdec6d8",
+   "bytes": 11005
+  },
+  {
+   "path": "b/design_shanghai_megaframe_632m.html?v=e623b5b0",
+   "bytes": 5548
+  },
+  {
+   "path": "b/gherkin_180m.html?v=b88f0c4e",
+   "bytes": 4760
+  },
+  {
+   "path": "b/hilversum_civic.html?v=3c480925",
+   "bytes": 9205
+  },
+  {
+   "path": "b/johnson_wax_tower.html?v=8d21c29a",
+   "bytes": 8491
+  },
+  {
+   "path": "b/lakeside_music_academy.html?v=a074bc0b",
+   "bytes": 24861
+  },
+  {
+   "path": "b/lever_house.html?v=f87bbd78",
+   "bytes": 8504
+  },
+  {
+   "path": "b/mes_rio.html?v=5caa2daf",
+   "bytes": 8767
+  },
+  {
+   "path": "b/park_hotel_shanghai.html?v=78893d40",
+   "bytes": 9413
+  },
+  {
+   "path": "b/pirelli_tower.html?v=ec598e5a",
+   "bytes": 8770
+  },
+  {
+   "path": "b/price_tower.html?v=d5656083",
+   "bytes": 8267
+  },
+  {
+   "path": "b/psfs_building.html?v=711cecae",
+   "bytes": 10274
+  },
+  {
+   "path": "b/republic_plaza.html?v=b70694a9",
+   "bytes": 45300
+  },
+  {
+   "path": "b/seagram_building.html?v=348d014d",
+   "bytes": 9198
+  },
+  {
+   "path": "b/shanghai_tower.html?v=4df4476c",
+   "bytes": 38038
+  },
+  {
+   "path": "b/sydney_opera_house.html?v=9b729b5a",
+   "bytes": 35691
+  },
+  {
+   "path": "b/taipei_101_508m.html?v=2404ff9f",
+   "bytes": 4866
+  },
+  {
+   "path": "b/torre_velasca.html?v=1f0d2485",
+   "bytes": 9093
+  },
+  {
+   "path": "b/turning_torso_190m.html?v=42f56098",
+   "bytes": 4846
+  },
+  {
+   "path": "b/unite_habitation.html?v=01763a0e",
+   "bytes": 8766
+  },
+  {
+   "path": "data/buildings.json?v=7647704b",
+   "bytes": 53088
+  },
+  {
+   "path": "dist-manifest.json?v=5c56e308",
+   "bytes": 51823
+  },
+  {
+   "path": "gallery.html?v=e641c9db",
+   "bytes": 19658
+  },
+  {
+   "path": "index.html?v=8f00c5b0",
+   "bytes": 25154
+  },
+  {
+   "path": "paper.pdf?v=178b63e4",
+   "bytes": 17916085
+  },
+  {
+   "path": "story.html?v=37e255ee",
+   "bytes": 21247
+  }
+ ]
+}

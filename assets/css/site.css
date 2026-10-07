@@ -1,0 +1,961 @@
+/* Vibe Building — 设计令牌与站壳。
+   底色刻意取 vbviz studio 主题本身，Blender 渲染与 OpenSeesPy 视频才能无缝嵌入。 */
+
+:root {
+  /* 默认浅色。深色留给叙事页（body.theme-dark）。 */
+  --bg-0: #ffffff;
+  --bg-1: #f6f8fa;
+  --panel: #ffffff;
+  --line: #dfe5ec;
+  --ink: #10243a;
+  --ink-dim: #4a6076;
+  --ink-faint: #7b8da0;
+  --cyan: #0d8f85;
+  --amber: #a6700c;
+  --coral: #d2402a;
+  --accent-soft: #e8f6f4;
+  --amber-soft: #f7edda;
+  /* 题头专用。--cyan 对白底只有 3.97:1，当标题偏亮、当小字不达标；
+     这支深松绿 8.86:1，大标题更沉，eyebrow 也够看。 */
+  --title: #14534c;
+  --title-lift: #3fbfa8;      /* 标记顶层（位移最大处） */
+
+  --serif: "Newsreader", Georgia, serif;
+  --sans: "Inter", "Noto Sans SC", -apple-system, system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+
+  --gutter: clamp(16px, 4vw, 64px);
+  --measure: 68ch;
+}
+
+/* 叙事页保留原来的 vbviz studio 深色，深色视频才嵌得进去 */
+body.theme-dark {
+  --bg-0: #070d16;
+  --bg-1: #0b1e33;
+  --panel: rgba(9, 26, 44, .72);
+  --line: #1e3a57;
+  --ink: #eaf2f8;
+  --ink-dim: #9fb4c4;
+  --ink-faint: #6b7b89;
+  --cyan: #3fd1c7;
+  --amber: #f2b755;
+  --coral: #ff7a66;
+  --accent-soft: rgba(63, 209, 199, .12);
+  --amber-soft: rgba(242, 183, 85, .14);
+  --title: #7fe3d4;           /* 深底上反过来：浅绿当标题 */
+  --title-lift: #d9fff7;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg-0);
+  color: var(--ink);
+  font: 400 17px/1.65 var(--sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3 {
+  font-family: var(--serif);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -.01em;
+  margin: 0;
+}
+
+.num { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+
+a { color: var(--cyan); }
+
+.wrap { max-width: 1240px; margin: 0 auto; padding-inline: var(--gutter); }
+
+body.theme-dark {
+  background: linear-gradient(180deg, var(--bg-0), var(--bg-1) 40%, var(--bg-0));
+  background-attachment: fixed;
+}
+
+nav.top {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 14px var(--gutter);
+  background: color-mix(in srgb, var(--bg-0) 86%, transparent);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+  font-size: 15px;
+}
+nav.top a { text-decoration: none; }
+nav.top .brand {
+  font-family: var(--serif);
+  font-size: 19px;
+  color: var(--ink);
+  letter-spacing: .02em;
+}
+nav.top .spacer { margin-left: auto; }
+
+/* 品牌标记。塔身跟随 currentColor，底线保持强调色——深浅主题下都站得住。 */
+nav.top .brand { display: inline-flex; align-items: center; gap: 9px; }
+.brandmark { width: 22px; height: 22px; flex: 0 0 auto; display: block; }
+/* 复制静态资源时 copy_static 只认 css/js，图标目录要一起带上 */
+
+footer.site {
+  border-top: 1px solid var(--line);
+  margin-top: 120px;
+  padding: 48px 0 72px;
+  color: var(--ink-faint);
+  font-size: 14px;
+}
+footer.site p { max-width: var(--measure); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    transition-duration: .001ms !important;
+  }
+}
+
+/* ------------------------------------------------------------ 幕 1：Hero */
+.act { position: relative; }
+
+.hero { height: 340vh; }                 /* 行程 = 340vh − 100vh，擦洗有余量 */
+.hero .stick { position: sticky; top: 0; height: 100vh; overflow: hidden; }
+.hero .grid {
+  height: 100%; max-width: 1240px; margin: 0 auto;
+  padding: 0 var(--gutter);
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 46%);
+  align-items: center; gap: var(--gutter);
+}
+.hero .stage {
+  position: relative; height: min(78vh, 720px);
+  border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
+}
+/* 静止时显示海报帧；视频要等 seek 落位后才淡入接管。
+   这样首屏不依赖视频解码时序——解码慢、被拦截或失败，看到的都还是一张正经的图。 */
+.hero .still, .hero video {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: contain;
+}
+.hero video { opacity: 0; transition: opacity .4s ease; }
+.hero .stage.ready video { opacity: 1; }
+.hero .stage.ready .still { opacity: 0; }
+.hero .still { transition: opacity .4s ease; }
+.hero .glow {
+  position: absolute; inset: 8% 0 4%; z-index: -1;
+  background: radial-gradient(60% 55% at 50% 58%, rgba(63,209,199,.14), transparent 70%);
+}
+.hero .copy { position: relative; display: flex; flex-direction: column; gap: 22px; }
+.hero .eyebrow {
+  font-family: var(--mono); font-size: 12px; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--cyan); margin: 0;
+}
+.hero h1 { font-size: clamp(46px, 6.6vw, 96px); letter-spacing: -.03em; }
+.hero .tag { font-size: clamp(18px, 1.9vw, 26px); color: var(--ink-dim); margin: 0; line-height: 1.35; }
+.hero .meter {
+  font-family: var(--mono); font-size: 13px; color: var(--ink-faint);
+  letter-spacing: .06em; text-transform: uppercase; margin: 0;
+}
+.hero .meter .num { color: var(--cyan); }
+.hero .cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+.btn {
+  display: inline-block; text-decoration: none; border-radius: 999px;
+  padding: 13px 24px; font: 500 15px/1 var(--sans);
+  border: 1px solid var(--line); color: var(--ink); transition: .16s;
+}
+.btn:hover { border-color: var(--cyan); }
+.btn.primary { background: var(--cyan); border-color: var(--cyan); color: var(--bg-0); }
+.btn.primary:hover { filter: brightness(1.08); }
+.scrollhint {
+  position: absolute; left: 50%; bottom: 26px; transform: translateX(-50%);
+  font-family: var(--mono); font-size: 11px; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--ink-faint);
+}
+
+@media (max-width: 900px) {
+  .hero { height: 260vh; }
+  .hero .grid { grid-template-columns: 1fr; align-content: center; gap: 24px; }
+  /* 竖幅的框架图配横盒子会缩得很小，窄屏给它一个竖版比例 */
+  .hero .stage { height: auto; aspect-ratio: 4 / 5; max-height: 52vh; order: -1; }
+}
+
+/* -------------------------------------------------- 幕 2：代价不对称 */
+.claim { padding: 22vh 0; }
+.claim p.big {
+  font-family: var(--serif);
+  font-size: clamp(26px, 4.2vw, 52px);
+  line-height: 1.24;
+  max-width: 22ch;
+  margin: 0 0 28px;
+}
+.claim .punch { color: var(--coral); }
+.claim .foot { font-size: 17px; color: var(--ink-dim); max-width: var(--measure); margin: 0; }
+
+/* -------------------------------------------------- 幕 3：流水线四段 */
+.pipeline { height: 420vh; }
+.pipeline .stick {
+  position: sticky; top: 0; height: 100vh;
+  display: grid; grid-template-columns: 1fr minmax(0, 34%);
+  align-items: center; gap: var(--gutter);
+  padding-inline: var(--gutter);
+}
+.pipeline .screen {
+  position: relative; aspect-ratio: 16 / 10;
+  border: 1px solid var(--line); border-radius: 12px;
+  overflow: hidden; background: var(--bg-0);
+}
+.pipeline .screen > [data-stage] {
+  position: absolute; inset: 0; opacity: 0; transition: opacity .45s ease;
+}
+.pipeline .screen > [data-stage].on { opacity: 1; }
+.pipeline .screen > [data-stage] > * {
+  width: 100%; height: 100%; object-fit: contain; display: block;
+}
+.pipeline ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 22px; }
+.pipeline ol > li {
+  opacity: .3; transition: opacity .35s ease;
+  border-left: 2px solid var(--line); padding-left: 16px;
+}
+.pipeline ol > li.on { opacity: 1; border-left-color: var(--cyan); }
+.pipeline ol > li h3 { font-size: 19px; margin-bottom: 4px; }
+.pipeline ol > li .who {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--ink-faint);
+}
+.pipeline ol > li p { margin: 0; font-size: 15px; color: var(--ink-dim); }
+
+@media (max-width: 820px) {
+  .pipeline .stick { grid-template-columns: 1fr; align-content: center; gap: 20px; }
+  .pipeline ol { gap: 12px; }
+  .pipeline ol > li p { font-size: 14px; }
+  .pipeline ol > li h3 { font-size: 16px; }
+}
+
+/* --------------------------------------------------- 幕 4：PE-Loop 环形图 */
+.loop { padding: 18vh 0; }
+.loop .head { max-width: var(--measure); margin-bottom: 48px; }
+.loop h2 { font-size: clamp(30px, 4vw, 52px); margin-bottom: 14px; }
+.loop .head p { color: var(--ink-dim); margin: 0; }
+.loop .body { display: grid; grid-template-columns: minmax(0, 44%) minmax(0, 1fr); gap: var(--gutter); align-items: center; }
+.loop svg { width: 100%; height: auto; display: block; }
+.loop .ring { fill: none; stroke: var(--line); stroke-width: 2; }
+.loop .arc {
+  fill: none; stroke-width: 9; stroke-linecap: round;
+  stroke-dasharray: var(--len); stroke-dashoffset: var(--len);
+  transition: stroke-dashoffset 1.1s cubic-bezier(.32, .72, .3, 1);
+}
+.loop [data-reveal].in .arc { stroke-dashoffset: 0; }
+.loop .arc.llm { stroke: var(--cyan); }
+.loop .arc.physics { stroke: var(--amber); }
+.loop .hub { font-family: var(--serif); fill: var(--ink); font-size: 30px; text-anchor: middle; }
+.loop .hubsub { font-family: var(--mono); fill: var(--ink-faint); font-size: 10px; text-anchor: middle; letter-spacing: .05em; }
+
+.loop ol.phases { list-style: none; margin: 0; padding: 0; display: grid; gap: 20px; }
+.loop ol.phases > li { border-left: 3px solid var(--line); padding-left: 18px; }
+.loop ol.phases > li.llm { border-left-color: var(--cyan); }
+.loop ol.phases > li.physics { border-left-color: var(--amber); }
+.loop .who {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--ink-faint);
+}
+.loop ol.phases h3 { font-size: 18px; margin: 3px 0 6px; }
+.loop ol.phases p { margin: 0; font-size: 15px; color: var(--ink-dim); }
+.loop .legend { margin-top: 34px; font-size: 14px; color: var(--ink-faint); display: flex; gap: 22px; flex-wrap: wrap; }
+.loop .legend i { display: inline-block; width: 11px; height: 11px; border-radius: 3px; margin-right: 7px; vertical-align: -1px; }
+.loop .legend .llm i { background: var(--cyan); }
+.loop .legend .physics i { background: var(--amber); }
+
+@media (max-width: 900px) {
+  .loop .body { grid-template-columns: 1fr; }
+}
+.loop .stepno {
+  font-family: var(--mono); font-size: 12px; fill: var(--ink-faint);
+  text-anchor: middle; dominant-baseline: middle; letter-spacing: .08em;
+}
+.loop .arc.llm { color: var(--cyan); }
+.loop .arc.physics { color: var(--amber); }
+
+/* --------------------------------------------- 幕 5：谁握着裁决权 */
+.verdict { padding: 18vh 0; }
+.verdict h2 { font-size: clamp(30px, 4vw, 52px); margin-bottom: 14px; }
+.verdict .head { max-width: var(--measure); margin-bottom: 54px; }
+.verdict .head p { color: var(--ink-dim); margin: 0; }
+.verdict .bars { display: grid; gap: 30px; }
+.verdict .row .label { display: flex; justify-content: space-between; gap: 16px; font-size: 15px; margin-bottom: 9px; }
+.verdict .row .label b { font-weight: 500; }
+.verdict .row .label .rhs { color: var(--ink-faint); font-family: var(--mono); font-size: 13px; }
+.verdict .track { position: relative; height: 34px; background: var(--panel); border: 1px solid var(--line); border-radius: 5px; overflow: hidden; }
+.verdict .fill { position: absolute; inset: 0 auto 0 0; display: flex; width: 0; transition: width 1.2s cubic-bezier(.32,.72,.3,1); }
+.verdict [data-reveal].in .fill { width: var(--total); }
+.verdict .solid { background: var(--cyan); width: var(--solidshare); }
+.verdict .false { background: var(--coral); width: var(--falseshare); }
+.verdict .oracleline { position: absolute; top: -6px; bottom: -6px; width: 0; border-left: 1px dashed var(--ink-faint); left: var(--at); }
+.verdict .readout { margin-top: 9px; font-family: var(--mono); font-size: 13px; color: var(--ink-dim); }
+.verdict .readout .bad { color: var(--coral); }
+.verdict .key { margin-top: 38px; display: flex; gap: 24px; flex-wrap: wrap; font-size: 14px; color: var(--ink-faint); }
+.verdict .key i { display: inline-block; width: 11px; height: 11px; border-radius: 3px; margin-right: 7px; vertical-align: -1px; }
+.verdict .key .k1 i { background: var(--cyan); }
+.verdict .key .k2 i { background: var(--coral); }
+
+/* --------------------------------------------- 幕 6：换骨干，可靠性不变 */
+.backbones { padding: 16vh 0; }
+.backbones h2 { font-size: clamp(30px, 4vw, 52px); margin-bottom: 14px; }
+.backbones .head { max-width: var(--measure); margin-bottom: 48px; }
+.backbones .head p { color: var(--ink-dim); margin: 0; }
+.backbones .spreads { display: grid; grid-template-columns: repeat(auto-fit, minmax(0, 1fr)); gap: 28px; }
+.backbones .card { border: 1px solid var(--line); background: var(--panel); border-radius: 10px; padding: 24px; }
+.backbones .card .cap { font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-faint); }
+.backbones .card .val { font-family: var(--mono); font-size: clamp(34px, 5vw, 56px); line-height: 1.05; margin: 10px 0 4px; }
+.backbones .card.ours .val { color: var(--cyan); }
+.backbones .card.base .val { color: var(--coral); }
+.backbones .card .sub { font-size: 14px; color: var(--ink-dim); }
+.backbones .models { margin-top: 38px; display: flex; gap: 12px; flex-wrap: wrap; }
+.backbones .models span { border: 1px solid var(--line); border-radius: 999px; padding: 7px 15px; font-family: var(--mono); font-size: 13px; color: var(--ink-dim); }
+
+/* --------------------------------------------------- 幕 7：VB-Bench */
+.bench { padding: 16vh 0; }
+.bench h2 { font-size: clamp(30px, 4vw, 52px); margin-bottom: 14px; }
+.bench .head { max-width: var(--measure); margin-bottom: 50px; }
+.bench .head p { color: var(--ink-dim); margin: 0; }
+.bench .figures { display: grid; grid-template-columns: repeat(auto-fit, minmax(0, 1fr)); gap: 30px; }
+.bench .figures > div { border-top: 2px solid var(--cyan); padding-top: 18px; }
+.bench .figures .val { font-family: var(--mono); font-size: clamp(38px, 6vw, 68px); line-height: 1; }
+.bench .figures .cap { color: var(--ink-dim); font-size: 15px; margin-top: 8px; }
+.bench .families { margin-top: 44px; display: flex; gap: 10px; flex-wrap: wrap; }
+.bench .families span { border: 1px solid var(--line); background: var(--panel); border-radius: 6px; padding: 9px 16px; font-family: var(--mono); font-size: 14px; }
+
+/* --------------------------------------------------- 幕 8：证据墙 */
+.evidence { padding: 16vh 0; }
+.evidence h2 { font-size: clamp(30px, 4vw, 52px); margin-bottom: 14px; }
+.evidence .head { max-width: var(--measure); margin-bottom: 44px; }
+.evidence .head p { color: var(--ink-dim); margin: 0; }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 270px), 1fr)); gap: 22px; }
+a.card {
+  display: block; text-decoration: none; color: inherit;
+  background: var(--panel); border: 1px solid var(--line);
+  border-radius: 10px; overflow: hidden; transition: border-color .18s, transform .18s;
+}
+a.card:hover, a.card:focus-visible {
+  border-color: var(--cyan); transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(16, 36, 58, .08);
+}
+/* 塔楼渲染是 1600x2400 的竖幅：cover 会把楼裁成一条缝，必须 contain。 */
+a.card .shot {
+  position: relative; aspect-ratio: 3 / 4;
+  background: var(--bg-1);
+}
+/* 深色主题（叙事页）下恢复 vbviz studio 的底，深色渲染才嵌得进去 */
+body.theme-dark a.card .shot {
+  background: radial-gradient(120% 90% at 50% 30%, #0f2b48, #070d16 72%);
+}
+a.card .shot img, a.card .shot video {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: contain; object-position: center bottom;
+  padding: 14px 14px 10px; display: block;
+}
+a.card .shot video { opacity: 0; transition: opacity .25s; }
+a.card:hover .shot video, a.card:focus-visible .shot video { opacity: 1; }
+a.card .body { padding: 14px 16px 17px; }
+a.card .kind { font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--cyan); }
+a.card b { display: block; font-weight: 500; font-size: 16px; margin: 5px 0 5px; line-height: 1.3; }
+a.card .sub { font-size: 13px; color: var(--ink-faint); margin-bottom: 7px; line-height: 1.45; }
+a.card .facts { font-family: var(--mono); font-size: 12.5px; color: var(--ink-dim); }
+.evidence .more { display: inline-block; margin-top: 34px; font-size: 17px; }
+
+/* --------------------------------------------------- 幕 9：诚实边界 */
+.limits { padding: 16vh 0 4vh; }
+.limits h2 { font-size: clamp(30px, 4vw, 52px); margin-bottom: 14px; }
+.limits .head { max-width: var(--measure); margin-bottom: 42px; }
+.limits .head p { color: var(--ink-dim); margin: 0; }
+.tablewrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; }
+table.data { border-collapse: collapse; width: 100%; font-size: 14px; min-width: min(100%, 680px); }
+table.data th, table.data td { padding: 12px 15px; text-align: left; border-bottom: 1px solid var(--line); white-space: nowrap; }
+table.data thead th { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-faint); font-weight: 400; }
+table.data tbody tr:last-child td { border-bottom: 0; }
+table.data .num { color: var(--ink); }
+table.data .ref { color: var(--amber); }
+.limits .notes { margin-top: 28px; color: var(--ink-faint); font-size: 14.5px; max-width: var(--measure); }
+.limits .notes p { margin: 0 0 12px; }
+
+/* ======================================================= 内容页（画廊 / 详情） */
+.page { padding-top: 116px; }            /* 固定导航的高度 + 呼吸 */
+.pagehead { max-width: var(--measure); margin: 0 0 46px; }
+.pagehead h1 { font-size: clamp(34px, 5.5vw, 68px); margin-bottom: 16px; }
+.pagehead p { color: var(--ink-dim); margin: 0 0 8px; }
+.pagehead .kind {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--cyan); display: block; margin-bottom: 10px;
+}
+.pagehead .facts { color: var(--ink-dim); font-size: 15px; }
+
+.filters { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 34px; }
+.filters button {
+  background: none; border: 1px solid var(--line); border-radius: 999px;
+  color: var(--ink-dim); font: 400 13px/1 var(--sans);
+  padding: 9px 16px; cursor: pointer; transition: .15s;
+}
+.filters button:hover { border-color: var(--cyan); color: var(--ink); }
+.filters button.on { background: var(--cyan); border-color: var(--cyan); color: var(--bg-0); }
+
+/* ------------------------------------------------------------ 详情页 */
+/* 竖幅渲染配上事实表：左图右表，不让一张图把内容全推到折叠线下 */
+.detail .topsplit {
+  display: grid; grid-template-columns: minmax(0, 42%) minmax(0, 1fr);
+  gap: var(--gutter); align-items: start; margin-bottom: 56px;
+}
+.detail .hero-shot { margin: 0; }
+.detail .hero-shot img {
+  width: 100%; max-height: 68vh; object-fit: contain; display: block;
+  border: 1px solid var(--line); border-radius: 12px;
+}
+.detail .topsplit .facts-table { margin-bottom: 0; }
+@media (max-width: 880px) {
+  .detail .topsplit { grid-template-columns: 1fr; }
+  .detail .hero-shot img { max-height: 46vh; }
+}
+.detail .clips {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+  gap: 24px; margin-bottom: 52px;
+}
+.detail .clip { margin: 0; }
+.detail .clip img, .detail .clip video {
+  width: 100%; display: block; border-radius: 10px;
+  border: 1px solid var(--line); background: var(--bg-0);
+}
+.detail .clip figcaption {
+  margin-top: 9px; font-family: var(--mono); font-size: 12px;
+  color: var(--ink-faint); letter-spacing: .03em;
+}
+.detail .facts-table, .detail .warnings, .detail .report { margin-bottom: 52px; }
+.detail h2 { font-size: clamp(22px, 3vw, 32px); margin-bottom: 18px; }
+.detail .facts-table table.data th { color: var(--ink-dim); font-weight: 400; width: 40%; }
+.detail .facts-table table.data td { white-space: normal; }
+.detail .warnings ul { margin: 0; padding-left: 20px; color: var(--amber); }
+.detail .warnings li { margin-bottom: 9px; }
+.detail .report pre {
+  white-space: pre-wrap; word-break: break-word;
+  background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+  padding: 22px; font: 400 13px/1.7 var(--mono); color: var(--ink-dim);
+  max-height: 520px; overflow: auto; margin: 0;
+}
+.back { margin-top: 20px; font-size: 16px; }
+.back a { text-decoration: none; }
+
+a.card[hidden] { display: none; }
+
+.pagehead .sub { color: var(--ink-faint); font-size: 16px; margin: -6px 0 14px; }
+
+.act[id] { scroll-margin-top: 80px; }
+/* nav.top 是 position:fixed，不留这段锚点会落到它底下 */
+section[id] { scroll-margin-top: 84px; }
+
+/* 末列是 "anything fitted?" 这种短答案，允许换行，免得整表被裁 */
+table.data th:last-child, table.data td:last-child { white-space: normal; }
+.limits table.data th, .limits table.data td { padding: 12px 13px; }
+
+/* ===================================================== 窄屏 */
+/* 小节导航有八项，窄屏放不下。做成可横向滑动的一条：
+   每项不换行（"VB-Bench" 会被拆成两行），滚动条隐掉。
+   nav 自己 overflow-x:auto 之后，撑宽的是它内部，不会再顶穿视口。 */
+@media (max-width: 1000px) {
+  nav.top {
+    overflow-x: auto; overflow-y: hidden;
+    scrollbar-width: none; -ms-overflow-style: none;
+  }
+  nav.top::-webkit-scrollbar { display: none; }
+  nav.top > * { flex: 0 0 auto; }
+  nav.top a { white-space: nowrap; }
+  nav.top .spacer { display: none; }   /* 不再右对齐，整条从左排起 */
+}
+
+/* nav 是 position:fixed，不受 body 的 overflow-x:hidden 约束：
+   它一旦被内容撑宽，整个视口就跟着横向溢出。所以这里必须收得住。 */
+@media (max-width: 560px) {
+  nav.top { gap: 12px; padding: 11px 16px; font-size: 14px; }
+  nav.top .brand { font-size: 16px; }
+  :root { --measure: 100%; }
+  .page { padding-top: 92px; }
+  .pagehead h1 { font-size: clamp(28px, 8vw, 40px); }
+  .claim p.big { max-width: none; }
+  .hero .cta .btn { flex: 1 1 auto; text-align: center; }
+}
+/* 任何单元都不得把版面撑宽 */
+img, video, svg, table { max-width: 100%; }
+
+/* ===================================================== 学术页（首页） */
+.paperpage { padding-top: 74px; }
+.wrap.narrow { max-width: 820px; }
+
+.masthead { padding: 68px 0 44px; text-align: center; border-bottom: 1px solid var(--line); }
+/* 题头的标记：居中、压在 eyebrow 之上，并按**位移幅值**给楼板上色——
+   底层接近固定端用墨色，越往上越接近强调色，顶层摆幅最大。
+   颜色写在 CSS 而不是 SVG 里：几何仍然只有 mark.svg 一份，
+   导航栏和 favicon 用同一份几何、保持单色。
+
+   为什么只有题头上色：72 px 下五段色阶读得出层次；但 16 px 的 favicon 上
+   五种颜色会糊成一条彩带，连「是栋楼」都看不出来（实测比过单色、
+   vbviz 构件色、五色高饱和三版）。而且 favicon 是青底的，
+   顶层的青会直接融进底色里。所以小尺寸一律单色。 */
+/* 标记排在标题左边，和字母一起走正常的行内流。
+   它用的是紧贴墨迹的 viewBox（见 build._MARK_VIEWBOX），所以
+   vertical-align:baseline 会把墨迹底边放到文字基线上——不需要试 translateY。
+   高度 .74em 约等于这套衬线体的大写高度，尺寸随 h1 字号自动缩放。 */
+.masthead .heromark {
+  display: inline-block; vertical-align: baseline;
+  height: .74em; width: calc(.74em * 20 / 26);
+  margin-right: .24em;
+  color: var(--title);
+}
+.masthead .heromark g { fill: currentColor; }
+.masthead .heromark g rect:nth-child(1) { fill: #14534c; }
+.masthead .heromark g rect:nth-child(2) { fill: #1a6b5f; }
+.masthead .heromark g rect:nth-child(3) { fill: #228375; }
+.masthead .heromark g rect:nth-child(4) { fill: #2fa18e; }
+.masthead .heromark g rect:nth-child(5) { fill: #3fbfa8; }
+/* 地线是固定端，用标题色，让标记和词标读成一体 */
+.masthead .heromark > rect:last-of-type { fill: var(--title); }
+
+/* 题头。顶会项目页的常见做法：一行小字的 eyebrow 立住方法名，
+   主标题放到最大并收紧字距，副标题压到一个较窄的测量宽度居中。
+   三层字号差拉开（12 / 72 / 21），层级靠对比而不是靠加粗。 */
+.masthead .eyebrow {
+  font: 500 12px/1 var(--mono);
+  letter-spacing: .22em; text-transform: uppercase;
+  color: var(--cyan);
+  margin: 0 0 18px;
+}
+.masthead h1 {
+  font-size: clamp(42px, 7.4vw, 76px);
+  font-weight: 700;                 /* 三个参照站都是 700/600；500 看着发虚 */
+  line-height: 1.02;
+  letter-spacing: -.028em;          /* 字号越大越要收，不然大标题会散 */
+  margin: 0 0 20px;
+  text-wrap: balance;
+}
+/* 关键词用青色实心，不加渐变：渐变在浅底上会把字重拉虚，远看发灰 */
+/* 整个词标一个颜色。原来 Vibe 青、Building 墨，断成两截。 */
+.masthead h1 { color: var(--title); }
+.masthead .subtitle {
+  font-size: clamp(17px, 1.9vw, 21px); color: var(--ink-dim);
+  max-width: 40ch; margin: 0 auto 30px; line-height: 1.5;
+  text-wrap: balance;               /* 两行长度拉平，不出现孤字尾行 */
+  font-weight: 400;
+}
+/* 「not」是这句话的转折点，也是整篇论文的论点 */
+.masthead .subtitle em {
+  font-style: normal; font-weight: 600; color: var(--ink);
+}
+/* 作者块，照顶会项目页的惯例排：姓名一行（可换行，不拆开单个名字）、
+   单位一行、脚注一行，字号依次递减。 */
+.masthead .authors {
+  font-size: 18.5px; line-height: 1.75; margin: 0 0 6px; color: var(--ink);
+  display: flex; flex-wrap: wrap; justify-content: center;
+  column-gap: 0; row-gap: 2px;
+}
+.masthead .authors .au { white-space: nowrap; }
+/* 作者主页链接：平时和正文同色、无下划线，悬停才转强调色。
+   六个名字排一行，若每个都带蓝色下划线，整行会被切得很碎。 */
+.masthead .authors .au a { color: inherit; text-decoration: none; }
+.masthead .authors .au a:hover,
+.masthead .authors .au a:focus-visible {
+  color: var(--title); text-decoration: underline;
+  text-underline-offset: 3px; text-decoration-thickness: 1px;
+}   /* 名字和它的上标不许被拆到两行 */
+.masthead .authors .sep { margin: 0 .42em 0 0; color: var(--ink-dim); }
+.masthead .authors .sep.amp { margin-left: .42em; }  /* 逗号只需右边空格，& 两边都要 */
+.masthead .authors sup,
+.masthead .affils sup,
+.masthead .authornote sup {
+  font-size: .62em; font-weight: 600; color: var(--cyan);
+  vertical-align: super; line-height: 0; margin-left: .5px;
+}
+.masthead .affils {
+  font-size: 15.5px; color: var(--ink-dim); margin: 0 0 12px;
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 26px;
+}
+.masthead .affils .af { white-space: nowrap; }
+/* 极窄屏（320px，iPhone SE 一代）放开换行：
+   "¹Nanyang Technological University, Singapore" 不换行时会顶出视口 16px。
+   375px 及以上仍然整条不断，读起来更整齐。 */
+@media (max-width: 400px) {
+  .masthead .affils .af { white-space: normal; }
+}
+.masthead .authornote {
+  font-size: 13px; color: var(--ink-faint); margin: 0 0 26px; line-height: 1.7;
+}
+.masthead .authornote a { color: var(--ink-dim); text-decoration: none;
+  border-bottom: 1px solid var(--line); }
+.masthead .authornote a:hover { color: var(--cyan); border-bottom-color: var(--cyan); }
+.badges { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+.badge {
+  display: inline-block; text-decoration: none;
+  background: var(--ink); color: var(--bg-0);
+  border: 1px solid var(--ink); border-radius: 999px;
+  padding: 10px 20px; font: 500 14px/1 var(--sans); transition: .15s;
+}
+.badge:hover { background: var(--cyan); border-color: var(--cyan); }
+.badge.disabled {
+  background: none; color: var(--ink-faint); border-color: var(--line); cursor: default;
+}
+
+.teaser { padding: 40px 0 8px; }
+.teaser .twoup {
+  display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px, 4vw, 60px);
+  align-items: end;
+}
+.teaser figure { margin: 0; text-align: center; }
+.teaser figure img {
+  height: min(52vh, 460px); width: 100%; object-fit: contain; display: block;
+  background: var(--bg-1); border: 1px solid var(--line); border-radius: 10px;
+  padding: 18px;
+}
+.note.center { text-align: center; margin-inline: auto; margin-top: 26px; }
+@media (max-width: 720px) { .teaser .twoup { grid-template-columns: 1fr; gap: 26px; } }
+.teaser figcaption {
+  margin-top: 16px; font-size: 14.5px; color: var(--ink-faint);
+  max-width: 72ch; margin-inline: auto;
+}
+
+.band { padding: 60px 0; }
+.band.alt { background: var(--bg-1); border-block: 1px solid var(--line); }
+.band h2 {
+  font-size: clamp(27px, 3.4vw, 40px); margin-bottom: 20px;
+}
+.band h3.sub {
+  font-size: clamp(19px, 2.2vw, 25px); margin: 46px 0 14px;
+}
+.band .lede { color: var(--ink-dim); max-width: var(--measure); margin: 0 0 24px; }
+.band .note { color: var(--ink-faint); font-size: 14.5px; max-width: var(--measure); margin: 14px 0 0; }
+.band .more { margin-top: 28px; font-size: 16px; }
+.band .more a { text-decoration: none; font-weight: 500; }
+
+.abstract { font-size: 17.5px; line-height: 1.78; margin: 0; }
+
+/* ============================================ 方法四步：两条泳道，一眼看出分工
+   论文的论点就是分工：语言模型只管提议、物理引擎握裁决权。
+   配色按角色分（青=提议者 / 琥珀=裁决者），四块排成 2×2，
+   比竖着堆四条更紧凑，也更像一组而非一列。 */
+ol.steps {
+  list-style: none; margin: 30px 0 0; padding: 0;
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px;
+}
+ol.steps > li {
+  position: relative; overflow: hidden;
+  border: 1px solid var(--line); border-radius: 10px;
+  padding: 24px 26px 26px; background: var(--panel);
+  transition: transform .28s cubic-bezier(.22,.7,.3,1),
+              box-shadow .28s ease, border-color .2s ease;
+}
+ol.steps > li::before {              /* 顶边那道色带：这一步归谁 */
+  content: ""; position: absolute; inset: 0 0 auto 0; height: 3px;
+}
+ol.steps > li.llm::before { background: var(--cyan); }
+ol.steps > li.physics::before { background: var(--amber); }
+ol.steps > li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(16, 36, 58, .10);
+  border-color: var(--ink-faint);
+}
+
+ol.steps .shead {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 14px; flex-wrap: wrap;
+}
+ol.steps .code {                     /* 论文里的步骤编号，当作徽标用 */
+  font: 600 12px/1 var(--mono); letter-spacing: .04em;
+  padding: 6px 9px; border-radius: 6px; white-space: nowrap;
+}
+ol.steps > li.llm .code { background: var(--accent-soft); color: var(--cyan); }
+ol.steps > li.physics .code { background: var(--amber-soft); color: var(--amber); }
+ol.steps .role {
+  font: 500 11px/1 var(--mono); letter-spacing: .1em;
+  text-transform: uppercase; color: var(--ink-faint);
+}
+ol.steps h3 { font-size: 19.5px; margin: 0 0 9px; line-height: 1.3; }
+ol.steps p { margin: 0; color: var(--ink-dim); font-size: 15.5px; line-height: 1.72; }
+
+@media (max-width: 760px) {
+  ol.steps { grid-template-columns: 1fr; }
+}
+
+table.data.compare thead th { white-space: normal; }
+table.data.compare tbody tr.ours { background: var(--accent-soft); }
+table.data .strong { font-weight: 600; color: var(--ink); }
+table.data .bad { color: var(--coral); }
+table.data .good { color: var(--cyan); }
+
+.statrow { display: grid; grid-template-columns: repeat(auto-fit, minmax(0, 1fr)); gap: 20px; margin-top: 26px; }
+.stat {
+  border-top: 3px solid var(--line); padding-top: 14px;
+  display: flex; flex-direction: column; gap: 6px;
+}
+.stat b { font-family: var(--mono); font-size: clamp(30px, 4.4vw, 48px); line-height: 1; font-weight: 500; }
+.stat b small { font-size: .42em; color: var(--ink-faint); }
+.stat span { font-size: 14.5px; color: var(--ink-dim); }
+.stat.ours { border-top-color: var(--cyan); }
+.stat.ours b { color: var(--cyan); }
+.stat.base { border-top-color: var(--coral); }
+.stat.base b { color: var(--coral); }
+.statrow.big .stat { border-top-color: var(--ink); }
+
+.chips { display: inline-flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+.chips span {
+  border: 1px solid var(--line); border-radius: 5px; padding: 6px 12px;
+  font-family: var(--mono); font-size: 13px; color: var(--ink-dim); background: var(--panel);
+}
+
+pre.bibtex {
+  background: var(--bg-1); border: 1px solid var(--line); border-radius: 8px;
+  padding: 20px 22px; overflow-x: auto; margin: 0;
+  font: 400 13px/1.7 var(--mono); color: var(--ink-dim);
+}
+
+@media (max-width: 720px) {
+  .masthead { padding: 44px 0 32px; text-align: left; }
+  .masthead .subtitle { margin-inline: 0; }
+  .badges { justify-content: flex-start; }
+  .band { padding: 44px 0; }
+}
+
+/* ------------------------------------------------------- 论文配图 */
+figure.paperfig { margin: 34px 0 0; }
+figure.paperfig img {
+  width: 100%; height: auto; display: block;
+  border: 1px solid var(--line); border-radius: 8px; background: #fff;
+}
+figure.paperfig figcaption {
+  margin-top: 12px; font-size: 14.5px; line-height: 1.6;
+  color: var(--ink-faint); max-width: 92ch;
+}
+figure.paperfig figcaption b { color: var(--ink-dim); font-weight: 600; }
+.band figure.paperfig + .more, .band figure.paperfig + .note { margin-top: 26px; }
+
+/* --------------------------------------- 顶栏图标链接（对标 SEED 的 38px 圆形） */
+
+@media (max-width: 860px) {
+}
+
+/* ------------------------------- 对比滑块（照 3DGS 的 before/after 做法） */
+.compare {
+  --split: 50%;
+  position: relative; width: 100%; aspect-ratio: 16 / 9;
+  border: 1px solid var(--line); border-radius: 10px; overflow: hidden;
+  background: var(--bg-1); touch-action: none; cursor: ew-resize;
+  user-select: none;
+}
+.compare img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: contain; padding: 18px; display: block; pointer-events: none;
+}
+.compare .cmp-b-wrap {
+  position: absolute; inset: 0; overflow: hidden;
+  clip-path: inset(0 0 0 var(--split));
+}
+.cmp-handle {
+  position: absolute; top: 0; bottom: 0; left: var(--split);
+  width: 2px; background: var(--cyan); transform: translateX(-1px);
+  cursor: ew-resize;
+}
+.cmp-handle::after {
+  content: ""; position: absolute; top: 50%; left: 50%;
+  width: 38px; height: 38px; transform: translate(-50%, -50%);
+  border-radius: 50%; background: var(--cyan);
+  box-shadow: 0 2px 10px rgba(16, 36, 58, .25);
+}
+.cmp-handle::before {
+  content: ""; position: absolute; top: 50%; left: 50%; z-index: 1;
+  width: 15px; height: 9px; transform: translate(-50%, -50%);
+  clip-path: polygon(0 50%, 30% 0, 30% 35%, 70% 35%, 70% 0, 100% 50%, 70% 100%, 70% 65%, 30% 65%, 30% 100%);
+  background: #fff;
+}
+.cmp-handle:focus-visible { outline: 3px solid var(--amber); outline-offset: 2px; }
+.cmp-tag {
+  position: absolute; bottom: 12px; z-index: 2;
+  font-family: var(--mono); font-size: 12px; letter-spacing: .04em;
+  background: color-mix(in srgb, var(--bg-0) 88%, transparent);
+  border: 1px solid var(--line); border-radius: 5px; padding: 5px 10px;
+  color: var(--ink-dim); pointer-events: none;
+}
+.cmp-tag.left { left: 12px; }
+.cmp-tag.right { right: 12px; }
+@media (max-width: 720px) { .compare { aspect-ratio: 4 / 3; } .cmp-tag { font-size: 11px; } }
+.badge .meta { opacity: .62; font-variant-numeric: tabular-nums; }
+
+/* --------------------- Method 里的流水线短片（照四个参照站的视频驱动做法） */
+.clipstrip {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 20px; margin-top: 34px;
+}
+.clipstrip figure { margin: 0; }
+.clipstrip video {
+  width: 100%; display: block; aspect-ratio: 1 / 1; object-fit: contain;
+  background: var(--bg-1); border: 1px solid var(--line); border-radius: 8px;
+}
+.clipstrip figcaption {
+  margin-top: 10px; font-size: 14px; color: var(--ink-faint); line-height: 1.5;
+}
+.clipstrip figcaption b {
+  display: block; color: var(--ink-dim); font-weight: 600;
+  font-family: var(--mono); font-size: 12px; letter-spacing: .06em;
+  text-transform: uppercase; margin-bottom: 3px;
+}
+
+/* ===================================================== 居中的章节标题 */
+.band > .wrap > h2,
+.band > .wrap > h3.sub { text-align: center; }
+.band > .wrap > .lede,
+.band > .wrap > .note { margin-inline: auto; text-align: center; }
+.band > .wrap > ol.steps > li,
+.band > .wrap > .tablewrap,
+.band > .wrap > .notes { text-align: left; }
+.band > .wrap > .notes p { margin-inline: auto; }
+
+/* 开头的 headline 图 */
+.headline { padding: 38px 0 6px; }
+.headline figure.paperfig { margin-top: 0; }
+
+/* ===================================================== 图片悬停与放大 */
+/* 首图(introfig)和正文插图(paperfig)一视同仁：同样的悬停放大、同样能点开看大图。
+   以前 introfig 只有自己那几行边框样式，是页面上唯一一张没有特效的图。 */
+figure.paperfig img, figure.introfig img,
+.clipstrip video,
+.democell img, .democell video {
+  transition: transform .5s cubic-bezier(.22,.7,.3,1), box-shadow .3s ease;
+}
+figure.paperfig, figure.introfig { overflow: hidden; border-radius: 8px; }
+figure.paperfig img, figure.introfig img { cursor: zoom-in; }
+figure.paperfig:hover img, figure.introfig:hover img {
+  transform: scale(1.035);
+  box-shadow: 0 10px 34px rgba(16, 36, 58, .13);
+}
+.democell:hover img, .democell:hover video { transform: scale(1.05); }
+
+/* 点击看大图 */
+.lightbox {
+  position: fixed; inset: 0; z-index: 200; display: none;
+  place-items: center; padding: 3vmin;
+  background: rgba(8, 18, 30, .88); backdrop-filter: blur(4px);
+  cursor: zoom-out;
+}
+.lightbox.on { display: grid; }
+.lightbox img {
+  max-width: 96vw; max-height: 92vh; object-fit: contain;
+  border-radius: 8px; background: #fff;
+  animation: lb-in .22s cubic-bezier(.22,.7,.3,1);
+}
+@keyframes lb-in { from { opacity: 0; transform: scale(.97); } to { opacity: 1; transform: none; } }
+.lightbox .lb-cap {
+  position: absolute; left: 0; right: 0; bottom: 14px; text-align: center;
+  color: #cfe0ec; font-size: 14px; padding-inline: 5vw;
+}
+
+/* ===================================================== demo 四列对照 */
+.demogrid { display: grid; gap: 18px; margin-top: 34px; }
+.demorow {
+  display: grid; grid-template-columns: minmax(130px, 1fr) repeat(4, minmax(0, 2.1fr));
+  gap: 12px; align-items: stretch;
+}
+.demolabel { display: flex; flex-direction: column; justify-content: center; padding-right: 6px; }
+.demolabel b { font-family: var(--serif); font-size: 17px; font-weight: 600; line-height: 1.25; }
+.demolabel .facts {
+  font-family: var(--mono); font-size: 11.5px; color: var(--ink-faint); margin-top: 5px;
+}
+.democell {
+  position: relative; overflow: hidden; border-radius: 8px;
+  border: 1px solid var(--line); background: var(--bg-1); aspect-ratio: 1 / 1;
+}
+.democell img, .democell video {
+  width: 100%; height: 100%; object-fit: contain; display: block; padding: 6px;
+}
+.democell .colname {
+  position: absolute; top: 6px; left: 8px; z-index: 2;
+  font-family: var(--mono); font-size: 10px; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--ink-faint);
+  background: color-mix(in srgb, var(--bg-0) 82%, transparent);
+  padding: 2px 6px; border-radius: 3px;
+}
+@media (max-width: 900px) {
+  .demorow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .demolabel { grid-column: 1 / -1; padding: 0 0 2px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  figure.paperfig:hover img, figure.introfig:hover img,
+  .democell:hover img, .democell:hover video,
+  ol.steps > li:hover { transform: none; }
+}
+
+/* 首页精选卡：视频就地播，不必悬停 */
+a.card.inline .shot video { opacity: 1; }
+a.card.inline .shot img { opacity: 0; }
+
+/* 开头的 intro 大图。不描边、不铺底：正文插图(paperfig)都是直接满栏出血的，
+   给首图单独加一圈框会让它看起来比后面每张图都窄一圈——这正是「有点进了」的来源。
+   只留和 paperfig 一样的圆角与 overflow:hidden（悬停放大时裁掉溢出）。 */
+figure.introfig { margin: 0; border-radius: 8px; overflow: hidden; }
+figure.introfig img { width: 100%; height: auto; display: block; }
+
+/* demo 格子是动画 WebP（图片）。必须 contain 不能 cover：
+   转台是 16:9、振型是竖片，cover 会把它们裁掉一大块（实测第三行的院落
+   左右两边直接没了）。格子底色已经按源片角点上了色，contain 留出的边看不出来。 */
+.democell img {
+  width: 100%; height: 100%; object-fit: contain; display: block; padding: 0;
+}
+.demolabel .kind {
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--cyan); margin-bottom: 4px;
+}
+/* 首页精选卡的动画 */
+a.card .shot img.loop { opacity: 1; object-fit: contain; padding: 10px; }
+a.card.inline .shot img.loop { opacity: 1; }
+
+/* ===================================================== 摘要面板 */
+/* 宽度与论文图一致（同在 .wrap 内），文本两端对齐，参照 Nerfies 的 4/5 栏做法 */
+.abstractbox {
+  background: var(--bg-1);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--cyan);
+  border-radius: 10px;
+  padding: clamp(26px, 3.2vw, 42px) clamp(24px, 3.6vw, 52px);
+  margin-top: 6px;
+}
+.abstractbox .abstract {
+  text-align: justify; hyphens: auto;
+  font-size: 17.5px; line-height: 1.8; color: var(--ink-dim);
+  max-width: 88ch; margin: 0 auto;
+}
+/* 以前这里是 `::first-line { font-weight: 500 }`。`::first-line` 作用在**排版后
+   的第一行**上，行的断点随窗口宽度变，所以加粗范围会跟着漂——看着不像设计，
+   像渲染出了错。要强调的是术语，就直接标在术语上。 */
+
+/* 摘要里的两个核心术语：Vibe Building（任务）与 PE-Loop（方法）。
+   用衬线体 + 青色，和标题里的 `.mark` 同一套语汇；不描边不打底，
+   在两端对齐的正文里只是稍稍抬高一档，不打断阅读节奏。 */
+.abstract .term {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 1.04em;
+  color: var(--cyan);
+  letter-spacing: .005em;
+  font-style: normal;
+  white-space: nowrap;
+}
+/* 括号里的全称：同色但收一档，不与主术语争。注意是 `.term.expand`（同一个元素
+   同时带两个类），不是后代选择器——写成 `.term .expand` 匹配不到，全称会跟着
+   主术语一样大。它比术语长得多，所以允许换行，窄屏才不会撑破版心。 */
+.abstract .term.expand {
+  font-family: var(--sans);
+  font-size: .86em;
+  font-weight: 500;
+  opacity: .72;
+  letter-spacing: .01em;
+  white-space: normal;
+}
+
+/* 论文图统一满宽，不再按比例分档 */
+figure.paperfig img { width: 100%; height: auto; }

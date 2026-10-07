@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vibe Building: a deterministic physics engine holds the verdict</title>
+<meta name="description" content="PE-Loop: an agent in which a deterministic physics engine is the sole source of evaluation signals. VB-Bench: 3,577 physics-adjudicated building instances across 6 code families.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600;6..72,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/css/site.css?v=266f1eaa">
+<link rel="icon" href="assets/icon/favicon.svg?v=0b1456c9" type="image/svg+xml">
+<link rel="icon" href="assets/icon/favicon-32.png?v=143ad0cc" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/icon/apple-touch-icon.png?v=cffdc6c4">
+<meta name="theme-color" content="#0d8f85">
+</head>
+<body>
+
+<nav class="top">
+  <a class="brand" href="index.html"><svg class="brandmark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><g fill="currentColor"><rect x="8.00" y="25.00" width="14.50" height="3.0" rx="1.3"/><rect x="8.31" y="20.00" width="14.00" height="3.0" rx="1.3"/><rect x="9.25" y="15.00" width="13.50" height="3.0" rx="1.3"/><rect x="10.81" y="10.00" width="13.00" height="3.0" rx="1.3"/><rect x="13.00" y="5.00" width="12.50" height="3.0" rx="1.3"/></g><rect x="5.5" y="29" width="19" height="2" rx="1" fill="#0d8f85"/></svg>Vibe&nbsp;Building</a>
+  <span class="spacer"></span>
+  <a href="#abstract"><span>Abstract</span></a>
+  <a href="#task"><span>Task</span></a>
+  <a href="#method"><span>Method</span></a>
+  <a href="#results"><span>Results</span></a>
+  <a href="#bench"><span>VB-Bench</span></a>
+  <a href="#demos"><span>Demos</span></a>
+  <a href="#hazard"><span>Records</span></a>
+  <a href="#bibtex"><span>BibTeX</span></a>
+</nav>
+
+<main class="paperpage">
+
+<header class="masthead">
+  <div class="wrap">
+    <p class="eyebrow">Physics-Engine-in-the-Loop</p>
+    <h1><svg class="heromark" viewBox="5.5 5 20 26" aria-hidden="true" focusable="false"><g fill="currentColor"><rect x="8.00" y="25.00" width="14.50" height="3.0" rx="1.3"/><rect x="8.31" y="20.00" width="14.00" height="3.0" rx="1.3"/><rect x="9.25" y="15.00" width="13.50" height="3.0" rx="1.3"/><rect x="10.81" y="10.00" width="13.00" height="3.0" rx="1.3"/><rect x="13.00" y="5.00" width="12.50" height="3.0" rx="1.3"/></g><rect x="5.5" y="29" width="19" height="2" rx="1" fill="#0d8f85"/></svg>Vibe Building</h1>
+    <p class="subtitle">A deterministic physics engine, <em>not</em> a language&nbsp;model,
+      decides whether a building design is accepted.</p>
+
+    <p class="authors">
+      <span class="au"><a href="https://yongqingjiang.com/" target="_blank" rel="noopener">Yongqing Jiang</a><sup>1&dagger;</sup></span><span class="sep">,</span>
+      <span class="au"><a href="https://haoranluo.net/" target="_blank" rel="noopener">Haoran Luo</a><sup>1*</sup></span><span class="sep">,</span>
+      <span class="au"><a href="https://scholar.google.com/citations?user=ErWzJ4cAAAAJ&amp;hl=zh-CN" target="_blank" rel="noopener">Jianze Wang</a><sup>2</sup></span><span class="sep">,</span>
+      <span class="au"><a href="https://scholar.google.com/citations?user=YpEaYXkAAAAJ&amp;hl=en" target="_blank" rel="noopener">Xin Zhou</a><sup>1</sup></span><span class="sep">,</span>
+      <span class="au"><a href="https://www.researchgate.net/profile/Kaoshan-Dai-2" target="_blank" rel="noopener">Kaoshan Dai</a><sup>2</sup></span><span class="sep amp">&amp;</span>
+      <span class="au"><a href="https://scholar.google.com/citations?user=EA2T_lwAAAAJ&amp;hl=en" target="_blank" rel="noopener">Zhiqi Shen</a><sup>1*</sup></span>
+    </p>
+    <p class="affils">
+      <span class="af"><sup>1</sup>Nanyang Technological University, Singapore</span>
+      <span class="af"><sup>2</sup>Sichuan University, China</span>
+    </p>
+    <p class="authornote">
+      <sup>&dagger;</sup>Project leader. <sup>*</sup>Corresponding authors.
+      Correspondence to <a href="mailto:yong.qingjiang@outlook.com">yong.qingjiang@outlook.com</a>.
+    </p>
+
+    <div class="badges">
+      <a class="badge" href="paper.pdf">
+        <span>Paper (PDF)</span><span class="meta"> &middot; 18 MB</span></a>
+      <a class="badge" href="https://arxiv.org/abs/2610.08156" target="_blank" rel="noopener">
+        <span>arXiv</span><span class="meta"> &middot; 2610.08156</span></a>
+      <a class="badge" href="https://github.com/Jovanqing/Vibe-Building" target="_blank" rel="noopener">
+        <span>Code (GitHub)</span></a>
+      <a class="badge" href="mailto:yong.qingjiang@outlook.com">
+        <span>Email</span></a>
+    </div>
+  </div>
+</header>
+
+
+<section id="abstract" class="band"><div class="wrap">
+  <h2>Abstract</h2>
+  <div class="abstractbox"><p class="abstract">Automated building design must comply with seismic and wind codes and satisfy structural mechanics constraints, yet most existing agents produce visually plausible models without verification grounded in mechanical analysis and code compliance. We introduce the <em class="term">Vibe Building</em> task and propose <em class="term">PE-Loop</em> <span class="term expand">(Physics-Engine-in-the-Loop)</span>, an agent in which a deterministic physics engine is the sole source of evaluation signals, mapping code constraints to a physics process reward, while the language model is confined to proposing discrete revisions (section menu, topology, and lateral system). Designs are verified by held-out seismic and wind time-history checks and a constructability gate. On VB-Bench, 3,577 physics-adjudicated building instances across six code families, PE-Loop achieves the highest verified success rate under three of four backbone LLMs, the highest held-out seismic pass rate under all four, and the highest held-out wind pass rate under three. Replacing the physics verdict with a language-model judge, all else fixed, leaves 58.43% of accepted designs noncompliant. These results suggest that reliable structural design rests less on a stronger LLM proposer than on an adjudicator the proposer cannot influence, a division of labor for agents whose outputs must hold up in the physical world.</p>
+</div>
+</div></section>
+
+<section class="headline"><div class="wrap">
+  <figure class="introfig"><img src="assets/media/teaser/intro.webp?v=95a627d9" width="2400" height="1038" alt="Vibe Building overview"></figure>
+</div></section>
+
+<section id="task" class="band alt"><div class="wrap">
+  <h2>The task</h2>
+  <p class="lede">An instance pairs an observation with a site configuration. The
+    observation may be a textual brief, a hand-drawn sketch, or a set of site photographs. The
+    design must satisfy the code envelope for that site, and it is carried to a certified optimum
+    rather than to a first feasible guess.</p>
+  <figure class="paperfig">
+  <img loading="lazy" src="assets/media/figures/fig3.webp?v=c6c868ab" width="1595" height="621" alt="Figure 3: The definition and overview of the Vibe Building task: an instance pairs an observation (text, sketch or site ">
+  <figcaption>
+    <b>Figure 3.</b>
+    <span>The definition and overview of the Vibe Building task: an instance pairs an observation (text, sketch or site photographs) with a site configuration, and the design is carried to a certified optimum.</span>
+  </figcaption>
+</figure>
+</div></section>
+
+<section id="method" class="band alt"><div class="wrap">
+  <h2>Method</h2>
+  <p class="lede">The language model proposes discrete moves and pays nothing for them.
+    The physics engine decides, and every decision costs one evaluation of the budget. The loop
+    terminates only when every strength and serviceability constraint holds.</p>
+  <figure class="paperfig">
+  <img loading="lazy" src="assets/media/figures/fig5.webp?v=50e11d57" width="1672" height="822" alt="Figure 5: Overview of PE-Loop. The meta level evolves discrete decisions (intent, system, strategy); the base level runs">
+  <figcaption>
+    <b>Figure 5.</b>
+    <span>Overview of PE-Loop. The meta level evolves discrete decisions (intent, system, strategy); the base level runs continuous optimisation and deterministic assembly; physics verification returns parameter-level and topology-level feedback.</span>
+  </figcaption>
+</figure>
+  <ol class="steps">
+    <li class="llm">
+      <div class="shead">
+        <span class="code">B0–B2</span>
+        <span class="role">language model</span>
+      </div>
+      <h3>Perception and intent</h3>
+      <p>One vision-language call turns a sketch or an image into a massing. A second call fixes the intent (the lateral system, the governing load, and the strategy) and with it the initial discrete state. Neither call is charged to the evaluation budget.</p>
+    </li>
+    <li class="llm">
+      <div class="shead">
+        <span class="code">C1</span>
+        <span class="role">language model</span>
+      </div>
+      <h3>One discrete repair per round</h3>
+      <p>Given only the set of violated constraints, the model picks one action: adjust the section triple, add a core or a shear wall, change the core plan, or change the lateral system. Three rounds, one lever level each.</p>
+    </li>
+    <li class="physics">
+      <div class="shead">
+        <span class="code">C2</span>
+        <span class="role">physics engine</span>
+      </div>
+      <h3>The minimal feasible column</h3>
+      <p>With the discrete state fixed, the column side is searched on a 45-value, 50 mm grid by an upper-bound probe, six bisection steps, and a confirmation. This costs at most 9 oracle calls per round, and the first passing side is also the least-material one.</p>
+    </li>
+    <li class="physics">
+      <div class="shead">
+        <span class="code">C3</span>
+        <span class="role">physics engine</span>
+      </div>
+      <h3>Material loop, ultra tier only</h3>
+      <p>After a pass, a finite menu along the section triple is enumerated and a candidate is accepted only if it is still feasible and cheaper. The final design is re-measured, and the held-out analyses and the certificate are computed offline.</p>
+    </li>
+  </ol>
+</div></section>
+
+<section id="results" class="band"><div class="wrap">
+  <h2>Results</h2>
+
+  <h3 class="sub">Swap the backbone, keep the reliability</h3>
+  <p class="lede">Because the verdict never depends on the proposer, the held-out pass
+    rate barely moves when the language model behind it changes. A baseline that judges itself
+    inherits the model&rsquo;s variance instead.</p>
+  <div class="statrow">
+    <div class="stat ours"><b class="num">3.3<small> pp</small></b>
+      <span>PE-Loop · held-out seismic</span></div>
+    <div class="stat ours"><b class="num">4.1<small> pp</small></b>
+      <span>PE-Loop · held-out wind</span></div>
+    <div class="stat base"><b class="num">23.8<small> pp</small></b>
+      <span>best baseline · seismic</span></div>
+    <div class="stat base"><b class="num">27.7<small> pp</small></b>
+      <span>best baseline · wind</span></div>
+  </div>
+  <p class="note"><span>Spread across the four backbones:</span> <span class="chips"><span>DeepSeek-V4-Flash</span> <span>Qwen3.8-Flash</span> <span>GLM 5.2 Fast</span> <span>Kimi K3</span></span></p>
+  <h3 class="sub">Where certified success is won</h3>
+  <p class="lede">Raw compliance and certified success are not the same ranking.
+    Designs that pass in the loop still fall at the constructability gate and at the held-out dynamic
+    checks, and systems reorder once those gates are applied.</p>
+  <figure class="paperfig">
+  <img loading="lazy" src="assets/media/figures/fig_results.webp?v=5fff3007" width="2000" height="561" alt="Figure 6: Where certified success is won, and three interventions on PE-Loop. (a) Gate survival. (b) What a language-mod">
+  <figcaption>
+    <b>Figure 6.</b>
+    <span>Where certified success is won, and three interventions on PE-Loop. (a) Gate survival. (b) What a language-model judge claims versus what physics confirms. (c) What the constructability projection costs and pays. (d) The effort ladder.</span>
+  </figcaption>
+</figure>
+  <figure class="paperfig">
+  <img loading="lazy" src="assets/media/figures/fig_gates_all.webp?v=0f9df989" width="2000" height="544" alt="Figure 7: Survival through the acceptance gates on all four LLM blocks.">
+  <figcaption>
+    <b>Figure 7.</b>
+    <span>Survival through the acceptance gates on all four LLM blocks.</span>
+  </figcaption>
+</figure>
+
+  <h3 class="sub">Who holds the verdict</h3>
+  <p class="lede">Replace the physics verdict with a language-model judge that sees the
+    brief, the code limits and the design parameters but no simulator output. Everything else is fixed.</p>
+  <div class="tablewrap"><table class="data compare">
+    <thead><tr>
+      <th><span>acceptance gate</span></th>
+      <th><span>self-rep. PASS %</span></th>
+      <th><span>verified PASS %</span></th>
+      <th><span>false-pos. %</span></th>
+      <th><span>wasted NFE %</span></th>
+      <th>Jaccard</th>
+      <th><span>wall s</span></th>
+    </tr></thead>
+    <tbody>
+          <tr class="ours">
+            <td><span>Margin oracle (ours)</span></td>
+            <td class="num">77.78</td>
+            <td class="num strong">77.78</td>
+            <td class="num good">0.00</td>
+            <td class="num">0.00</td>
+            <td class="num">1.00</td>
+            <td class="num">110.8</td>
+          </tr>
+          <tr>
+            <td><span>LLM judge (same LLM)</span></td>
+            <td class="num">49.44</td>
+            <td class="num strong">20.56</td>
+            <td class="num bad">58.43</td>
+            <td class="num">44.41</td>
+            <td class="num">0.31</td>
+            <td class="num">238.4</td>
+          </tr>
+          <tr>
+            <td><span>LLM judge (stronger, disjoint)</span></td>
+            <td class="num">40.00</td>
+            <td class="num strong">17.22</td>
+            <td class="num bad">56.94</td>
+            <td class="num">45.19</td>
+            <td class="num">0.29</td>
+            <td class="num">342.8</td>
+          </tr>
+    </tbody>
+  </table></div>
+  <p class="note">Table 5. The margin oracle claims exactly what it delivers. The
+    language-model judge claims 49.44% and delivers 20.56%. The oracle&rsquo;s two zeros are
+    zero <em>by construction</em>, not for want of data: its gate is the physics check itself,
+    so what it reports and what verification confirms are the same quantity, leaving no false
+    acceptance and no evaluation spent on a misdirected repair.</p>
+  <figure class="paperfig">
+  <img loading="lazy" src="assets/media/figures/fig_judge_hero.webp?v=3bf763d0" width="1973" height="596" alt="Figure 8: Who holds the verdict. What each gate accepts, split into physics-confirmed and false, and what handing the ve">
+  <figcaption>
+    <b>Figure 8.</b>
+    <span>Who holds the verdict. What each gate accepts, split into physics-confirmed and false, and what handing the verdict to a model costs in wasted evaluations and wall-clock time.</span>
+  </figcaption>
+</figure>
+
+  <h3 class="sub">Constructability costs raw compliance and pays certified success</h3>
+  <p class="lede">With the constructability projection, every statically compliant design
+    satisfies the detailing clause by construction, so the detailing gap closes to zero. Raw PASS drops
+    by 29.74 pp and certified success rises by 9.74 pp.</p>
+  <figure class="paperfig">
+  <img loading="lazy" src="assets/media/figures/fig_pibuild_hero.webp?v=ba2c5c8f" width="1978" height="656" alt="Figure 9: The constructability projection trades raw compliance for certified compliance: coral is what it costs, blue w">
+  <figcaption>
+    <b>Figure 9.</b>
+    <span>The constructability projection trades raw compliance for certified compliance: coral is what it costs, blue what it pays.</span>
+  </figcaption>
+</figure>
+
+  <h3 class="sub">What the language model actually buys</h3>
+  <p class="lede">On the 59-instance reference set that pure search
+    already solves, PE-Loop ties LLM-free search on feasibility at 98.31% with no
+    discordant instances, so the language model buys no feasibility. What it buys is budget
+    (55.86% NFE@pass against 97.78–100.00%)
+    and held-out generalization (72.41% wind against
+    18.97–31.03%). The price is
+    material: 5.66% more concrete than pure search.</p>
+</div></section>
+
+<section id="bench" class="band alt"><div class="wrap">
+  <h2>VB-Bench</h2>
+  <div class="statrow big">
+    <div class="stat"><b class="num">3,577</b>
+      <span>physics-adjudicated instances</span></div>
+    <div class="stat"><b class="num">6</b>
+      <span>code families</span></div>
+    <div class="stat"><b class="num">1,311</b>
+      <span>gradable tasks</span></div>
+  </div>
+  <p class="note">Every code limit in the knowledge base is traceable to the clause it comes from.</p>
+  <figure class="paperfig">
+  <img loading="lazy" src="assets/media/figures/fig2c.webp?v=7ba55714" width="2200" height="1168" alt="Figure 2c: Instance locations by seismic code family. Marker size is building height; colour is the code family the insta">
+  <figcaption>
+    <b>Figure 2c.</b>
+    <span>Instance locations by seismic code family. Marker size is building height; colour is the code family the instance is adjudicated under.</span>
+  </figcaption>
+</figure>
+  <figure class="paperfig">
+  <img loading="lazy" src="assets/media/figures/fig4.webp?v=bbbc5886" width="1678" height="548" alt="Figure 4: VB-Bench overview. (a) Instance composition by route (inner) and code family (outer). (b) Height-slenderness o">
+  <figcaption>
+    <b>Figure 4.</b>
+    <span>VB-Bench overview. (a) Instance composition by route (inner) and code family (outer). (b) Height-slenderness of every instance. (c) Geographic coverage of the real instances.</span>
+  </figcaption>
+</figure>
+  <p class="chips"><span>GB</span> <span>EC8</span> <span>ASCE 7</span> <span>BSL</span> <span>IS</span> <span>NZS</span></p>
+</div></section>
+
+<section id="demos" class="band alt"><div class="wrap">
+  <h2>One building, four stages</h2>
+  <p class="lede">The same massing carried through the whole chain: the finished
+    render, the Rhino massing being built, the OpenSeesPy frame the physics engine judges, and the
+    Blender turntable. Every column is a real artefact of the run, not an illustration.</p>
+  <div class="demogrid">
+  <div class="demorow">
+    <div class="demolabel"><span class="kind">pipeline tower</span><b>Burj Khalifa</b><span class="facts">828.0 m · 20,736 elements</span></div>
+      <div class="democell"><span class="colname">Rhino</span><img loading="lazy" src="assets/media/b/burj_khalifa_828m/sq_process_rhino.webp?v=e31064a0" alt="Burj Khalifa, Rhino view"></div>
+      <div class="democell"><span class="colname">OpenSeesPy</span><img loading="lazy" src="assets/media/b/burj_khalifa_828m/sq_build_4view.webp?v=0f0d899b" alt="Burj Khalifa, OpenSeesPy view"></div>
+      <div class="democell" style="background:#102749"><span class="colname">First mode</span><img loading="lazy" src="assets/media/b/burj_khalifa_828m/sq_mode_01.webp?v=7147eb09" alt="Burj Khalifa, First mode view"></div>
+      <div class="democell" style="background:#192836"><span class="colname">Blender</span><img loading="lazy" src="assets/media/b/burj_khalifa_828m/sq_turntable.webp?v=e531f1ec" alt="Burj Khalifa, Blender view"></div>
+  </div>
+  <div class="demorow">
+    <div class="demolabel"><span class="kind">pipeline tower</span><b>Design Shanghai Megaframe</b><span class="facts">630.0 m · 17,964 elements</span></div>
+      <div class="democell"><span class="colname">Rhino</span><img loading="lazy" src="assets/media/b/design_shanghai_megaframe_632m/sq_process_rhino.webp?v=ea2fd488" alt="Design Shanghai Megaframe, Rhino view"></div>
+      <div class="democell"><span class="colname">OpenSeesPy</span><img loading="lazy" src="assets/media/b/design_shanghai_megaframe_632m/sq_build_4view.webp?v=0f842c41" alt="Design Shanghai Megaframe, OpenSeesPy view"></div>
+      <div class="democell" style="background:#102749"><span class="colname">First mode</span><img loading="lazy" src="assets/media/b/design_shanghai_megaframe_632m/sq_mode_01.webp?v=6d28dce2" alt="Design Shanghai Megaframe, First mode view"></div>
+      <div class="democell" style="background:#192836"><span class="colname">Blender</span><img loading="lazy" src="assets/media/b/design_shanghai_megaframe_632m/sq_turntable.webp?v=6ca89bc7" alt="Design Shanghai Megaframe, Blender view"></div>
+  </div>
+  <div class="demorow">
+    <div class="demolabel"><span class="kind">classic</span><b>Windmill Interlocking Campus</b><span class="facts">18.0 m · 6 storeys · 1,128 elements</span></div>
+      <div class="democell"><span class="colname">Rhino</span><img loading="lazy" src="assets/media/b/bauhaus_dessau/sq_process_rhino.webp?v=6d6b6f49" alt="Windmill Interlocking Campus, Rhino view"></div>
+      <div class="democell"><span class="colname">OpenSeesPy</span><img loading="lazy" src="assets/media/b/bauhaus_dessau/sq_build_4view.webp?v=95f7c3f6" alt="Windmill Interlocking Campus, OpenSeesPy view"></div>
+      <div class="democell" style="background:#102749"><span class="colname">First mode</span><img loading="lazy" src="assets/media/b/bauhaus_dessau/sq_mode_01.webp?v=f327ed78" alt="Windmill Interlocking Campus, First mode view"></div>
+      <div class="democell" style="background:#1d2b35"><span class="colname">Blender</span><img loading="lazy" src="assets/media/b/bauhaus_dessau/sq_turntable.webp?v=31791ed1" alt="Windmill Interlocking Campus, Blender view"></div>
+  </div>
+  <div class="demorow">
+    <div class="demolabel"><span class="kind">classic</span><b>Hilversum Town Hall Redesign</b><span class="facts">48.0 m · 13 storeys · 454 elements</span></div>
+      <div class="democell"><span class="colname">Rhino</span><img loading="lazy" src="assets/media/b/hilversum_civic/sq_process_rhino.webp?v=b452a042" alt="Hilversum Town Hall Redesign, Rhino view"></div>
+      <div class="democell"><span class="colname">OpenSeesPy</span><img loading="lazy" src="assets/media/b/hilversum_civic/sq_build_4view.webp?v=5157f946" alt="Hilversum Town Hall Redesign, OpenSeesPy view"></div>
+      <div class="democell" style="background:#102749"><span class="colname">First mode</span><img loading="lazy" src="assets/media/b/hilversum_civic/sq_mode_01.webp?v=8521bf94" alt="Hilversum Town Hall Redesign, First mode view"></div>
+      <div class="democell" style="background:#041e2f"><span class="colname">Blender</span><img loading="lazy" src="assets/media/b/hilversum_civic/sq_turntable.webp?v=d8648f13" alt="Hilversum Town Hall Redesign, Blender view"></div>
+  </div>
+  </div>
+</div></section>
+
+<section id="hazard" class="band alt"><div class="wrap">
+  <h2>What the designs are checked against</h2>
+  <p class="lede">Verification runs against held-out record libraries, not against the
+    loads the design was tuned on: forty-four far-field ground motions and sixteen
+    ten-minute wind series, eight recorded in the field and eight synthesised to match
+    the Kaimal and Davenport targets.</p>
+  <figure class="paperfig">
+  <img loading="lazy" src="assets/media/figures/fig12.webp?v=87880b54" width="1597" height="691" alt="Figure 12: The held-out record libraries. (a) Unscaled 5%-damped pseudo-acceleration response spectra of the 44 FEMA P-69">
+  <figcaption>
+    <b>Figure 12.</b>
+    <span>The held-out record libraries. (a) Unscaled 5%-damped pseudo-acceleration response spectra of the 44 FEMA P-695 far-field records, with their median and 16–84% band. (b) Normalised power spectra of the eight field-recorded wind series and the eight spectrum-consistent synthetic series, against the Kaimal and Davenport targets used for synthesis.</span>
+  </figcaption>
+</figure>
+</div></section>
+
+<section id="bibtex" class="band"><div class="wrap narrow">
+  <h2>BibTeX</h2>
+  <p class="note">Preprint on arXiv. Replace with the proceedings entry after the decision.</p>
+  <pre class="bibtex"><code>@article{jiang2026vibebuilding,
+  title   = {Vibe Building},
+  author  = {Jiang, Yongqing and Luo, Haoran and Wang, Jianze and
+             Zhou, Xin and Dai, Kaoshan and Shen, Zhiqi},
+  journal = {arXiv preprint arXiv:2610.08156},
+  year    = {2026},
+  doi     = {10.48550/arXiv.2610.08156}
+}</code></pre>
+</div></section>
+
+</main>
+
+<footer class="site"><div class="wrap">
+  <p>Every analysis on this site is elastic and schematic. It is a demonstration
+    of a toolchain, not a substitute for engineering review.</p>
+  <p>The thirteen classics are each a frame idealisation of a massing, not a model of a
+    built building. There is no published structural data for them to compare against and
+    no validation is claimed.</p>
+</div></footer>
+
+<script type="module" src="assets/js/site.js?v=12284be0"></script>
+</body>
+</html>

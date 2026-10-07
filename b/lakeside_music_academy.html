@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lakeside Music Academy</title>
+<meta name="description" content="Lakeside Music Academy. 36.5 m · 706 elements. A frame produced by the Vibe Building pipeline and drawn by its renderer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/css/site.css?v=266f1eaa">
+<link rel="icon" href="../assets/icon/favicon.svg?v=0b1456c9" type="image/svg+xml">
+<link rel="icon" href="../assets/icon/favicon-32.png?v=143ad0cc" sizes="32x32">
+<link rel="apple-touch-icon" href="../assets/icon/apple-touch-icon.png?v=cffdc6c4">
+<meta name="theme-color" content="#0d8f85">
+</head>
+<body>
+
+<nav class="top">
+  <a class="brand" href="../index.html"><svg class="brandmark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><g fill="currentColor"><rect x="8.00" y="25.00" width="14.50" height="3.0" rx="1.3"/><rect x="8.31" y="20.00" width="14.00" height="3.0" rx="1.3"/><rect x="9.25" y="15.00" width="13.50" height="3.0" rx="1.3"/><rect x="10.81" y="10.00" width="13.00" height="3.0" rx="1.3"/><rect x="13.00" y="5.00" width="12.50" height="3.0" rx="1.3"/></g><rect x="5.5" y="29" width="19" height="2" rx="1" fill="#0d8f85"/></svg>Vibe&nbsp;Building</a>
+  <span class="spacer"></span>
+  <a href="../gallery.html"><span>Gallery</span></a>
+  <a href="../paper.pdf"><span>Paper</span></a>
+</nav>
+
+<main class="page detail">
+<div class="wrap">
+  <header class="pagehead">
+    <span class="kind"><span>showcase</span></span>
+    <h1>Lakeside Music Academy</h1>
+<p class="sub">33 m clock tower, 6-storey teaching block</p>
+    <p class="facts num">36.5 m · 706 elements</p>
+  </header>
+  <div class="topsplit">
+  <figure class="hero-shot"><img src="../assets/media/b/lakeside_music_academy/light_model.webp?v=afda81ea" alt="Lakeside Music Academy"></figure>
+    <section class="facts-table">
+      <h2>The model</h2>
+      <div class="tablewrap"><table class="data"><tbody>
+      <tr><th><span>height</span></th><td class="num">36.5 m</td></tr>
+      <tr><th><span>nodes</span></th><td class="num">374</td></tr>
+      <tr><th><span>elements</span></th><td class="num">706</td></tr>
+      <tr><th><span>periods T1..T3</span></th><td class="num">1.087 s / 0.964 s / 0.781 s</td></tr>
+      <tr><th><span>element types</span></th><td class="num">beam 385, clock_tower 108, entrance_portico 6, main_teaching 144, rehearsal_wing 27, service_annex 30, tower_cap 6</td></tr>
+      </tbody></table></div>
+    </section>
+  </div>
+  <section class="clips">
+    <figure class="clip"><video controls muted loop playsinline preload="metadata" poster="../assets/media/b/lakeside_music_academy/build_iso_poster.webp?v=42a7266b" src="../assets/media/b/lakeside_music_academy/build_iso.mp4?v=99bcc611"></video><figcaption><span>OpenSeesPy · the frame assembles</span></figcaption></figure>
+    <figure class="clip"><video controls muted loop playsinline preload="metadata" poster="../assets/media/b/lakeside_music_academy/build_4view_poster.webp?v=17702fb4" src="../assets/media/b/lakeside_music_academy/build_4view.mp4?v=fab273b1"></video><figcaption><span>Four views of the same assembly</span></figcaption></figure>
+    <figure class="clip"><img loading="lazy" src="../assets/media/b/lakeside_music_academy/light_modes.webp?v=d3f27923" alt="First modes"><figcaption><span>First modes</span></figcaption></figure>
+    <figure class="clip"><img loading="lazy" src="../assets/media/b/lakeside_music_academy/light_deformed.webp?v=7169d435" alt="Deformed shape under gravity"><figcaption><span>Deformed shape under gravity</span></figcaption></figure>
+  </section>
+
+  <section class="report">
+    <h2>Build report</h2>
+    <pre># Lakeside Music Academy — vbviz product set
+
+The building of `ssot/examples/building_003.ssot.json` (project id
+`lakeside_music_academy`, the building in `docs/showcase/03_concept_dusk.png`)
+brought into the vbviz pipeline: the project&#x27;s own geometry kernel
+`ssot/viz/massing_frame_analysis.massing_to_frame` meshes the massing boxes,
+`vbviz.adapters.vb.from_massing_frame` converts the result into a vbviz `Model`,
+and `vbviz.export_all` writes the product set into `paper/`, `studio/` and
+`studio_white/`. Driver: `build_model.py`. Numbers: `results.json`.
+
+**The rendered set is variant B** — all six massing boxes structural, with the
+clock room seated on the tower (§4). Variant A, the source&#x27;s own structural
+definition (four boxes), is the faithful-to-source reference. Variant B0, B
+without the seating, is measured on every run because it is the finding that
+motivated the reconstruction (§3). Only B is rendered.
+
+Nothing under `~/Desktop/乌镇` was read except the SSOT and the kernel, and
+nothing there was written. The variant-B SSOT is a local copy:
+`building_003.variant_b.ssot.json`.
+
+## 1. The model
+
+| | A (reference) | B0 (not rendered) | **B (rendered)** |
+|---|---|---|---|
+| boxes | 4 — `include: true` only | 6, cap footprint as the source leaves it | 6, clock room seated on the tower |
+| nodes | 309 | 386 | **374** |
+| elements | 626 (255 col, 371 beam) | 713 (321 col, 392 beam) | **706 (321 col, 385 beam)** |
+| fixed base nodes | 54 | 65 | **59** |
+| connected pieces | 4 | 5 | **4** |
+| height | 33.0 m | 36.5 m | **36.5 m** |
+| total lumped mass | 3 586.2 t | 3 719.1 t | **3 703.2 t** (267 mass nodes) |
+| T1 | 1.0057 s | 2.1913 s | **1.0869 s** |
+| T2 | 0.8851 s | 2.1426 s | **0.9644 s** |
+| T3 | 0.7814 s | 1.1324 s | **0.7814 s** |
+| T4 / T5 / T6 | 0.7636 / 0.7436 / 0.6601 | 1.0057 / 0.8851 / 0.7814 | 0.7707 / 0.7636 / 0.6601 |
+
+No braces anywhere: no box is a core, so the kernel emits none.
+
+**Which piece each of B&#x27;s modes belongs to** (the component holding the node
+that moves most — with the pieces structurally independent, a mode lives in
+exactly one):
+
+| mode | period | piece | peak node |
+|---|---|---|---|
+| 1 | 1.0869 s | `clock_tower` + `entrance_portico` + `tower_cap` | (16.0, 6.0, 36.5) — the clock room |
+| 2 | 0.9644 s | the same piece, the other direction | (16.0, 0.0, 36.5) |
+| 3 | 0.7814 s | `main_teaching` | (27.2, 30.0, 21.6) — the block&#x27;s roof |
+
+Modes 1 and 2 are the **clock tower swaying with the clock room on top of it**,
+which is the building&#x27;s own first mode; mode 3 is the teaching block. Against A,
+the reference: A&#x27;s tower modes are 1.0057 / 0.8851 s, and B&#x27;s are 8 % longer
+because the clock room&#x27;s mass now sits at 36.5 m. B&#x27;s T3 is A&#x27;s T3 to four
+decimals — the teaching block is untouched by any of this, as it should be.
+
+Max gravity displacement of the rendered model: 1.78 mm (floor load only).
+
+## 2. Assumptions
+
+| what | value | where it comes from |
+|---|---|---|
+| mass caliber | floor tributary area × 6750 Pa / 9.81, **self weight excluded**; 267 lumped nodal masses, 3 703.2 t total | `vbviz.adapters.vb.from_massing_frame` (`LOAD_PA = 6750`, `GACC = 9.81`) — the caliber `examples/export_v4.py` uses, so these periods are on the same footing as the v4 set |
+| gravity case | the same floor load as vertical nodal loads, 10 equal linear steps | `vb.gravity_state` |
+| columns | 0.6 × 0.6 m, A = 0.36 m², I = 0.0108 m⁴ | `massing_frame_analysis._FD_DEFAULT`; the SSOT carries **no** `frame_design` block, so the kernel&#x27;s starting sections stand — they were never iterated by the design loop for this file |
+| beams | 0.3 × 0.6 m | idem |
+| bracing | none — no box is a core (`role: core`, `structural.solid`, or `core` in the id) | kernel, core branch |
+| material | E = 30 GPa, ν = 0.2, elastic `elasticBeamColumn` throughout | kernel constants |
+| self weight | **not** in the model. Since the kernel&#x27;s 2026-08-02 fix its own `node_gravity` adds RC member self weight at 25 kN/m³; the vbviz adapter&#x27;s caliber predates that and does not. Every period here is therefore shorter than the kernel&#x27;s own pipeline would now report, and the two sets must not be mixed. | `massing_frame_analysis.node_gravity` vs `vb._masses` |
+| drawing radii | columns 0.30 m (half the section), beams √(0.3·0.6/π) = 0.239 m | adapter |
+| member colours | one registered palette key per massing box, applied to that box&#x27;s **columns**, plus `beam` and `brace` | `register_palette` / `label_by_box`; attribution is by re-meshing each box alone and matching node-coordinate pairs — the kernel says which box made which member, nothing is inferred from geometry. One correction, below. |
+| dropped columns are labelled by the space they occupy | 54 of B&#x27;s columns relabelled | a box in the air has its columns dropped to grade by the kernel; below its own `base_z` those columns are not that box, they are the shaft they stand in. In B the cap&#x27;s 54 sub-33 m column segments run down the tower&#x27;s own axes and are drawn as tower columns. Without this the whole tower shaft renders as &quot;clock-room cap&quot;. |
+
+### What `massing_to_frame` decided
+
+| decision | consequence here |
+|---|---|
+| `floor_h = 3.6 m` from `grammar.floor_h`, **one value for the whole building** | the portico&#x27;s own `grammar.floor_h: 4.8` is ignored: the 5.0 m portico gets `round(5/3.6) = 1` storey, levels at z = 0 and 5.0 |
+| `target_bay = 6.0 m`, `ncx = round(W/6)`, `ncy = round(D/6)`, at least 1 | clock tower 6 × 12 m → 2 × 3 column lines; teaching block 32 × 18 m → 6 × 4; rehearsal wing 14 × 14 m → 3 × 3; annex 26 × 10 m → 5 × 3; portico 14 × 7 m → 3 × 2; cap (seated) 6 × 12 m → 2 × 3, the tower&#x27;s grid exactly. Bays are the footprint divided evenly, so **no two boxes share a grid line unless their footprints divide to the same coordinate** |
+| top level snapped to `base_z + H` | the tower&#x27;s levels are 0, 3.6 … 28.8, **33.0** (last storey 4.2 m) |
+| a box with `base_z &gt; 0` drops its columns to grade, **with no beams below `base_z`** | the cap&#x27;s six legs run the full 33 m. Seated (B) they run down the tower&#x27;s own axes and are tied to it at grade and at 33.0 m; unseated (B0) they stand free — §3 |
+| the dropped legs are spaced `base_z / round(base_z / floor_h)` = 33/9 = 3.667 m | those intermediate nodes do **not** coincide with the tower&#x27;s 3.6 m levels, so even seated the legs stay a second, parallel set of columns on the same six axes — see §4 |
+| floor mass only above `base_z` | the 33 m of leg carries no mass, only the clock room on top |
+| `structural.include` read for `profile_tower` only (kernel line 236) | every `massing_box` is meshed whatever the flag says — §5 |
+| underground boxes and near-duplicate double skins dropped | neither applies; all six boxes survive |
+
+## 3. The flagpole — the finding that motivated the reconstruction
+
+Variant B0 is the honest reading of the source file with both `include` flags
+flipped and nothing else touched. In it, `tower_cap` sits at `base_z = 33` on a
+footprint inflated 0.6 m all round (15.4…22.6 × −0.6…12.6 against the tower&#x27;s
+16…22 × 0…12). Because that inflated footprint shares no grid line with the
+tower, the kernel&#x27;s &quot;drop the columns to grade&quot; rule gives the cap **six 33 m
+legs of its own, beamless over their whole length**, standing beside the tower
+rather than on it: a free-standing flagpole, its own connected component of 66
+nodes. Those legs pass straight *through* the teaching block&#x27;s corner and the
+portico without connecting to either.
+
+It is the softest thing in the model and it owned the top of the spectrum:
+
+| | B0 | B |
+|---|---|---|
+| pieces | 5 | 4 |
+| T1 | 2.1913 s — the cap&#x27;s legs | 1.0869 s — the tower with the clock room on it |
+| T2 | 2.1426 s — the cap&#x27;s legs | 0.9644 s — the same piece, other direction |
+| T3 | 1.1324 s | 0.7814 s — the teaching block |
+
+`modes.html` in B0 animates six bare legs swaying beside a stationary building,
+and the headline period belongs to nothing anybody designed. That is why B0 is
+computed and reported but not rendered.
+
+## 4. The reconstruction: the clock room sits on the tower
+
+Made in the local copy `building_003.variant_b.ssot.json`, **not** in the kernel
+and not in the source:
+
+| | before (source) | after (variant B) |
+|---|---|---|
+| `tower_cap.geometry.footprint` | `[15.4, −0.6, 22.6, 12.6]` | `[16.0, 0.0, 22.0, 12.0]` — the clock tower&#x27;s own footprint |
+| `base_z` | 33.0 m | 33.0 m (unchanged) |
+| `height` | 3.5 m | 3.5 m (unchanged) |
+
+**Why:** the source inflates the cap 0.6 m all round because the cap is
+render-only geometry — a cornice overhang, and `structural.include: false` says
+as much. For a structural model the clock room sits on the tower. With the
+footprints equal the cap is meshed on the tower&#x27;s own 2 × 3 grid, and its
+columns land on the tower&#x27;s roof nodes: the two boxes now share **12 nodes**,
+six at the roof (z = 33.0) and six at grade, so the clock room becomes one more
+storey of the tower instead of a neighbour.
+
+**What it changed:** 386 → 374 nodes, 713 → 706 elements, 5 → 4 pieces,
+3 719.1 → 3 703.2 t (the clock room&#x27;s plan shrank from 95 to 72 m²), and
+T1 from 2.1913 s (a flagpole) to 1.0869 s (the tower).
+
+**What it did not fix, and is not hidden.** The kernel spaces a dropped leg at
+`base_z / round(base_z / floor_h)` = 33/9 = 3.667 m, while the tower&#x27;s own
+levels are at 3.6 m. The legs therefore share only grade and the roof with the
+tower, and the tower shaft carries **two parallel sets of six columns** — the
+tower&#x27;s 54 segments and the cap&#x27;s 54 — tied to each other only at their ends.
+The shaft&#x27;s column area is effectively doubled there. That is a kernel meshing
+rule meeting a 3.6 m storey that does not divide 33.0 m, and no edit to the
+local copy removes it while `base_z` stays at 33.0. It is stated rather than
+patched, and it is a small error in one piece&#x27;s stiffness where the flagpole was
+a spurious global mode. (T1 still *rises* from A&#x27;s 1.0057 s to 1.0869 s: the
+clock room&#x27;s mass at 36.5 m outweighs the doubled shaft.)
+
+In the drawings those 54 duplicate segments are drawn as clock-tower columns,
+because that is the volume they occupy; `results.json` records the count as
+`variants.B.dropped_columns_relabelled`.
+
+## 5. Connectivity — four pieces
+
+The kernel meshes each box independently and boxes join only where grid nodes
+coincide. Counted on variant B&#x27;s frame (union-find over every column, beam and
+brace):
+
+| component | nodes | z range | boxes |
+|---|---|---|---|
+| 1 | 168 | 0 – 21.6 m | `main_teaching` |
+| 2 | 125 | 0 – 36.5 m | `clock_tower` + `entrance_portico` + `tower_cap` |
+| 3 | 45 | 0 – 7.2 m | `service_annex` |
+| 4 | 36 | 0 – 10.8 m | `rehearsal_wing` |
+
+Shared nodes: `clock_tower` + `tower_cap` share 12 (six at grade, six at the
+roof, z = 33.0) — the reconstruction of §4. `entrance_portico` shares exactly
+one node with the tower, (22.0, 12.0, 0.0), which is a **ground** node and
+therefore fixed anyway: the portico is tied to the tower through the foundation,
+not through the superstructure, and it does not move in modes 1 and 2.
+
+Everywhere else the grids miss each other, and **nothing is forced**:
+
+* the **tower stands free of the teaching block** — the tower&#x27;s grid lines are
+  x ∈ {16, 22}, y ∈ {0, 6, 12}; the block&#x27;s are x ∈ {8, 14.4, 20.8, 27.2, 33.6,
+  40}, y ∈ {12, 18, 24, 30}. They share the line y = 12 but no x on it. This is
+  what the source kernel does with the source footprints and it is left alone.
+* `rehearsal_wing` abuts the block along x = 40, but its y values (14, 21, 28)
+  miss the block&#x27;s (12, 18, 24, 30).
+* `service_annex` abuts along y = 30, and its x values (10, 16.5, 23, 29.5, 36)
+  miss the block&#x27;s.
+
+Variant A is the same picture with four components — one per box, no shared node
+at all.
+
+## 6. What the include flip changed
+
+`entrance_portico` and `tower_cap` carry `structural.include: false` in the
+source: the original project never modelled them structurally. The local copy
+flips both to `true`.
+
+**The flip is a statement of intent, not a lever on this kernel.**
+`massing_to_frame` tests `structural.include` for `profile_tower` elements only
+(line 236); the `massing_box` loop below it tests nothing and meshes every box.
+So passing the flipped copy to the kernel gives the same frame as passing the
+untouched source. Variant A is therefore produced the only way it can be — by
+dropping the `include: false` boxes from the element list before the call — and
+B0 is what the kernel does with the file as it stands.
+
+Reported, not patched. If the benchmark wants `structural.include` to mean
+something for massing boxes, the change belongs in
+`ssot/viz/massing_frame_analysis.py` around line 242, one condition, and it
+would change the frame of every instance in the library whose boxes carry the
+flag.
+
+What the two extra boxes add to the rendered model: +65 nodes, +80 elements,
++117.0 t, +3.5 m of height, and a first period 8 % longer than A&#x27;s. What they
+add visually is the colonnade and the clock room — the two things that make the
+render recognisable — which is why B is the set that ships.
+
+## 7. The product folders
+
+`export_all(modes=6, forces=(&quot;N&quot;,&quot;Vy&quot;,&quot;Mz&quot;), cutaway=&quot;both&quot;, html=True)`, then
+`preview/` screenshots via playwright, then `write_index`, then `finalize`.
+Every folder was read back off disk by `build_model.verify`:
+
+| theme | products | previews | size | manifest `files_on_disk` = folder | `model.png` corners | `model.html` / `modes.html` margins |
+|---|---|---|---|---|---|---|
+| `paper` | 24 | 5 | 53 MB | yes (28 entries) | white (1.000, 1.000, 1.000) ✓ | min margin 0.040, centring error 0.000 ✓ |
+| `studio` | 24 | 5 | 57 MB | yes (28 entries) | dark (0.06, 0.16, 0.29 / 0.04, 0.12, 0.20) ✓ | min margin 0.040, centring error 0.000 ✓ |
+| `studio_white` | 24 | 5 | 54 MB | yes (28 entries) | white (1.000, 1.000, 1.000) ✓ | min margin 0.040, centring error 0.000 ✓ |
+
+24 products per folder: `model.png`, `model_cutaway.png`, `model.html`,
+`modes.png`, `mode_01.png`, `modes.html`, `modes_frames.html`,
+`modes_grid.html`, `periods.png`, `periods.html`, `deformed.png`,
+`deformed.html`, `deformed_anim.html`, `force_{N,Vy,Mz}.{png,pdf,html}`,
+`index.html`, `manifest.json`. `preview/` holds chromium shots of `model.html`,
+`modes.html`, `modes_frames.html`, `deformed.html`, `force_N.html`.
+
+The margin check is the one from `vbviz/tests/test_nontower.py` §10, run on the
+written page through the camera the file itself carries: every trace the page
+draws — the ground plate included — sits at least 4 % of the frame from every
+edge, and the drawing is centred to within 0.000 in both directions.
+Thresholds: ≥ 0.02 from an edge, ≤ 0.06 centring error.
+
+Top level: `index.html` links the three folders, all three variants&#x27; periods and
+this report.
+
+## 8. The validation block saved in the SSOT
+
+`validation.last_run`, dated 2026-06-14, holds:
+
+| quantity | saved value |
+|---|---|
+| `passed` | `false` |
+| `first_freq_hz` | 2.6622 Hz |
+| `T1_s` | 0.2371 s |
+| `freqs_Hz` (8) | 2.6622, 3.6775, 3.9008, 4.1905, 4.2177, 5.1514, 5.4282, 6.0106 |
+| `max_static_disp_m` | 0.05211 m (target 0.014 → **failed**) |
+| `max_mises` / `combo_max_mises` | 15.609 / 15.655 MPa |
+| `stress_utilization` | 3.262 |
+| `drift_ratio` / `top_drift_ratio` | 2.46e-4 / 5.2e-5 |
+| `story_drifts` (4) | 2.46e-4, 1.50e-4, 1.73e-4, 1.13e-4 |
+| `eff_mass_ratio_x` | 0.3555 |
+| `alpha1` | 0.08 |
+| `checks` | `min_first_freq_hz: true`, `max_static_disp_m: false` |
+| `feedback` | &quot;最大位移 0.0521 m &gt; 目标 0.0140 → 加刚/加支撑&quot;; &quot;前 8 阶累计有效质量仅 36% &lt; 90% [GB50011 §5.2.2] → 应增加振型数(信息项)&quot; |
+
+**Those saved values came from the project&#x27;s earlier Abaqus shell model and are
+not comparable to a frame model except where the quantity is the same.** The
+elements say so themselves: each box carries `structural.fe_type: &quot;shell&quot;` with
+a thickness of 0.25–0.35 m. A 0.30 m shell wrapping a 32 × 18 m block and a
+0.35 m shell wrapping the tower is a *tube*; what is modelled here is a bare
+0.6 × 0.6 m column grid with 0.3 × 0.6 m beams and no walls, no slabs and no
+cores. Beside it:
+
+| quantity | saved (Abaqus shell) | here (frame) | comparable? |
+|---|---|---|---|
+| T1 | 0.2371 s | 1.0057 s (A) / 1.0869 s (B) | **no** — different structure, different stiffness, different mass caliber. The ratio is what a shell tube versus a bare frame looks like, nothing more. |
+| max static displacement | 0.05211 m | 0.00178 m | **no** — and not the same load case: the saved one is the SSOT&#x27;s `dead` self-weight case on a shell, ours is 6750 Pa of floor load on a frame with no self weight. |
+| von Mises stress, utilisation | 15.6 MPa, 3.262 | — | **not produced** — a line-element model has no von Mises field; vbviz draws N, Vy and Mz per member instead. |
+| storey drifts (4 values) | 2.46e-4 … 1.13e-4 | — | **not produced** here; four storey values for a 9-storey tower plus a 6-storey block is itself a shell-model discretisation artefact. |
+| effective mass ratio X | 0.3555 over 8 modes | — | **no** — and in our frame low participation has a different cause: four independent pieces, each with its own modes, so no single mode carries much of the total mass. |
+| target `min_first_freq_hz ≥ 1.0` | passed (2.66 Hz) | A: 0.99 Hz, B: 0.92 Hz — both fail | the *target* is the same object and can be checked against either model, but a frame failing a gate a shell passed is a statement about the two models, not about the building. |
+
+No validation is claimed. Nothing above is offered as a check on the saved
+values, and the saved values are not a check on anything here.
+
+## 9. Do the pictures read as the building?
+
+`studio/model.png` and `studio_white/model.png`, against
+`docs/showcase/03_concept_dusk.png`:
+
+**Yes — tower, blocks and portico all read, and the clock room now sits on the
+tower.** The slender clock tower stands at the left, alone, climbing past
+everything else; its shaft is one orange 2 × 3 column bundle from grade to
+33.0 m and the pink clock room is the storey on top of it, on the same
+footprint, ending at 36.5 m — the render&#x27;s silhouette. The long 6-storey
+teaching block fills the centre at 21.6 m on its regular 6 × 4 bay grid; the
+3-storey rehearsal wing steps down to the right at 10.8 m; the 2-storey service
+annex sits behind the block (violet, half hidden, as a low volume behind a
+taller one does in a 3/4 view); and the entrance portico is a row of six
+free-standing yellow columns 5 m tall at the front left with its own beam grid
+on top and nothing above it — a colonnade, as in the render. The silhouette
+steps 36.5 → 21.6 → 10.8 → 7.2 → 5.0 m from left to right, which is the render&#x27;s
+profile.
+
+`studio_white/preview/modes.png` (mode 1, T = 1.087 s): the amplitude ramp
+lights the **whole clock tower**, base to clock room, brass at the top and
+falling to the dark blue of zero at grade, with the clock room riding on the
+shaft; every other piece is at the zero colour. The first mode is the tower
+swaying, not a detached piece. The page&#x27;s info box reads &quot;374 nodes / 706
+elements · 4 disconnected pieces · T1 = 1.087 s · 706 of 706 members moving&quot;.
+
+Two honest differences from the render, unchanged by any of this:
+
+* no cladding, no glazing, no clock face, no cornice: vbviz draws line members
+  and translucent floor plates only (`docs/PRODUCTS.md` §3). The render&#x27;s
+  character comes largely from its facade; what the pictures share with it is
+  the massing, the storey heights and the bay rhythm.
+* the four pieces are four pieces. The tower is drawn beside the teaching block
+  and not tied to it, because that is what the kernel builds (§5).
+
+`paper/model.png` reads the same on a white page with the mineral palette.
+</pre>
+  </section>
+  <p class="back"><a href="../gallery.html"><span>&larr; All buildings</span></a></p>
+</div>
+</main>
+<footer class="site"><div class="wrap">
+  <p>Every analysis on this site is elastic and schematic. It is a demonstration
+    of a toolchain, not a substitute for engineering review.</p>
+  <p>Every model on this site was produced by the pipeline described in the paper. <a href="../paper.pdf">Read the paper (PDF)</a>.</p>
+</div></footer>
+
+<script type="module" src="../assets/js/site.js?v=12284be0"></script>
+</body>
+</html>
+

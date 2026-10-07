@@ -1,0 +1,623 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Centre Georges Pompidou, Paris</title>
+<meta name="description" content="Centre Georges Pompidou, Paris. 50.0 m · 8,853 elements. A frame produced by the Vibe Building pipeline and drawn by its renderer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/css/site.css?v=266f1eaa">
+<link rel="icon" href="../assets/icon/favicon.svg?v=0b1456c9" type="image/svg+xml">
+<link rel="icon" href="../assets/icon/favicon-32.png?v=143ad0cc" sizes="32x32">
+<link rel="apple-touch-icon" href="../assets/icon/apple-touch-icon.png?v=cffdc6c4">
+<meta name="theme-color" content="#0d8f85">
+</head>
+<body>
+
+<nav class="top">
+  <a class="brand" href="../index.html"><svg class="brandmark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><g fill="currentColor"><rect x="8.00" y="25.00" width="14.50" height="3.0" rx="1.3"/><rect x="8.31" y="20.00" width="14.00" height="3.0" rx="1.3"/><rect x="9.25" y="15.00" width="13.50" height="3.0" rx="1.3"/><rect x="10.81" y="10.00" width="13.00" height="3.0" rx="1.3"/><rect x="13.00" y="5.00" width="12.50" height="3.0" rx="1.3"/></g><rect x="5.5" y="29" width="19" height="2" rx="1" fill="#0d8f85"/></svg>Vibe&nbsp;Building</a>
+  <span class="spacer"></span>
+  <a href="../gallery.html"><span>Gallery</span></a>
+  <a href="../paper.pdf"><span>Paper</span></a>
+</nav>
+
+<main class="page detail">
+<div class="wrap">
+  <header class="pagehead">
+    <span class="kind"><span>landmark</span></span>
+    <h1>Centre Georges Pompidou, Paris</h1>
+<p class="sub">166 x 60 m exposed steel frame</p>
+    <p class="facts num">50.0 m · 8,853 elements</p>
+  </header>
+  <div class="topsplit">
+  <figure class="hero-shot"><img src="../assets/media/b/centre_pompidou/light_model.webp?v=56675b40" alt="Centre Georges Pompidou, Paris"></figure>
+    <section class="facts-table">
+      <h2>The model</h2>
+      <div class="tablewrap"><table class="data"><tbody>
+      <tr><th><span>height</span></th><td class="num">50.0 m</td></tr>
+      <tr><th><span>nodes</span></th><td class="num">3,620</td></tr>
+      <tr><th><span>elements</span></th><td class="num">8,853</td></tr>
+      <tr><th><span>periods T1..T3</span></th><td class="num">2.131 s / 1.279 s / 1.158 s</td></tr>
+      <tr><th><span>element types</span></th><td class="num">beam 2,576, brace 312, column 1,183, core_brc 168, facade 860, mega 448, outrigger 336, radial 2,450, ring 520</td></tr>
+      </tbody></table></div>
+    </section>
+  </div>
+  <section class="clips">
+    <figure class="clip"><video controls muted loop playsinline preload="metadata" poster="../assets/media/b/centre_pompidou/build_iso_poster.webp?v=0595b1e1" src="../assets/media/b/centre_pompidou/build_iso.mp4?v=3f2824bd"></video><figcaption><span>OpenSeesPy · the frame assembles</span></figcaption></figure>
+    <figure class="clip"><video controls muted loop playsinline preload="metadata" poster="../assets/media/b/centre_pompidou/build_4view_poster.webp?v=7f6f8825" src="../assets/media/b/centre_pompidou/build_4view.mp4?v=0ea6fbcb"></video><figcaption><span>Four views of the same assembly</span></figcaption></figure>
+    <figure class="clip"><video controls muted loop playsinline preload="metadata" poster="../assets/media/b/centre_pompidou/mode_01_poster.jpg?v=b8111d8d" src="../assets/media/b/centre_pompidou/mode_01.mp4?v=cf672ee6"></video><figcaption><span>First mode</span></figcaption></figure>
+    <figure class="clip"><img loading="lazy" src="../assets/media/b/centre_pompidou/light_modes.webp?v=9756c08a" alt="First modes"><figcaption><span>First modes</span></figcaption></figure>
+    <figure class="clip"><img loading="lazy" src="../assets/media/b/centre_pompidou/light_deformed.webp?v=7a07a24b" alt="Deformed shape under gravity"><figcaption><span>Deformed shape under gravity</span></figcaption></figure>
+  </section>
+
+  <section class="report">
+    <h2>Build report</h2>
+    <pre># Centre Georges Pompidou, Paris — OpenSeesPy structural model
+
+Piano + Rogers with Ove Arup &amp; Partners (Peter Rice), 1971–1977.
+Build script: `build_model.py`. Results: `results.json`. Renders: `paper/`, `studio/`.
+
+---
+
+## 0. This is a demonstration, not a validation
+
+**No measured dynamic data for the Centre Pompidou exists in any source reached.**
+There is no published ambient-vibration survey, no forced-vibration test, no
+instrumented earthquake record. There is therefore nothing to compare a computed
+period against, and **no validation is possible and none is claimed**. Every
+period in section 6 is *indicative only* — it tells you what this particular set
+of assumptions produces, and nothing about the building.
+
+What this exercise does demonstrate is that the toolchain (OpenSeesPy → vbviz)
+handles a large orthogonal exposed steel frame: 8 853 elements, real trusses
+rather than smeared beams, a gravity solve and an eigen solve, and a render in
+which the structural system is legible.
+
+---
+
+## 1. Published dimensions used, with sources
+
+| Quantity | Value | Source |
+|---|---|---|
+| Envelope length | 166 m | Centre Pompidou, own published figures |
+| Envelope width | 60 m | ditto |
+| Height, Rue Beaubourg side | 42 m | ditto |
+| Height, Piazza side | 45.5 m | ditto |
+| Levels in the superstructure | 7 | ditto |
+| Total floor area | 103 305 m² | ditto |
+| Steel | ≈ 15 000 t | ditto |
+| Structural bays along the length | 13 at 12.8 m → 14 column lines | Rogers Stirk Harbour + Partners |
+| Perimeter columns | 28, each 49 m tall, 800 mm OD spun steel, water/glycol filled | Centre Pompidou technical article |
+| Gerberettes | 168, 8 m long, ≈10 t each, cast steel by Krupp | ditto |
+| Tie rods | 200 mm dia, pre-tensioned solid steel, gerberette outer end → foundation | RSHP |
+| Facade bracing | diagonal cross bracing in the long facades, gerberette as end connection | RSHP |
+| Main beams | 84, of 45 m length | Centre Pompidou technical article |
+| Escalator tube | 10 runs of 16.7 m, ≈45 m in total | ditto |
+
+Everything not in this table is in section 4 (assumptions) and is reported as an
+assumption, never as a result.
+
+---
+
+## 2. The count consistency check — the model agrees
+
+The check offered in the brief was verified independently in the script
+(`N_LEVELS_CHECK`, asserted at run time):
+
+* 28 columns × 6 gerberette levels = **168** = the published gerberette count. ✔
+* 84 main beams ÷ 14 column lines = **6** levels. ✔
+
+So the frame has **six gerberette-borne truss levels, not seven**. The model
+agrees, and it goes one step further by saying where the seventh level goes:
+
+* Level 1 is the ground/Piazza floor at ±0.00, on grade, needing no gerberette.
+* Levels 2–7 are the six suspended decks at +6, +12, +18, +24, +30, +36 m, each
+  on its own pair of gerberettes per column line → **6 × 28 = 168 gerberettes**
+  and **6 × 14 = 84 main-beam trusses**, both exactly the published figures.
+* The **roof at +42 m** (the published Beaubourg height) is framed by a 14th set
+  of trusses that seats **directly on the column heads**, not on gerberettes.
+  This is the structural reason there are six gerberette levels and not seven,
+  and it is why the model&#x27;s total truss count is 98 while the published main-beam
+  count is 84.
+
+A second published number falls out of the same scheme. 166 × 60 × 7 = 69 720 m²,
+which is **less** than the published 103 305 m². The published area must therefore
+include the below-grade levels; 166 × 60 × 10 = 99 600 m² matches to within 4 %,
+consistent with Pompidou&#x27;s three basement levels. This is reported in
+`results.json` as an observation, not asserted.
+
+---
+
+## 3. The truss dimension conflict — resolved
+
+Quoted spans: 48 m, 51 m, 44.8 m. Quoted depths: 2.85 m, 4.80 m.
+
+### Chosen set
+
+| Quantity | Value |
+|---|---|
+| Truss span, gerberette seat to gerberette seat | **44.8 m** |
+| Main beam member length | **45.0 m** (published) |
+| Truss depth | **2.85 m** |
+| Column grid across the width | **48.0 m** |
+| Gerberette inner (short) arm | 1.6 m |
+| Gerberette outer (long) arm | 6.4 m (1.6 + 6.4 = the published 8 m) |
+| Outer envelope width | **60.8 m** vs the published 60 m (+1.3 %) |
+| Floor to floor | 6.0 m |
+
+### Why this set and not another
+
+The gerberette is published as 8 m long and rocks on the column, so two
+identities are forced by the geometry:
+
+```
+column grid across the width = truss span + 2 x (inner arm)
+outer envelope width         = truss span + 2 x 8 m
+```
+
+With a 44.8 m span and a 1.6/6.4 m split of the 8 m casting:
+
+* 44.8 + 2 × 1.6 = **48.0 m** → the &quot;48 m&quot; quote is the **column grid**, and it
+  comes out exact.
+* 44.8 + 2 × 8.0 = **60.8 m** → the published 60 m envelope, 1.3 % over.
+* The published **45 m** main beam is the member length of a 44.8 m span truss.
+
+Four independent published numbers — 8 m gerberette, 45 m beam, 60 m width, and
+the &quot;48 m&quot; quote — all fall out of one geometry. That is why this set was chosen.
+
+### Rejected, with reasons
+
+| Rejected | Why |
+|---|---|
+| **Span 51 m** | 51 + 2 × 8 = 67 m, **12 % wider** than the published 60 m envelope. 51 m × 4.80 m are the figures of the *rejected competition scheme*, not of the built building. |
+| **Span 48 m read as the truss span** | 48 + 16 = 64 m envelope (**6.7 % over**), and a 48 m span cannot produce a 45 m main beam. 48 m is instead reproduced exactly as the column grid. |
+| **Depth 4.80 m** | Leaves 1.2 m under a 6.0 m floor-to-floor, in a building whose services are all in the 8 m outer zone rather than in the ceiling; it also belongs to the 51 m competition truss. |
+
+The 2.85 m depth also sets where the gerberette sits: the deck is on the truss
+**top** chord, so the gerberette and the bottom chord are 2.85 m below deck level
+(at +3.15, +9.15 … +33.15 m).
+
+---
+
+## 4. Assumptions (nothing here is published)
+
+| Quantity | Value assumed | Basis |
+|---|---|---|
+| Column wall thickness | 40 mm (800 OD / 720 ID, A = 0.0955 m²) | Only &quot;800 mm OD spun steel&quot; is published. Gives ≈ 60 MPa mean base stress under gravity, ≈ 0.25 utilisation on S355 — the range a 49 m exposed column with a fire-protection water annulus sits in. |
+| Column water/glycol fill | 1050 kg/m³ over the 720 mm bore, 428 kg/m, over the full 49 m | The fill is published as fact; its density and extent are not. Modelled as added nodal mass (≈ 590 t in total). |
+| Gerberette pin diameter and eccentricity | **Not modelled as a pin.** Two rigidly connected line members meeting on the column axis, zero eccentricity | Neither the spherical bearing diameter nor its offset from the column axis is published. A rigid joint makes the frame **stiffer** than the building, so every period in section 6 is a lower bound. This is the single largest modelling error in the model. |
+| Gerberette section | I-blade 1.40 m deep × 0.50 m wide, 45 mm flanges, 87 mm web, A = 0.1592 m², Iy = 0.0345 m⁴ | The published 10 t over 8 m fixes the **area exactly** (A = 10000/7850/8); the depth and width are scaled off photographs and the web thickness is whatever the published mass leaves. The real casting is a tapered blade, so the modelled I is uniform where the real one is not. Model gerberette mass: **1 680.0 t = 168 × 10 t exactly.** |
+| Secondary beam spacing | 3.733 m, one at every truss panel point, spanning the 12.8 m bay | Not published. Set by the panel spacing so no secondary lands off-node; ≈ 3.7 m is normal for a composite deck of this depth. |
+| Design floor load (mass) | 7.5 kPa over the 44.8 × 166.4 m deck of each of the 7 levels | Not published. Museum/library floor, EN 1991 category C/D on a composite deck: ≈ 5.5 kPa dead + 2.0 kPa quasi-permanent. |
+| Escalator tube diameter | **3.2 m** | **Not published.** Scaled off photographs against the 12.8 m bay. Every number describing the tube follows from it. |
+| Escalator tube frame | a **wireframe tube**: rings every 4.0 m along the axis, 8 longitudinal members between them, all CHS 168.3 × 8 line elements; a triangulated bracket back to the nearest column line every third ring (≈ 12 m) | Not published. The real chenille is glass on a steel frame, so it is modelled as a frame and not as a solid. See §5. |
+| Escalator stand-off | the tube axis is **3.1 m outboard of the tie-rod plane** (y = −30.4 m), so the 1.6 m radius tube clears the facade plane by **1.5 m** | Not published. `escalator()` asserts that no station of the tube axis lies inside the building envelope; that assertion is in `results.json`. |
+| Truss and brace sections | chord CHS 450 × 25, web CHS 273 × 16, facade brace CHS 300 × 20, longitudinal CHS 400 × 20, secondary IPE 500 | No member schedule is published. Sized so the model&#x27;s own tonnage lands in the right order against the published 15 000 t and the gravity deflections are sane. |
+| Joints | all rigid, elastic beam-column elements throughout | The real gerberette bearings, tie-rod ends and truss nodes are pinned. Rigid joints overstiffen. |
+| Floor slab | rigid diaphragm over the **top chord** nodes and column heads of each deck only | The bottom chords are deliberately left out of the diaphragm so the trusses keep their own chord-axial (truss) action. Without a diaphragm the deck is a plan mechanism, since it has no in-plane bracing. |
+| Base and basement | columns fully fixed at −7.0 m (where the tie rods anchor); horizontal restraint only at ±0.00 | Pompidou&#x27;s three basements restrain the columns at grade. Foundation depth is not published; −7.0 m follows from the published 49 m column with its head at the published +42 m roof. |
+| Escalator layout | 10 runs of 16.7 m, each rising 4.5 m and advancing 16.08 m in x, **all in the same direction: one continuous diagonal**, 0.5 m landings between runs | See section 5. The 0.5 m landing is what makes 10 runs fit inside the 166.4 m facade; the real landing length is not published. |
+| Not modelled | cladding, services, escalator machinery, partitions, connections, basement framing | Part of why the model&#x27;s tonnage is below 15 000 t. |
+
+---
+
+## 5. The escalator: the brief&#x27;s &quot;zig-zag&quot; does not close
+
+The brief describes the tube as &quot;ten runs of 16.7 m each, about 45 m in total,
+zig-zagging up the facade&quot;. The arithmetic says otherwise, and the model follows
+the arithmetic:
+
+* 10 runs × 16.7 m = **167 m of run length**, so &quot;about 45 m in total&quot; cannot be
+  a length; it is the **total rise**, which matches the 45.5 m Piazza height.
+* 45 m of rise over 10 runs is 4.5 m per run, so each 16.7 m run advances
+  √(16.7² − 4.5²) = **16.08 m horizontally**.
+* 10 × 16.08 m = **160.8 m** — essentially the whole 166.4 m facade.
+
+Runs that reversed direction could not consume 160 m of a 166 m facade. So the
+runs all advance the same way: **one continuous diagonal**, which is what the
+photographs of the Piazza facade show.
+
+The model builds that, and it is now **entirely inside the published footprint**:
+the landings between runs are 0.5 m, so the tube is 160.8 + 9 × 0.5 = 165.3 m
+long against a 166.4 m facade, leaving 0.54 m at each end. It starts at Piazza
+grade (−3.50 m) at the west end and finishes at +41.5 m, 0.5 m under the +42 m
+roof. All four of those numbers are asserted (section 6.1).
+
+### The tube is a wireframe, not a solid
+
+It used to be one line of beam elements drawn at a 1.6 m radius: a solid grey
+cylinder 3.2 m across and 165 m long, lying diagonally over the Piazza facade.
+In the three-quarter view that reads as a **rogue inclined column driven through
+the building**, which is not what the chenille is. The real object is a glass
+tube on a steel frame, so it is now modelled as one:
+
+| | value | status |
+|---|---|---|
+| tube diameter | 3.2 m | **assumed** — not published, scaled off photographs against the 12.8 m bay |
+| ring spacing along the axis | 4.0 m (10 runs × 4 rings + a ring at each landing + a ring at the head = **50 rings**) | assumed |
+| longitudinal members | **8**, one per ring point | assumed |
+| member section | CHS 168.3 × 8 (A = 0.0040 m²) | assumed |
+| axis stand-off from the tie-rod plane | **3.1 m**, so the tube surface clears the facade plane by 1.5 m | assumed |
+| brackets | four members per station (two tube points × the two nearest column levels), every third ring ≈ every 12 m — **68 members** | assumed |
+| total | **860 line elements**, 79 t of model steel | — |
+
+The bracket is triangulated for a reason found by measurement, not by taste: a
+single tie per station leaves the tube free to **roll** about it (2.5 m of sag
+under its own weight), and a single parallel line of ties leaves it swinging
+like a **pendulum** (1.3 m). Two tube points tied to two column levels each
+gives 0.041 m, less than the frame&#x27;s own 0.117 m.
+
+**The assertion.** `escalator()` walks the 20 stations of the tube axis and
+asserts that none of them lies inside the building envelope
+(−83.2 ≤ x ≤ 83.2, |y| ≤ 30.4, −7.0 ≤ z ≤ 42.0), and that the tube *surface*
+clears the facade plane. Both are in `results.json → verification`; the axis
+runs at y = −33.5 m throughout and the nearest tube node is at y = −31.9 m,
+1.5 m outboard of the tie-rod plane. The only part of the tube that is not
+inside the published envelope in *z* is the top ring, whose crown reaches
++43.04 m against the +42 m roof — the axis head is at +41.5 m, fixed by the
+published 45 m rise from Piazza grade, and the tube has a radius.
+
+---
+
+## 6. Results
+
+**Model size:** 3 620 nodes, 8 853 elastic beam-column elements, 7 rigid
+diaphragms. Build 0.1 s, eigen ≈ 10 s.
+
+| Component | Count | Model steel |
+|---|---|---|
+| Columns, 800 mm spun steel | 28 (49 m each) | 1 029 t |
+| Gerberettes | **168** (336 line members) | 1 680 t |
+| Tie rods, 200 mm | 168 segments | 277 t |
+| Trusses | 98 = 84 on gerberettes + 14 on column heads | 2 395 t chord + 928 t web |
+| Facade cross bracing | 312 diagonals (13 bays × 6 storeys × 2 facades × 2) | 625 t |
+| Longitudinal beams | — | 1 248 t |
+| Secondary floor beams | — | 1 379 t |
+| Escalator tube (50 rings × 8 + 49 × 8 longitudinals + 68 bracket members) | 860 | 79 t |
+| **Total** | **8 853 elements** | **9 639 t** |
+
+Seismic mass 50 121 t (steel + column fill + 7.5 kPa of deck on 52 183 m² of
+modelled deck).
+
+### 6.1 Verification assertions (all run, all in `results.json`)
+
+| Assertion | Model | Published | Tol | Result |
+|---|---|---|---|---|
+| Envelope length (frame nodes) | 166.4 m | 166 m | 1 % | **PASS** |
+| Envelope width, tie-rod plane to tie-rod plane | 60.8 m | 60 m | 2 % | **PASS** |
+| Height above Rue Beaubourg (measured from node coords) | 42.0 m | 42 m | 0.05 m | **PASS** |
+| Height above the Piazza | 45.5 m | 45.5 m | 0.05 m | **PASS** |
+| Column length | 49.0 m | 49 m | 0.05 m | **PASS** |
+| Bay spacing | 12.8 m | 12.8 m | — | **PASS** |
+| Column count | 28 | 28 | exact | **PASS** |
+| Gerberette count | **168** | 168 | exact | **PASS** |
+| Gerberette length (inner + outer arm) | 8.0 m | 8 m | exact | **PASS** |
+| Main-beam trusses on gerberettes | 84 | 84 | exact | **PASS** |
+| Main beam member length | 44.8 m | 45 m | 0.5 m | **PASS** |
+| Escalator run length | 16.7 m | 16.7 m | exact | **PASS** |
+| Escalator total rise | 45.0 m | 45 m | exact | **PASS** |
+| Escalator **axis** west end inside the footprint | 0.54 m clear of the west facade line | inside | 1 m | **PASS** |
+| Escalator **axis** east end inside the footprint | 0.54 m clear of the east facade line | inside | 1 m | **PASS** |
+| Escalator **axis** foot at Piazza grade | −3.50 m | −3.5 m | 0.05 m | **PASS** |
+| Escalator **axis** head under the roof | 0.50 m clear of +42 m | inside | 1 m | **PASS** |
+| Escalator tube surface clear of the Piazza facade plane | 1.50 m | 1.50 m (= stand-off − radius) | 10⁻⁶ m | **PASS** |
+| Tube axis stations inside the building envelope | **0 of 20** | 0 | exact | **PASS** |
+
+Reported, not asserted:
+
+* **Steel tonnage 9 639 t against the published 15 000 t (64 %).** Not asserted
+  and not tuned to match: the model is primary + secondary frame only, with no
+  cladding support, no service steel, no connection material, no basement and no
+  escalator machinery. Forcing the sections up to hit 15 000 t would have been
+  fitting a number rather than reporting one. The one component that *is* exact
+  is the gerberettes, 168 × 10 t = 1 680 t, because the published mass was used
+  to fix the section area.
+* **Published floor area vs the 7-level envelope** — see section 2.
+
+### 6.2 Gravity
+
+Maximum downward displacement **0.117 m**, at truss mid-span: L/382 on the 44.8 m
+span. Sane for a 2.85 m deep truss at 7.5 kPa. The escalator tube&#x27;s own worst
+sag is **0.041 m**, i.e. it hangs off the frame rather than the other way round.
+
+### 6.3 Eigen — INDICATIVE ONLY
+
+| Mode | T (s) | f (Hz) | Character | Participating mass |
+|---|---|---|---|---|
+| 1 | 2.131 | 0.469 | longitudinal (X, along the 166 m) | mx 0.56 |
+| 2 | 1.279 | 0.782 | transverse (Y, across the 60 m) | my 0.84 |
+| 3 | 1.158 | 0.864 | torsion about the vertical | mt 0.82 |
+| 4 | 1.138 | 0.879 | longitudinal, 2nd | mx 0.33 |
+| 5 | 0.698 | 1.432 | longitudinal, 3rd | mx 0.03 |
+| 6 | 0.625 | 1.601 | torsion, 2nd | — |
+| 7–8 | ≈ 0.58 | ≈ 1.72 | vertical floor modes | — |
+
+#### The escalator moved these periods, and by how much
+
+Re-modelling the escalator as a wireframe tube is the only change to the model
+since the previous run. It is not a small change to the periods, and it is not
+hidden:
+
+| Mode | before (solid cylinder) | after (wireframe tube) | change |
+|---|---|---|---|
+| 1, longitudinal X | 1.833 s | **2.131 s** | **+16.3 %** |
+| 2, transverse Y | 1.278 s | 1.279 s | +0.1 % |
+| 3, torsion | 1.136 s | 1.158 s | +1.9 % |
+| 4, longitudinal 2nd | 0.990 s | 1.138 s | +15.0 % |
+| 5, longitudinal 3rd | 0.641 s | 0.698 s | +9.0 % |
+| 6 | 0.581 s | 0.625 s | +7.6 % |
+| 7 | 0.580 s | 0.581 s | +0.1 % |
+| 8 | 0.578 s | 0.580 s | +0.3 % |
+
+The pattern says exactly what happened. **Only the longitudinal modes moved.**
+The old escalator was one continuous 165 m line of beam elements with
+A = 0.050 m² and I = 0.060 m⁴, running diagonally across the whole Piazza
+facade and tied to the frame at 39 points: a 165 m diagonal brace that nobody
+intended to model. Taking it out removes a spurious longitudinal stiffening, so
+T₁ lengthens 16 %; the transverse period, which the escalator never braced, is
+unchanged to 0.1 %.
+
+The new tube is the honest object: light members, and the axial stiffness of
+eight 168 mm CHS spread round a 3.2 m circle rather than one notional
+0.05 m² spine. **The new numbers are the better ones**, and the old T₁ = 1.833 s
+should be read as having been 16 % too stiff for a reason that had nothing to
+do with the building.
+
+**There is nothing to compare these against.** For context only: an empirical
+code formula for a 42 m steel moment frame (0.05 H^0.75) gives ≈ 0.83 s, so the
+model is roughly twice as flexible as a generic steel building of this height.
+That is directionally plausible for an exposed frame whose lateral system is
+28 slender 800 mm columns plus a braced facade plane whose chords are 200 mm
+rods — but it is a plausibility remark, not a validation, and it could equally
+be an artefact of the assumed sections. Longitudinal being softer than transverse
+is governed by the tie-rod area, which is published (200 mm) and small.
+
+---
+
+## 7. Does the render read as the Pompidou? — my own judgement
+
+I looked at `paper/piazza_facade.png`, `paper/view_gable.png`, `paper/model.png`
+and `studio/piazza_facade.png` with the Read tool, after each round of changes.
+
+### The honest answer
+
+**The gable view and the 3/4 view read as the Centre Pompidou to someone who
+knows it. The Piazza facade reads as it too, but for a different reason, and one
+element does not survive that view.**
+
+* `view_gable.png` is the one that settles it. Purple gerberettes cantilever out
+  of the red columns on both sides at six levels; the short inner arm carries the
+  end of the 44.8 m truss, the long outer arm reaches out to a teal tie rod that
+  drops the full height to the foundation; blue X-bracing fills the outer plane
+  behind them, and the truss field behind that is quiet grey. That is the
+  Pompidou cross-section and nothing else looks like it.
+* `piazza_facade.png` reads as the building because of the two things that carry
+  that elevation in every photograph: **an X in every one of the 13 bays over all
+  six storeys**, and **the escalator tube climbing the whole facade** from grade
+  at one end to the top at the other. The seven floors read as stacked bands
+  behind the bracing.
+* `model.png` shows all of it at once, with the legend.
+
+**The escalator, looked at again after re-modelling it.** I opened
+`paper/model.png` (the three-quarter view, azimuth −55°, 16° up) and
+`paper/piazza_facade.png` (straight on, 300 mm), and then `studio/model.png`.
+My judgement: **it now reads as a tube on the facade, and it did not before.**
+On the elevation the ring-and-longitudinal lattice is unmistakably a tube —
+you can count the rings, you can see the cross-section of it, and it sits in
+front of the blue X-bracing with the bracing visible *through* it, which is
+what glass does and what a solid grey cylinder cannot do. On the three-quarter
+view the same thing holds: the tube&#x27;s near and far walls are both drawn, so the
+eye reads a hollow object standing off the facade rather than a member of the
+frame. The specific failure it had before — a heavy grey diagonal that looked
+like a rogue inclined column boring through the building — is gone, because a
+transparent lattice cannot be mistaken for a column. What is still not right:
+the tube is the palest thing on the paper page, and against a white background
+its far side almost disappears at small reproduction sizes; on the studio page,
+where it silhouettes against navy, it is clearly the better of the two.
+
+**Restraint did not cost legibility — it improved it.** Restricting colour to
+four accents on a grey field makes the gerberettes read *better*, not worse:
+they are now the only purple in the image instead of one saturated hue among
+nine, so the eye lands on the rocking bracket first, which is the correct
+hierarchy for this building. The one thing that got quieter and should not have
+was the studio bracing, and that was corrected (see below). What is genuinely
+lost is the chord-versus-web distinction inside the trusses: at 0.46 and 0.64
+value they now read as one grey lattice. The truss still reads as a truss,
+because the geometry does that, so this is an acceptable price.
+
+**What does not survive the Piazza elevation: the gerberettes.** Seen straight on
+they are behind the bracing plane and end-on, so they are a row of purple marks.
+That is geometrically correct — you do not see a gerberette in a straight-on
+elevation of the real building either — but it means the iconic view alone does
+not carry the building&#x27;s defining component, and the gable view has to.
+
+**Where it still falls short of a photograph** (i.e. what is missing, not what is
+wrong): no cladding, no glazing, no coloured services in the outer zone, no
+ground, no context. A structural model of an exposed frame gets closer to the
+photograph than most, but the Pompidou&#x27;s reading also depends on the blue air
+ducts and the red circulation, which are not structure and are not modelled.
+
+### What I changed, and why
+
+Five rounds. The first four renders were not good enough and are not what is in
+the folder.
+
+1. **Framing.** vbviz&#x27;s `fit_camera` used to only ever zoom *out*: it started at
+   1.12 and multiplied by 0.88 until the model box was inside the frame. On a
+   tower that is enough because `reset_camera` on a tall box already fills a
+   portrait frame. A 166 × 60 × 49 m slab filled about a third, and nothing
+   pulled it back in. This script carried a replacement installed with `setattr`
+   on the live module. **That patch is now deleted**: since vbviz `eaede95` the
+   library&#x27;s own `fit_camera` fits the node cloud and *solves* the zoom, and
+   takes `fill=` and `lens_mm=` keywords, which is what the four views pass.
+   Measured fill on the written image is **0.84–0.89** across the four views
+   against **0.63** before any of this.
+2. **Near-orthographic elevations.** The house camera is a 60 mm lens at 2.4 model
+   diagonals, which on a 166 m facade makes the near end visibly larger than the
+   far end. The three elevations are shot at 200–300 mm, so both ends of the
+   facade come out the same size — which is what an elevation has to do.
+   `piazza_facade.png` is the dedicated iconic view: straight on, 1.5° above the
+   horizon, 300 mm, filling 0.86 of a 2600 × 1000 frame, in both themes.
+3. **Escalator inside the envelope, and then not a solid at all.** It previously
+   used 1.2 m landings, which made the tube 171.6 m long on a 166.4 m facade, so
+   it overhung both ends and floated past the frame at the lower left. Landings
+   cut to 0.5 m; the tube now starts at Piazza grade at the west end and finishes
+   0.5 m under the roof at the east end, with both endpoints asserted inside the
+   published footprint. It was still drawn as a **solid 3.2 m cylinder**, and in
+   the three-quarter view that read as an inclined column driven through the
+   building. It is now a **wireframe tube** — 50 rings of 8 at 4.0 m spacing,
+   8 longitudinals, triangulated brackets — in the lightest neutral of each
+   theme, drawn thin (§5). See §7 for what that did to the drawing and §6.3 for
+   what it did to the periods.
+4. **Palette: four accents and a neutral field.** Two steps here, and the first
+   was wrong. vbviz&#x27;s palette keys are generic and its two themes are variations
+   on warm grey (paper) and teal (studio), which buried the gerberettes and the
+   tie rods — the whole point of this building — in the floor framing behind
+   them. The first fix gave all nine member types their own saturated hue. That
+   solved legibility and created a new problem: nine saturated colours read as a
+   finite-element debug view, not as a figure. The version in the folder is the
+   second fix, hierarchy instead of more hues:
+
+   | Member | paper | studio | role |
+   |---|---|---|---|
+   | column, 800 mm spun steel | red, S 0.74 | orange, S 0.74 | **accent** |
+   | tie rod, 200 mm | teal, S 0.90 | green-teal, S 0.77 | **accent** |
+   | gerberette | purple, S 0.61 | violet, S 0.59 | **accent** |
+   | facade cross bracing | steel blue, S 0.36 | sky blue, S 0.56 | **accent**, the quiet fourth |
+   | escalator tube | grey V 0.88 (lightest) | grey V 0.95 (lightest) | neutral field |
+   | truss chord | grey V 0.46 (darkest) | grey V 0.80 | neutral field |
+   | truss web | grey V 0.64 | grey V 0.64 | neutral field |
+   | longitudinal beam | grey V 0.71 | grey V 0.57 | neutral field |
+   | secondary floor beam | grey V 0.82 | grey V 0.49 (darkest) | neutral field |
+
+   The three components that identify this building keep saturated, well
+   separated colour. The bracing takes a quieter fourth tone, because it carries
+   the Piazza elevation. Everything else drops to steel neutrals separated by
+   **value only**, and stays separable in the legend by label. The escalator
+   takes the extreme of the value range in each theme — darkest on the white
+   page, lightest on the navy — so it still silhouettes.
+
+   `assert_palette()` enforces the restraint rather than leaving it to taste:
+   every field member&#x27;s saturation must be **≤ 0.12**, every accent&#x27;s **≥ 0.30**,
+   no two accent hues closer than **0.10** of the wheel, and no two field greys
+   within **0.05** of value. Measured: accent hue gap **0.105 (paper) / 0.102
+   (studio)**, field value gap **0.067 / 0.078**.
+
+   One theme-specific correction the restraint forced: on navy, a low-saturation
+   steel-blue bracing fell straight into the grey field and the Piazza elevation
+   lost the thing that carries it. The studio accents therefore run hotter than
+   the paper ones while keeping the same ordering — column and tie rod loudest,
+   gerberette next, bracing the quiet fourth.
+
+5. **Legend.** vbviz sizes its furniture as `dpi/200`, so nine legend rows
+   overprinted each other on a landscape frame, and the generic keys captioned
+   the gerberettes &quot;outrigger&quot;. Fixed by rendering at `dpi=150` (same pixel
+   count, smaller furniture) and by updating `palette.TYPE_LABEL` at run time.
+   The legend is now carried by `model.png` only: on an elevation filling 86 % of
+   the frame it would sit on top of the building, and with it off the measured
+   colour fractions below are the structure&#x27;s, not the swatches&#x27;.
+
+Nothing under `vbviz/` was edited. All five are `setattr`/`dict.update` on the
+imported modules inside `install_render_overrides()`.
+
+### The assertions on the written images
+
+Three per view, all measured on the PNG that was written, none by eye:
+
+* **not blank, and filled**: the background is taken from the image *border*
+  (once the structure fills the frame the median *is* the structure and a
+  median-based threshold inverts), vbviz&#x27;s furniture rectangles are masked out,
+  and the structure&#x27;s bounding box must span at least **0.78** of the frame on
+  its long side.
+* **all four accent hues are on the page**: matched on **hue**, not RGB distance
+  — the renderer multiplies a member colour by a light intensity, which moves the
+  RGB a long way and the hue not at all. The five field greys are the same hue as
+  each other by design, so they are measured as one mask (unsaturated, and
+  neither the white page nor the navy ground); separating them is the legend&#x27;s
+  job, by label.
+* **the accents and the neutral field are both present in quantity**, i.e. the
+  signature components have not been swallowed by the deck. Each must cover more
+  than 0.4 % of the image.
+
+The theme&#x27;s own background is masked out of the hue match. It has to be: the
+studio navy sits within 0.03 of the bracing&#x27;s hue, and without the mask the empty
+background alone reported as 80 % bracing — a check that would have passed on a
+blank page.
+
+| Image | fill | ink | accents | neutral field |
+|---|---|---|---|---|
+| paper/piazza_facade.png | 0.86 | 0.367 | 0.127 | 0.264 |
+| paper/model.png | 0.80 | 0.247 | 0.064 | 0.187 |
+| paper/view_gable.png | 0.81 | 0.403 | 0.127 | 0.288 |
+| paper/view_beaubourg.png | 0.87 | 0.368 | 0.140 | 0.254 |
+| studio/piazza_facade.png | 0.86 | 0.340 | 0.125 | 0.205 |
+| studio/model.png | 0.80 | 0.231 | 0.075 | 0.144 |
+| studio/view_gable.png | 0.81 | 0.392 | 0.118 | 0.271 |
+| studio/view_beaubourg.png | 0.87 | 0.337 | 0.129 | 0.186 |
+
+**All 12 checked images pass in both themes**, including `deformed.png` and
+`modes.png`, which come from `export_all` and use the house camera.
+
+## 8. Honest list of what could not be determined
+
+1. **Any measured dynamic property of the building.** No period, no frequency, no
+   damping, no mode shape. This is why no validation is offered.
+2. **Column wall thickness.** Assumed 40 mm. The model&#x27;s lateral stiffness scales
+   almost linearly with it and the periods with its square root.
+3. **The gerberette bearing.** Pin diameter, bearing radius and the eccentricity
+   of the bearing from the column axis are all unpublished. Modelled rigid, which
+   is the wrong direction: the real frame is softer than this model.
+4. **The gerberette casting profile.** Only its length and mass are published.
+   Depth and width were scaled off photographs; the taper is not modelled.
+5. **Any member schedule.** Truss chords, webs, facade braces, longitudinal and
+   secondary beams are all sized by judgement.
+6. **Design floor load and the deck build-up.** Assumed 7.5 kPa.
+7. **The escalator tube diameter and its structural section.**
+8. **Where the missing 5 290 t of the published 15 000 t sits.** Plausibly
+   cladding support, service steel, connections, basement and escalator
+   machinery, but no breakdown is published, so the 65 % figure is reported and
+   not reconciled.
+9. **The basement.** Three levels are known to exist; no framing, no depth, no
+   retaining structure is published. Represented by a horizontal restraint at
+   grade.
+10. **Whether the tie rods are pre-tensioned in the model.** They are not — the
+    published 200 mm diameter is used, but no pre-tension force is published, so
+    none is applied.
+11. **The 60 m envelope to 0.8 m.** The model&#x27;s structural width is 60.8 m; the
+    published 60 m is presumably a rounded external dimension, but which plane it
+    is measured to is not stated.
+
+---
+
+## 9. Files
+
+| File | What |
+|---|---|
+| `build_model.py` | the whole model, verification and render pipeline |
+| `results.json` | published inputs, count checks, truss-conflict resolution, assumptions, model statistics, all verification results, gravity, modes, image checks |
+| `paper/`, `studio/` | vbviz product sets, each with `index.html`, `preview/` screenshots, and the four dedicated views |
+| `*/piazza_facade.png` | the iconic view: Piazza facade straight on, near-orthographic, both themes |
+| `index.html` | links to both themes |
+
+Reproduce with:
+
+```
+/Users/~/opt/anaconda3/envs/opstool-env/bin/python build_model.py --modes 8
+```
+</pre>
+  </section>
+  <p class="back"><a href="../gallery.html"><span>&larr; All buildings</span></a></p>
+</div>
+</main>
+<footer class="site"><div class="wrap">
+  <p>Every analysis on this site is elastic and schematic. It is a demonstration
+    of a toolchain, not a substitute for engineering review.</p>
+  <p>Every model on this site was produced by the pipeline described in the paper. <a href="../paper.pdf">Read the paper (PDF)</a>.</p>
+</div></footer>
+
+<script type="module" src="../assets/js/site.js?v=12284be0"></script>
+</body>
+</html>
+

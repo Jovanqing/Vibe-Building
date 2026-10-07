@@ -1,0 +1,592 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Shanghai Tower</title>
+<meta name="description" content="Shanghai Tower. 632.0 m · 124 storeys · 3,308 elements. A frame produced by the Vibe Building pipeline and drawn by its renderer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/css/site.css?v=266f1eaa">
+<link rel="icon" href="../assets/icon/favicon.svg?v=0b1456c9" type="image/svg+xml">
+<link rel="icon" href="../assets/icon/favicon-32.png?v=143ad0cc" sizes="32x32">
+<link rel="apple-touch-icon" href="../assets/icon/apple-touch-icon.png?v=cffdc6c4">
+<meta name="theme-color" content="#0d8f85">
+</head>
+<body>
+
+<nav class="top">
+  <a class="brand" href="../index.html"><svg class="brandmark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><g fill="currentColor"><rect x="8.00" y="25.00" width="14.50" height="3.0" rx="1.3"/><rect x="8.31" y="20.00" width="14.00" height="3.0" rx="1.3"/><rect x="9.25" y="15.00" width="13.50" height="3.0" rx="1.3"/><rect x="10.81" y="10.00" width="13.00" height="3.0" rx="1.3"/><rect x="13.00" y="5.00" width="12.50" height="3.0" rx="1.3"/></g><rect x="5.5" y="29" width="19" height="2" rx="1" fill="#0d8f85"/></svg>Vibe&nbsp;Building</a>
+  <span class="spacer"></span>
+  <a href="../gallery.html"><span>Gallery</span></a>
+  <a href="../paper.pdf"><span>Paper</span></a>
+</nav>
+
+<main class="page detail">
+<div class="wrap">
+  <header class="pagehead">
+    <span class="kind"><span>reproduction</span></span>
+    <h1>Shanghai Tower</h1>
+<p class="sub">elastic reproduction of Lu et al. 2011</p>
+    <p class="facts num">632.0 m · 124 storeys · 3,308 elements</p>
+  </header>
+  <div class="topsplit">
+  <figure class="hero-shot"><img src="../assets/media/b/shanghai_tower/light_model.webp?v=f96242ae" alt="Shanghai Tower"></figure>
+    <section class="facts-table">
+      <h2>The model</h2>
+      <div class="tablewrap"><table class="data"><tbody>
+      <tr><th><span>height</span></th><td class="num">632.0 m</td></tr>
+      <tr><th><span>storeys</span></th><td class="num">124</td></tr>
+      <tr><th><span>nodes</span></th><td class="num">1,617</td></tr>
+      <tr><th><span>elements</span></th><td class="num">3,308</td></tr>
+      <tr><th><span>periods T1..T3</span></th><td class="num">9.753 s / 9.753 s / 3.054 s</td></tr>
+      <tr><th><span>element types</span></th><td class="num">belt 168, core 124, corner 288, crown 200, mega 992, outrigger 256, ring 1,280</td></tr>
+      </tbody></table></div>
+    </section>
+  </div>
+  <section class="clips">
+    <figure class="clip"><video controls muted loop playsinline preload="metadata" poster="../assets/media/b/shanghai_tower/build_iso_poster.webp?v=1b6bb022" src="../assets/media/b/shanghai_tower/build_iso.mp4?v=c6d22cfd"></video><figcaption><span>OpenSeesPy · the frame assembles</span></figcaption></figure>
+    <figure class="clip"><video controls muted loop playsinline preload="metadata" poster="../assets/media/b/shanghai_tower/build_4view_poster.webp?v=c525edd3" src="../assets/media/b/shanghai_tower/build_4view.mp4?v=bcd9f509"></video><figcaption><span>Four views of the same assembly</span></figcaption></figure>
+    <figure class="clip"><video controls muted loop playsinline preload="metadata" poster="../assets/media/b/shanghai_tower/mode_01_poster.jpg?v=c78ae1a9" src="../assets/media/b/shanghai_tower/mode_01.mp4?v=12434198"></video><figcaption><span>First mode</span></figcaption></figure>
+    <figure class="clip"><img loading="lazy" src="../assets/media/b/shanghai_tower/light_modes.webp?v=6514076a" alt="First modes"><figcaption><span>First modes</span></figcaption></figure>
+    <figure class="clip"><img loading="lazy" src="../assets/media/b/shanghai_tower/light_deformed.webp?v=29efd3b2" alt="Deformed shape under gravity"><figcaption><span>Deformed shape under gravity</span></figcaption></figure>
+  </section>
+
+  <section class="report">
+    <h2>Build report</h2>
+    <pre># Shanghai Tower — elastic OpenSeesPy reproduction of Lu et al. (2011)
+
+Source: 卢啸, 陆新征, 张万开, 叶列平. **特大地震下超高层建筑的倒塌模拟**.
+中国科学: 技术科学, 2011, 41(11): 1405–1416.
+(English version: Lu X, Lu X Z, Zhang W K, Ye L P. *Collapse simulation of a super
+high-rise building subjected to extremely strong earthquakes.* Sci China Tech Sci,
+2011, 54: 2549–2560.)
+
+**This is a comparison of simulation against simulation. The paper reports no field
+measurement.** Its nine periods (Table 2, printed page 1411) are the output of its own
+nonlinear MSC.MARC model — layered shells for the core walls and the mega columns,
+fibre beams for the frames and trusses, membrane elements for the slabs. The model in
+this folder is elastic beam-column and truss elements with a rigid diaphragm per floor.
+It answers a different question and none of what follows is a validation of either
+model against reality.
+
+Build: `python build_shanghai_tower.py [--viz]`, runnable from any working directory.
+Numbers: `results.json`. Renders: `paper/`, `studio/`, each with `preview/` and
+`index.html`. `--sweep` runs the mega-column orientation both ways. This report is
+hand-written; the script writes `results.json` and the render sets.
+
+---
+
+## 1. Page-offset check and the facts taken from the paper
+
+The PDF has 12 pages for printed pages 1405–1416, so the offset of 1404 holds: PDF
+page 1 is printed 1405. One correction to the brief: **Figure 11 is on printed page
+1410 (PDF page 6), not 1411**; Table 2 is on printed 1411 (PDF page 7). Figure 2 is on
+printed 1407 and Figure 7 on printed 1408 as stated.
+
+Everything else in the brief checks out against the text:
+
+| Fact | Where | Verified |
+|---|---|---|
+| 632 m tip, ~580 m roof, 124 storeys | p.1406 | yes |
+| mega-column / core-tube / outrigger-truss system | p.1406, Fig. 2 | yes |
+| square RC core ~30 m side; flange wall 1.2 m → 0.5 m; web wall 0.9 m → 0.5 m | p.1406 | yes |
+| core corners progressively cut above zone 5, ending as a cruciform | p.1406 | yes |
+| 12 SRC mega columns, max 5300 × 3700 mm, 8 full-height tapering to 2400 × 1900 mm, 4 corner columns stop at zone 5 | p.1407, Fig. 7 | yes |
+| mega-column area ≈ 20 m², steel ratio 6.22 %, rebar ratio 1.16 % | p.1408 | yes |
+| belt + outrigger trusses at the strengthened storeys, ≈ 9.9 m deep, I-section steel | p.1407 | yes |
+| gravity load 6.85 × 10⁵ t | Table 2, p.1411 | yes |
+| periods 9.83, 9.77, 4.09, 3.57, 3.52, 1.97, 1.67, 1.66, 1.22 s; T3 torsional | Table 2 | yes |
+| 5 % damping (irrelevant to a modal run, quoted for completeness) | p.1410 | yes |
+
+## 2. Geometry taken off Figure 11
+
+Figure 11 was rendered at 300 dpi and the blue silhouette measured row by row. The base
+sits at row 1447 and the topmost truss band at row 547, so 900 px = 580.0 m and the
+scale is 0.6444 m/px. The eight truss bands protrude from the silhouette at rows 1378,
+1273, 1161, 1048, 928, 809, 682 and 547 — those are the tops of zones 1 to 8. The body
+width between the bands gives the plan size.
+
+| | zone 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+|---|---|---|---|---|---|---|---|---|
+| height from Fig. 11 (m) | 44.5 | 67.7 | 72.2 | 72.8 | 77.3 | 76.7 | 81.8 | 87.0 |
+| top elevation (m) | 44.5 | 112.1 | 184.3 | 257.1 | 334.5 | 411.2 | 493.0 | 580.0 |
+| storeys (largest-remainder split of the 124 the text gives) | 10 | 14 | 15 | 16 | 17 | 16 | 17 | 19 |
+| storey height (m) | 4.45 | 4.83 | 4.81 | 4.55 | 4.55 | 4.79 | 4.81 | 4.58 |
+| plan circumscribed size at the top of the zone (m) | 81.2 | 76.0 | 68.3 | 63.2 | 57.7 | 52.8 | 48.7 | 44.1 |
+
+Base plan size 82.5 m. Two independent checks that the pixel scale is right: the plan
+size comes out 82.5 m at the base and 44.1 m at the roof, and two storeys of every zone
+come to 8.9–9.7 m, against the ≈ 9.9 m truss depth the text states. The truss storeys
+are therefore modelled as the top two storeys of each zone.
+
+Corner columns run storeys 1–72, i.e. to the top of zone 5 (p.1407, &quot;仅延伸至结构的第 5
+节段&quot;). Core corner cutting starts at the bottom of zone 5 and grows linearly to the
+roof.
+
+## 3. The core: how the equivalent stick was computed
+
+There are no shell elements here, so the core is one vertical
+`ElasticTimoshenkoBeam` per storey on the core axis, which is also the rigid-diaphragm
+master node. Section properties are integrated from the actual wall layout at the
+mid-height of each storey, in `core_section()`:
+
+1. **Wall layout in plan.** Outer wall: a 30 m square centreline with a `cut × cut`
+   square removed from each corner, `cut` growing 0 → 9.0 m from the bottom of zone 5
+   to the roof, which turns the square into the cruciform the text describes. Interior
+   walls: two in each direction at x, y = ±5 m, i.e. the 3 × 3 cell pattern of
+   Figure 6(a). Thicknesses interpolate linearly with height: outer 1.2 → 0.5 m,
+   interior 0.9 → 0.5 m.
+2. **A** = Σ tᵢLᵢ over every wall centreline segment. 252.0 m² at the base,
+   120.2 m² just below the roof.
+3. **I** — each segment is a rectangle L × t rotated into the global axes plus its
+   parallel-axis term:
+   `Ixx = tL³/12·sin²α + Lt³/12·cos²α + tL·y_c²`, and the mirror for `Iyy`.
+   This is what makes the stick a *composite* section: a wide-column model with one
+   stick per wall panel would need rigid arms at every floor to recover the same
+   number, and would be an order of magnitude softer without them. 27 012 m⁴ at the
+   base, 8 634 m⁴ just below the roof.
+4. **Shear areas** Avx, Avy = Σ tᵢLᵢcos²α (resp. sin²α) — the web area parallel to the
+   shear direction — fed to `ElasticTimoshenkoBeam` so the core carries shear
+   deformation. 126 m² at the base. Leaving shear out would have made the core
+   noticeably stiffer than it already is.
+5. **J** — Bredt single-cell torsion on the *outer* wall loop only,
+   `4A_m²/Σ(sᵢ/tᵢ)`, with the four face segments taken at the opening-reduced
+   effective thickness of §5 and the corner-notch returns solid. The interior
+   webs are ignored, which makes J a lower bound. As the corners are cut the
+   enclosed area falls, the perimeter grows and the face walls shorten, so J
+   drops from 26 317 m⁴ at the base to 4 611 m⁴ just below the roof: the
+   cruciform core losing its closed-tube torsion, which is a real effect and is
+   the mechanism behind the paper&#x27;s own zone-5-to-7 failure narrative.
+
+The outriggers reach the core through `rigidLink beam` constraints from the core stick
+node to eight nodes on the core wall face at each mechanical level, so the outrigger
+couple is transferred into the stick as a moment, exactly as it is in the real system.
+
+Mega columns are `elasticBeamColumn` with the local strong axis radial, section tapering
+5300 × 3700 → 2400 × 1900 mm, all properties multiplied by the transformed-section
+factor 1 + (Es/Ec − 1)(ρs + ρr) = **1.3485**.
+
+## 4. First-pass periods, before anything was changed
+
+Intact Bredt closed cell for the core, no opening allowance:
+
+| mode | T (s) | shape |
+|---|---|---|
+| 1 | 9.5353 | translation Y |
+| 2 | 9.5353 | translation X |
+| 3 | 2.9114 | translation Y |
+| 4 | 2.9114 | translation X |
+| 5 | 2.1060 | torsion |
+| 6 | 1.2717 | translation Y |
+| 7 | 1.2717 | translation X |
+| 8 | 0.9483 | torsion |
+| 9 | 0.7374 | translation X |
+
+First translational pair 3.0 % short of the paper; first torsion 2.106 s against
+4.09 s, **−48.5 %**.
+
+## 5. The core opening allowance — an assumption, not a fit
+
+The intact Bredt value is an upper bound: a core with doors in every wall at
+every storey does not act as a closed cell. Something has to stand in for the
+openings, and the paper publishes nothing to build it from — it mentions them
+once, in the collapse narrative on p.1411, to say they move from the middle of
+the wall to its outer edge between zones 6 and 7, and never dimensions them.
+
+**The stand-in is assumed geometry, fixed before looking at the paper&#x27;s T3.**
+Each of the four outer core face walls carries a group of lift and lobby doors
+totalling **9.0 m** of its length (three 3.0 m doors), clear height **2.4 m**,
+at every storey, capped so a door group never exceeds half the wall length.
+Over the door height only (L − w) of the wall passes the closed-cell shear
+flow, so one storey is two thicknesses in series and the face wall enters the
+Bredt integral at
+
+    t_eff / t = 1 / [ (1 − a) + a·L/(L − w) ],   a = h_door / h_storey
+
+which gives t_eff/t = **0.812** at the base (L = 30 m, h = 4.45 m) and
+**0.656** at the roof (L = 12 m after the corner cuts, h = 4.58 m). The
+corner-notch return walls are taken as solid. Because the returns are a large
+share of the cruciform perimeter, the resulting J comes out at 0.81 of the
+intact cell at the base and 0.83 at the roof.
+
+**The result that assumption produces:**
+
+| | assumed openings | paper |
+|---|---|---|
+| 1st torsion | **2.3124 s** | 4.09 s |
+| difference | **−43.5 %** | |
+
+It misses by 43.5 %, and that is the result. With the assumed openings our mode
+order is translation, translation, translation, translation, torsion — it does
+**not** match Table 2&#x27;s translation, translation, torsion. The sequence match
+we obtained on an earlier pass was a product of the fitted value below, not of
+the model, and is withdrawn.
+
+### 5b. Inverse-inferred: what the paper&#x27;s own core was effectively worth
+
+Inverting our model against the paper&#x27;s answer rather than predicting it: the
+core torsion constant that reproduces T3 = 4.09 s exactly is
+
+    J_eff = 0.22 × intact Bredt cell   (inverse-inferred, not used to build anything)
+
+against the 0.82 our shear-flow opening model supports. The paper&#x27;s layered
+shell core is therefore effectively **about 3.7 times softer in torsion** than
+that model allows. This says something about the original authors&#x27; model rather
+than about ours, and it is supported by all three torsional modes
+independently: our torsional errors under the shear-flow model are −43.5 %,
+−46.7 % and −45.2 %, i.e. a single constant scaling of J explains all of them.
+Whatever softens their core in torsion is uniform over the height and is not
+the corner cutting.
+
+**And the factor of 3.7 is not exotic — it is just openings.** On the
+calibration curve of §5c, an effective torsion constant of 0.22 corresponds to
+an opening area ratio of about **24 %**, i.e. roughly 10 m of opening per wall
+per storey. That is large, but entirely constructible for a core with lift
+lobbies on all four faces, which this one has. The shear-flow model of §5 was
+simply the wrong physics for the job: it treats an opening as a local thinning
+of the wall, when in torsion an opening interrupts the shear-flow loop itself
+and costs far more than its own area. No exotic mechanism is needed, and the
+open question in the previous version of this report is closed. (Curve source:
+an independent reproduction in this project of a *different* building against
+*measured* data — see §5c.)
+
+## 5c. The differential opening rule, imported blind
+
+A second reproduction in this project — a different building, a 280 m
+frame-tube with a pierced concrete core in Singapore, checked against
+**measured** frequencies, modelled with a shell core and explicitly meshed
+openings — established two things that apply to anyone:
+
+1. An intact meshed core sits at the closed-box limit, within 1 % of shear-flow
+   theory. The element formulation is not the issue. Openings are.
+2. **Openings do not degrade flexure and torsion equally.** At an opening area
+   ratio of ~25 % per wall per storey the core keeps ~0.72 of its flexural
+   stiffness but only ~0.20 of its torsional stiffness — a factor of about 3.5
+   apart. The published curve of effective torsion constant against opening
+   area ratio: 12.5 % → 0.56, 18.8 % → 0.34, 25 % → 0.20, 31 % → 0.13.
+
+**Correction, recorded because it changed a result.** The first version of this
+section used **0.85**, not 0.72, for the flexural side at 25 %. That 0.85 is
+0.2174/0.2562, the ratio of the source model&#x27;s fundamental *frequency* with and
+without openings — a frequency ratio, not a stiffness ratio. Stiffness goes as
+frequency squared, so the stiffness figure is 0.72, which is what the source
+report states three lines further on. The torsion curve is unaffected: it comes
+from a static twist test and was already a stiffness ratio. Everything below is
+the corrected run; the superseded column is kept in §6 so the size of the error
+is visible. One caveat on 0.72 that the source does not resolve: it is the
+retained stiffness of that model *as a whole*, whose perimeter frame does not
+change with the openings, so it understates what the core alone loses. It is
+used as published.
+
+That rule was applied here **blind**. The opening area ratio is taken from the
+door geometry already assumed in §5 and the two dimensions the paper publishes:
+
+    ratio = (9.0 m x 2.4 m) / (30.0 m x 580/124 m) = 21.6 / 140.3 = 15.4 %
+
+Linear interpolation on the imported curve gives the **torsional** factor
+**0.459**; linear interpolation between 1.00 at 0 % (result 1 above) and 0.72
+at 25 % gives the **flexural** factor **0.828** (it was 0.908 off the 0.85).
+These multiply the core stick&#x27;s J and its Ixx/Iyy respectively. Shear area and
+axial area are left alone — the rule covers J and I only. **Nothing in this run
+is fitted to any period; all nine results below are predictions.** This is the
+model that ships (`CORE_OPENING_MODEL = &quot;differential&quot;`); `&quot;shearflow&quot;`
+reproduces the §5 column.
+
+Re-deriving the inverse inference under the differential model leaves it
+unchanged at J = 0.22 x intact Bredt, because softening the core in flexure
+barely moves the torsional period.
+
+## 6. Comparison against the paper&#x27;s nine simulated periods
+
+Three columns, none of them fitted to any period: the §5 shear-flow opening
+model, the superseded differential run that used the mislabelled flexural factor
+0.908, and the shipped corrected run at 0.828.
+
+| # | paper mode (Table 2) | paper T (s) | §5 shear-flow T (s) | Δ | superseded, I × 0.908 | Δ | **shipped, I × 0.828** | **Δ** |
+|---|---|---|---|---|---|---|---|---|
+| 1 | 1st translation X | 9.83 | 9.5353 | −3.0 % | 9.6495 | −1.8 % | **9.7527** | **−0.8 %** |
+| 2 | 1st translation Y | 9.77 | 9.5353 | −2.4 % | 9.6495 | −1.2 % | **9.7527** | **−0.2 %** |
+| 3 | 1st torsion | 4.09 | 2.3124 | −43.5 % | 2.9992 | −26.7 % | **2.9992** | **−26.7 %** |
+| 4 | 2nd translation X | 3.57 | 2.9114 | −18.4 % | 2.9846 | −16.4 % | **3.0537** | **−14.5 %** |
+| 5 | 2nd translation Y | 3.52 | 2.9114 | −17.3 % | 2.9846 | −15.2 % | **3.0537** | **−13.2 %** |
+| 6 | 2nd torsion | 1.97 | 1.0493 | −46.7 % | 1.3572 | −31.1 % | **1.3572** | **−31.1 %** |
+| 7 | 3rd translation X | 1.67 | 1.2717 | −23.8 % | 1.3076 | −21.7 % | **1.3420** | **−19.6 %** |
+| 8 | 3rd translation Y | 1.66 | 1.2717 | −23.4 % | 1.3076 | −21.2 % | **1.3420** | **−19.2 %** |
+| 9 | 3rd torsion | 1.22 | 0.6683 | −45.2 % | 0.8630 | −29.3 % | **0.8630** | **−29.3 %** |
+
+**What the correction did.** All six translational periods improved again, by a
+further 0.6 to 2.1 percentage points. The three torsional periods did not move
+at all — the torsional factor was never wrong, and softening the core in flexure
+does not touch them.
+
+**And it cost the mode sequence.** Under the superseded 0.908 our modes came out
+translation, translation, **torsion**, translation, translation, **torsion**,
+translation, translation, **torsion** — Table 2&#x27;s order in all nine positions.
+The corrected 0.828 lengthens the second translational pair to 3.0537 s, which
+is now **1.8 % longer** than our first torsion at 2.9992 s, so the two swap and
+torsion falls to mode 5:
+
+| our mode | 1 | 2 | 3 | 4 | **5** | **6** | 7 | 8 | 9 |
+|---|---|---|---|---|---|---|---|---|---|
+| T (s) | 9.7527 | 9.7527 | 3.0537 | 3.0537 | **2.9992** | **1.3572** | 1.3420 | 1.3420 | 0.8630 |
+| character | transl. | transl. | transl. | transl. | **torsion** | **torsion** | transl. | transl. | torsion |
+| Table 2 has | transl. | transl. | **torsion** | transl. | transl. | **torsion** | transl. | transl. | torsion |
+
+Seven of the nine positions still match by mode character, but the first
+torsional mode is in the wrong place, and the two torsional modes at positions
+5 and 6 are adjacent where the paper has them separated by a translational pair.
+The paper&#x27;s first torsion sits 14.6 % *above* its second translational pair;
+ours now sits 1.8 % below. **The better periods came with a worse ordering, and
+that is the result.** §6 of the earlier version claimed the sequence match and
+already warned that the 0.5 % margin made it fragile; the correction is what
+broke it, from the other side.
+
+Every period is still shorter than the paper&#x27;s: the elastic stick-and-frame
+substitute remains stiffer than the paper&#x27;s layered-shell model in every mode.
+
+A second honesty note: the paper&#x27;s X and Y periods differ by 0.6 % (T1/T2) and
+1.4 % (T4/T5). Our model is exactly doubly symmetric — mega columns in four
+identical pairs, a square core, a rounded-triangle plan that only enters
+through area — so its translational modes come out as exactly degenerate pairs.
+That asymmetry cannot be reproduced from anything the paper publishes.
+
+### Finding 1 — an elastic frame substitute for a wall core is progressively too stiff in higher modes
+
+The error in the translational periods is not a constant offset. It grows
+monotonically with mode number:
+
+| | 1st translational pair | 2nd | 3rd |
+|---|---|---|---|
+| T ratio, §5 shear-flow model | 0.970 | 0.816 | 0.761 |
+| implied stiffness ratio, 1/ratio² | 1.06 | 1.50 | 1.72 |
+| T ratio, superseded I × 0.908 | 0.982 | 0.836 | 0.783 |
+| implied stiffness ratio, 1/ratio² | 1.04 | 1.43 | 1.63 |
+| T ratio, **shipped I × 0.828** | **0.992** | **0.855** | **0.804** |
+| **implied stiffness ratio, 1/ratio²** | **1.02** | **1.37** | **1.55** |
+
+About 2 % too stiff in the fundamental mode and about 55 % too stiff in the
+third translational pair. Softening the core in flexure hits the higher modes
+slightly harder than the fundamental, and the corrected, larger softening did
+more of it — the stiffness excess fell by 0.02, 0.06 and 0.08 on top of what the
+superseded factor had already taken off — but it barely dents the trend, which
+survives a 17 % uniform reduction in core EI essentially intact. The trend is
+therefore not an EI calibration error. We state this as a property of elastic
+frame and stick substitutes for shear-wall cores rather than as a quirk of this
+model: the substitute reproduces the global cantilever stiffness that governs
+the fundamental mode reasonably well, because that is essentially one number (EI
+at the base), but it has no mechanism for the local wall flexibility — pier and
+spandrel deformation around openings, shear lag across the wall panels, in-plane
+slab flexibility — that dominates the shorter-wavelength mode shapes. A second
+reproduction in this project, an unrelated 280 m frame-tube building with a
+pierced concrete core, independently shows the same direction and a similar
+growth with mode number.
+
+The practical reading: an elastic frame substitute for a wall core can be
+trusted for the fundamental period to a few per cent, and should not be
+trusted for higher-mode periods without an explicit softening allowance. That
+matters for this building in particular, because the paper&#x27;s own conclusion
+(p.1411) is that its collapse is controlled by the **third** translational
+mode — precisely the mode our substitute gets worst.
+
+### Finding 3 — a core-opening rule derived from another building did transfer, on the periods
+
+The differential opening rule of §5c came from a different building, a different
+structural system, a different country and a comparison against measured rather
+than simulated data, and it was applied here blind with an input taken from our
+own assumed door geometry. **It transferred usefully on the periods.** All nine
+improved against the §5 shear-flow model, the three torsional errors were cut
+from 43–47 % to 27–31 %, and the fundamental pair went from −3.0 / −2.4 % to
+−0.8 / −0.2 % — without a single quantity being tuned. That is a real result for
+a rule with one prior application.
+
+**It did not transfer on the mode ordering.** Under the corrected flexural
+factor the first torsional mode falls to position 5 instead of 3. The
+superseded factor put it in position 3, but that agreement was worth 0.5 % of
+margin and rested on a mislabelled number, so it should never have been counted.
+
+It did not close the torsional gap either, and the reason is instructive: what
+failed to transfer is not the rule but our *input* to it. The rule maps opening
+ratio to stiffness; §5b shows the paper&#x27;s core behaves like a 24 % opening ratio
+while our assumed doors give 15.4 %. Feed the rule the right geometry and it
+lands on the paper&#x27;s answer; feed it our guess at unpublished geometry and it
+lands short by about the amount the guess is wrong. The transferable part — that
+openings cost torsion several times more than they cost flexure, and roughly how
+much — held on a building it was never derived from.
+
+### Finding 2 — the mega-column orientation ambiguity is worth nothing
+
+Figure 7 labels the 5300 mm mega-column dimension &quot;y&quot; but never says how that
+maps onto the plan, so the section could be deep radially or deep tangentially.
+Rather than choose, both were run (`--sweep`):
+
+| mega-column 5300 mm axis | T1 (s) | T2 (s) | 2nd translation (s) | 1st torsion (s) | torsion falls at |
+|---|---|---|---|---|---|
+| radial (shipped) | 9.7527 | 9.7527 | 3.0537 | 2.9992 | mode 5 |
+| tangential | 9.7529 | 9.7529 | 3.0539 | 2.9716 | mode 5 |
+| difference | +0.002 % | +0.002 % | +0.007 % | −0.9 % | — |
+
+For the periods themselves the ambiguity is worth nothing: the mega columns
+carry the lateral system almost entirely by axial action into the outrigger and
+belt trusses, so their own bending inertia — the only thing the orientation
+changes — is negligible beside the core. Translational periods move by 0.007 %,
+torsion by 0.9 %.
+
+Under the superseded flexural factor this 0.9 % was enough to flip the mode
+order, because torsion and the second translational pair sat 0.5 % apart. Under
+the corrected factor they sit 1.8 % apart with torsion below, so both readings
+now put torsion at mode 5 and the ambiguity changes nothing at all — including
+the thing it used to change.
+
+## 7. Model size and mass
+
+| | |
+|---|---|
+| nodes | 1 617 |
+| elements | 3 308 |
+| element breakdown | mega 992, ring 1 280, corner 288, outrigger 256, crown 200, belt 168, core 124 |
+| levels | 132 (124 storeys to 580 m + 8 crown levels to 632 m) |
+| height | 632.0 m |
+| total mass | 6.8500 × 10⁸ kg |
+| paper&#x27;s gravity load | 6.85 × 10⁵ t = 6.85 × 10⁸ kg |
+| mass error | 5 × 10⁻¹⁶ (asserted &lt; 1 %) |
+
+Mass is distributed over the levels in proportion to floor area (rounded-triangle plate
+`r(θ) = R(1 + 0.10 cos 3θ)`, so area ∝ D²), 15 % hung on the perimeter column nodes and
+the remainder on the diaphragm master, whose rotational inertia is set so the total
+polar inertia of each plate about the core axis is correct.
+
+Participating mass, first six modes (translational-lumped-mass formula; modes 1–2
+and 4–5 are degenerate pairs, so the split between MX and MY within a pair is
+arbitrary and only their sum is meaningful; modes 3 and 6 are torsional and
+carry no translational mass):
+
+| mode | 1 | 2 | 3 (tors.) | 4 | 5 | 6 (tors.) |
+|---|---|---|---|---|---|---|
+| MX | 0.000 | 0.497 | 0.000 | 0.000 | 0.231 | 0.000 |
+| MY | 0.497 | 0.000 | 0.000 | 0.231 | 0.000 | 0.000 |
+
+Pair 1+2 carries 49.7 % of the mass in each direction and pair 4+5 a further
+23.1 %; over 12 modes, 85.8 % per direction.
+
+## 8. Assumptions table — everything the paper does not publish
+
+| # | quantity | value used | basis |
+|---|---|---|---|
+| 1 | core wall openings | door group 9.0 m x 2.4 m per face wall per storey -&gt; opening area ratio 15.4 % -&gt; flexural factor 0.828 and torsional factor 0.459 on the core I and J | assumed door geometry (§5) fed into a differential opening rule imported blind from an independent reproduction of a different building against measured data (§5c). Not fitted to any period. The inverse-inferred 0.22 of §5b is reported, not used. The flexural factor was 0.908 until the imported curve was corrected from a frequency ratio to a stiffness ratio; see the correction note in §5c |
+| 2 | zone heights and the elevation of every zone boundary | measured off Fig. 11 at 0.6444 m/px | figure only; no elevations are printed |
+| 3 | storeys per zone | 10, 14, 15, 16, 17, 16, 17, 19 | largest-remainder split of the published 124 in proportion to the measured zone heights |
+| 4 | plan size vs height | 82.5 m at the base → 44.1 m at the roof | silhouette width in Fig. 11 |
+| 5 | plan shape | rounded triangle r = R(1 + 0.10 cos 3θ) | Fig. 11 zone plans; enters only through floor area, so the shape constant cancels against the published total mass |
+| 6 | whether the structural floor plate twists with height | no twist modelled | Fig. 11 thumbnails are 3-D perspective views; apparent rotation is not separable from the view angle |
+| 7 | mega-column plan radius | 0.80 × (plan D / 2) | column lines in the Fig. 11 elevation sit at ≈ 0.78–0.80 of the silhouette half-width |
+| 8 | mega-column pair half-separation | 0.22 × (plan D / 2) | Fig. 11 zone plans, four dark pairs on the core faces |
+| 9 | mega-column strong-axis orientation | 5300 mm radial | Fig. 7 labels the 5300 direction *y*; ambiguous. Both readings were run: the translational periods move by 0.007 %, torsion by 0.9 % (Finding 2). The assumption is immaterial |
+| 10 | corner-column section | 0.55 × mega-column area at the same level, same aspect ratio | never given |
+| 11 | concrete grade / E | C60, E = 36 GPa, ν = 0.20 | never given; C60 is the usual grade for this core and these columns |
+| 12 | steel E | 206 GPa, ν = 0.30 | never given |
+| 13 | SRC transformed-section factor for A **and** I | 1.3485 = 1 + (Es/Ec − 1)(0.0622 + 0.0116) | ratios are published, the steel *layout* is not resolvable from Fig. 7, so the same factor is applied to I. This under-counts I, because the steel sits away from the centroid |
+| 14 | core interior wall positions | x, y = ±5 m (3 × 3 cells) | Fig. 6(a) is a rendered mesh, not a dimensioned plan |
+| 15 | size of the corner cut at the roof | 9.0 m, giving a 12 m cruciform arm | &quot;十字形&quot; (p.1406) plus Fig. 6(c); no dimension published |
+| 16 | core plan size constant at 30 m over the full height | constant | the text gives only the base dimension |
+| 17 | outrigger + belt truss at **every** one of the 8 zone tops | yes, top two storeys of the zone | p.1407 says the trusses sit at the strengthened storeys and combine belt and outrigger, without saying which zones get which |
+| 18 | truss member areas | outrigger diagonal 0.150, belt diagonal 0.100, chord 0.120 m² | &quot;工字型钢梁&quot; only; no sizes |
+| 19 | perimeter ring beam | A = 0.060 m², I = 0.012 m⁴ | no sizes |
+| 20 | crown, 580–632 m | 8 levels, 8 light steel columns + braces, core mast as a square steel tube of 50 mm equivalent wall | Fig. 11 shows a narrow braced mast; nothing is dimensioned |
+| 21 | floor mass split | 15 % on the perimeter nodes, 85 % on the diaphragm master | numerical, not physical; irrelevant to the in-plane modes because the diaphragm is rigid and the total polar inertia is preserved |
+| 22 | base fixity | fully fixed at z = 0, no basement, no soil | the paper&#x27;s boundary condition is not stated |
+| 23 | P-Δ | not included; modal run on the pristine domain | the paper does not say whether its modal run followed a gravity step |
+
+## 9. What the figures do not resolve
+
+The eight zone plans in Figure 11 are perspective thumbnails about 120 px across in the
+printed page. They resolve the plan family — a rounded triangle shrinking from base to
+roof — the four dark mega-column pairs sitting on the faces of the core, the
+disappearance of the corner columns above zone 5, and the progressive corner cutting
+that turns the core into a cross. They do not resolve anything that needs a dimension.
+The apparent rotation of the triangle from one zone to the next cannot be separated from
+the viewing angle of each thumbnail, so we could not tell whether the *structural* floor
+plate twists or only the facade does, and we built the columns without twist. Figure 6
+shows the core wall layout as a shaded 3-D mesh rather than a dimensioned plan, so the
+interior wall spacing, the depth of the corner cuts and — most consequentially — the
+door openings are unmeasurable; the paper mentions the openings once, in the collapse
+narrative on p.1411, and never dimensions them, and that single unpublished quantity is
+what the assumed door geometry of §5 and the imported rule of §5c stand in for.
+They get about half the torsional gap; §5b shows the paper&#x27;s core behaves like
+a 24 % opening ratio where our door assumption gives 15.4 %. Figure 7 gives one mega-column section at
+an unstated elevation, with no taper schedule, no resolvable dimensions for the
+encased steel, and no corner-column section at all. Nothing in the paper gives storey
+numbering, floor-to-floor heights, zone elevations in metres, member sizes for the
+outrigger, belt or perimeter framing, concrete grades, reinforcement outside the mega
+column, or the foundation. Every one of those became a row in §8.
+
+## 10. Against the existing generic 632 m instance in this project
+
+`design_shanghai_megaframe_632m`, computed by
+`vbviz/examples/export_v4.py`, manifest at
+`iclr/figures/v4/instances/design_shanghai_megaframe_632m/vbviz/studio/manifest.json`
+(read only, unchanged):
+
+| | generic instance | this reproduction | paper |
+|---|---|---|---|
+| height | 630.0 m | 632.0 m | 632 m |
+| nodes / elements | 5 358 / 17 964 | 1 617 / 3 308 | 706 / 400 for the mega-column sub-model (Table 1); whole-model size not published |
+| T1 | 8.5692 s | 9.7527 s | 9.83 s |
+| T2 | 8.1368 s | 9.7527 s | 9.77 s |
+| T3 | 2.8217 s (2nd translation X) | 3.0537 s (2nd translation) | 4.09 s (1st torsion) |
+| 1st torsion | none in the first six modes | 2.9992 s (mode 5) | 4.09 s (mode 3) |
+| mass caliber | floor area × 6750 Pa / 9.81, self weight excluded | the paper&#x27;s published 6.85 × 10⁵ t, distributed by floor area | 6.85 × 10⁵ t |
+| Δ on T1 vs paper | **−12.8 %** | **−0.8 %** | — |
+
+The generic instance is a plausible 632 m mega-frame, not this building: its mass comes
+from a generic 6750 Pa caliber rather than the published total, it has no torsional mode
+in its first six (its first six modes contain no torsion at all), and its first two periods
+differ by 5 % where the paper&#x27;s differ by 0.6 %. Reproducing the actual zone geometry,
+the published mass and the core taper moved T1 from −12.8 % to −3.0 % of the paper&#x27;s
+value on the first pass and to −0.8 % on the shipped model, and put a torsional mode
+into the first six — which the generic instance does not have anywhere — though at
+2.9992 s in position 5 against the paper&#x27;s 4.09 s in position 3. It did so with less
+than a third of the nodes and less than a fifth of the elements, because the core is one
+equivalent stick per storey instead of a braced cage and there is no facade grid. That
+is a fair trade for a modal comparison and a bad one for anything that needs local
+member forces.
+
+## 11. Honest summary of what could not be reproduced
+
+- The core wall opening layout — the single largest unknown, and the one thing the
+  paper&#x27;s own collapse narrative turns on. Our assumed door layout gives a 15.4 %
+  opening ratio; the paper&#x27;s core behaves like 24 %. The difference is a plain
+  geometry unknown, not a missing mechanism.
+- The torsional periods, still missed by 27-31 % across all three torsional
+  modes after the differential rule.
+- The mode ordering. Table 2 puts the first torsion at position 3; the shipped
+  model puts it at position 5, 1.8 % below the second translational pair rather
+  than 14.6 % above it (§6).
+- The higher translational periods, missed by 13-20 % and getting worse with
+  mode number (Finding 1).
+- The X/Y asymmetry that gives the paper 9.83 vs 9.77 s.
+- The material nonlinearity: the paper&#x27;s &quot;elastic&quot; periods come from a model whose
+  concrete constitutive law is already nonlinear at low strain, so even its own T1 is
+  not a linear-elastic number in the sense ours is.
+- Any member size in the outrigger, belt or perimeter framing.
+- The slab membrane stiffness, replaced here by a rigid diaphragm — which is one of the
+  reasons our higher modes are too stiff.
+- The foundation and basement.
+- The exact storey at which each zone begins, and hence which storeys are the
+  mechanical ones.
+</pre>
+  </section>
+  <p class="back"><a href="../gallery.html"><span>&larr; All buildings</span></a></p>
+</div>
+</main>
+<footer class="site"><div class="wrap">
+  <p>Every analysis on this site is elastic and schematic. It is a demonstration
+    of a toolchain, not a substitute for engineering review.</p>
+  <p>Every model on this site was produced by the pipeline described in the paper. <a href="../paper.pdf">Read the paper (PDF)</a>.</p>
+</div></footer>
+
+<script type="module" src="../assets/js/site.js?v=12284be0"></script>
+</body>
+</html>
+

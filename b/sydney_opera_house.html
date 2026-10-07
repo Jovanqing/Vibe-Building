@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sydney Opera House</title>
+<meta name="description" content="Sydney Opera House. 67.0 m · 5,255 elements. A frame produced by the Vibe Building pipeline and drawn by its renderer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/css/site.css?v=266f1eaa">
+<link rel="icon" href="../assets/icon/favicon.svg?v=0b1456c9" type="image/svg+xml">
+<link rel="icon" href="../assets/icon/favicon-32.png?v=143ad0cc" sizes="32x32">
+<link rel="apple-touch-icon" href="../assets/icon/apple-touch-icon.png?v=cffdc6c4">
+<meta name="theme-color" content="#0d8f85">
+</head>
+<body>
+
+<nav class="top">
+  <a class="brand" href="../index.html"><svg class="brandmark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><g fill="currentColor"><rect x="8.00" y="25.00" width="14.50" height="3.0" rx="1.3"/><rect x="8.31" y="20.00" width="14.00" height="3.0" rx="1.3"/><rect x="9.25" y="15.00" width="13.50" height="3.0" rx="1.3"/><rect x="10.81" y="10.00" width="13.00" height="3.0" rx="1.3"/><rect x="13.00" y="5.00" width="12.50" height="3.0" rx="1.3"/></g><rect x="5.5" y="29" width="19" height="2" rx="1" fill="#0d8f85"/></svg>Vibe&nbsp;Building</a>
+  <span class="spacer"></span>
+  <a href="../gallery.html"><span>Gallery</span></a>
+  <a href="../paper.pdf"><span>Paper</span></a>
+</nav>
+
+<main class="page detail">
+<div class="wrap">
+  <header class="pagehead">
+    <span class="kind"><span>landmark</span></span>
+    <h1>Sydney Opera House</h1>
+<p class="sub">roof shells, one 75 m sphere</p>
+    <p class="facts num">67.0 m · 5,255 elements</p>
+  </header>
+  <div class="topsplit">
+  <figure class="hero-shot"><img src="../assets/media/b/sydney_opera_house/light_model.webp?v=a19b423d" alt="Sydney Opera House"></figure>
+    <section class="facts-table">
+      <h2>The model</h2>
+      <div class="tablewrap"><table class="data"><tbody>
+      <tr><th><span>height</span></th><td class="num">67.0 m</td></tr>
+      <tr><th><span>nodes</span></th><td class="num">2,704</td></tr>
+      <tr><th><span>elements</span></th><td class="num">5,255</td></tr>
+      <tr><th><span>periods T1..T3</span></th><td class="num">1.377 s / 1.175 s / 0.969 s</td></tr>
+      <tr><th><span>element types</span></th><td class="num">lid 2,020, pedestal 392, podium 339, rib_major 1,066, rib_minor 850, rib_rest 216, ridge 372</td></tr>
+      </tbody></table></div>
+    </section>
+  </div>
+  <section class="clips">
+    <figure class="clip"><video controls muted loop playsinline preload="metadata" poster="../assets/media/b/sydney_opera_house/build_iso_poster.webp?v=d824aab5" src="../assets/media/b/sydney_opera_house/build_iso.mp4?v=b1b2c4c4"></video><figcaption><span>OpenSeesPy · the frame assembles</span></figcaption></figure>
+    <figure class="clip"><video controls muted loop playsinline preload="metadata" poster="../assets/media/b/sydney_opera_house/build_4view_poster.webp?v=fa8a37d9" src="../assets/media/b/sydney_opera_house/build_4view.mp4?v=9b1525f3"></video><figcaption><span>Four views of the same assembly</span></figcaption></figure>
+    <figure class="clip"><video controls muted loop playsinline preload="metadata" poster="../assets/media/b/sydney_opera_house/mode_01_poster.jpg?v=7e82134e" src="../assets/media/b/sydney_opera_house/mode_01.mp4?v=e88db0b1"></video><figcaption><span>First mode</span></figcaption></figure>
+    <figure class="clip"><img loading="lazy" src="../assets/media/b/sydney_opera_house/light_modes.webp?v=c5683661" alt="First modes"><figcaption><span>First modes</span></figcaption></figure>
+    <figure class="clip"><img loading="lazy" src="../assets/media/b/sydney_opera_house/light_deformed.webp?v=cc74d70e" alt="Deformed shape under gravity"><figcaption><span>Deformed shape under gravity</span></figcaption></figure>
+  </section>
+
+  <section class="report">
+    <h2>Build report</h2>
+    <pre># Sydney Opera House — roof shells in OpenSeesPy
+
+**This is a demonstration, not a validation.** It exists to show that the
+build → analyse → render toolchain generalises past rectangular towers to a
+doubly-curved shell roof. No measured dynamic data for the Sydney Opera House
+exists in the public record — no ambient-vibration survey, no forced-vibration
+test, no instrumented record has been published. There is therefore **nothing
+to compare the computed periods against, and no validation is possible or
+claimed**. Every period quoted below is indicative only. Nothing in this
+document should be read as agreement with, or a prediction of, the real
+building&#x27;s behaviour.
+
+Build: `build_model.py`. Numbers: `results.json`. Renders: `paper/`,
+`studio/`.
+
+## The one result worth leading with
+
+Two published numbers — the longest rib&#x27;s **64 m arc** on a **75 m sphere**, and
+its **54.6 m rise** above the springing — fix the chord at
+`2R sin(θ/2) = 62.06 m` and therefore fix the horizontal offset of the rib tip
+at `√(62.06² − 54.6²) = 29.53 m`. That tip *is* the crest, and the crest lies on
+the hall&#x27;s central plane, so the two pedestals of the largest shell are
+**59.07 m apart**. Nothing was chosen. Two halls side by side at that span come
+to **118 m** — against a published podium width of **120 m**, a number that was
+never fed into the derivation. The geometry closes on itself.
+
+The same construction puts every rib node on the 75 m sphere to
+**1.4 × 10⁻¹⁴ m**, and the highest roof point at 67 m ASL minus the 54.6 m rise
+puts the springing at **12.4 m ASL**, which is where the podium deck sits.
+
+---
+
+## 1. What comes from published sources
+
+| quantity | value | source |
+|---|---|---|
+| sphere radius, every shell cut from one sphere | **75 m** (246 ft) | Michael Lewis, *Roof Cladding of the Sydney Opera House*, Journal and Proceedings of the Royal Society of New South Wales, vol. 106, 1973, pp. 18–32 |
+| rib centre lines are great circles of that sphere through its pole | — | Lewis 1973 |
+| rib spacing across a main shell | **3.65°** | Lewis 1973 |
+| longest rib: 13 segments, 26 tile lids, arc **64 m** (210 ft) | — | Lewis 1973 |
+| rib section: solid T at the base → open Y at the ridge | — | Lewis 1973 |
+| ribs of a half-shell coalesce into one reinforced-concrete pedestal at their common springing point | — | Lewis 1973 |
+| side shells bounded by **small circles**, great circles crossing the meridian at **2.28 m** (7 ft 6 in) intervals | — | Lewis 1973 |
+| shell scheme: main A1–A4, side D5–D8, louvre C9–C10; each shell two mirror half-shells about its hall&#x27;s central axis; three groups (two halls + restaurant) | — | Lewis 1973 |
+| height to the top of the largest shell above its springing point | **54.6 m** (179 ft) | Lewis 1973 |
+| highest roof point above sea level | **≈ 67 m** | Lewis 1973 |
+| podium footprint | **183 m × 120 m** | Lewis 1973 |
+| podium concourse: prestressed concrete folded beams | **49 m and 41 m** spans | Lewis 1973 |
+| precast rib segments | **over 2400** | Lewis 1973 |
+| tile lids / tiles / tile size | **4253 lids**, ≈ **1 000 000 tiles**, **120 mm** square | Lewis 1973 |
+
+An alternative sphere radius of **75.2 m** is widely repeated but poorly
+sourced. It is recorded in `results.json` as
+`published_inputs.sphere_radius_alt_m` and **is not used**; the model uses the
+engineering value, 75 m.
+
+The frequently quoted figure **2194** refers to precast rib segments, not to
+tile lids. It is not used here either.
+
+---
+
+## 2. The geometry, derived not drawn
+
+No node is hand-placed. One half-shell is generated from four numbers: the
+sphere radius `R = 75 m`, the rib spacing `3.65°`, the longest rib arc `64 m`
+and the crest height `54.6 m`.
+
+Put the sphere&#x27;s **pole at the pedestal** — that is what &quot;the ribs coalesce at
+their common springing point&quot; and &quot;great circles through the pole&quot; mean
+together. Let `n̂` be the inward normal at the pole and `t̂(φ)` the tangent of
+the meridian at longitude `φ`, `φ = 0` being the rib in the hall&#x27;s central
+plane. Every point of the shell is then
+
+```
+X(θ, φ) = P + R sin θ · t̂(φ) + R (1 − cos θ) · n̂
+```
+
+with `θ` the arc angle from the pedestal, so `arc = R θ` exactly. `|X − C| = R`
+for every `θ, φ`, where `C = P + R n̂` — this is the identity the third
+verification assertion checks numerically.
+
+**Derived, in order:**
+
+1. **Pedestal tangent tilt `α`.** The longest rib has arc 64 m, i.e.
+   `θ = 64/75 = 0.8533 rad = 48.89°`, and must rise 54.6 m. Solving
+   `R sin θ cos α − R(1 − cos θ) sin α = 54.6` gives **α = 3.963°**. The ribs
+   leave the pedestal almost vertically and lean 3.96° over the hall.
+2. **Pedestal half-span `d`.** The chord of a 64 m arc on a 75 m sphere is
+   `2R sin(θ/2) = 62.06 m`; with a rise of 54.6 m the horizontal offset of the
+   rib tip is `√(62.06² − 54.6²) = 29.53 m`. The rib tip *is* the crest and the
+   crest lies on the hall&#x27;s central plane, so **the pedestals of the largest
+   shell are 2 × 29.53 = 59.07 m apart** — forced, not chosen. Two halls side
+   by side at that span come to 118 m, which is why the published podium is
+   120 m wide. That agreement was not imposed; it fell out.
+3. **The ridge.** The two mirror half-shells are cut from two 75 m spheres
+   mirrored about the hall&#x27;s central plane, so their intersection — the ridge —
+   is a **circular arc of radius 59.78 m** in that plane, apex 54.6 m above the
+   springing. Every rib runs from the pedestal until it meets that plane; that
+   is the main shells&#x27; boundary rule, and it is why no rib length had to be
+   invented.
+4. **The shell family.** All ten shells are cut from the same 75 m sphere, so a
+   shell is fully specified by its pedestal half-span `d`; crest height and rib
+   length follow. Small shells are automatically narrower *and* shorter, as the
+   real ones are.
+5. **Side shells** use the other published boundary rule: a **small circle**
+   (constant `θ`), giving the low broad crescents D5–D8.
+6. **Springing level.** Highest roof point 67 m ASL minus crest 54.6 m above
+   springing ⇒ **podium top at 12.4 m ASL**. The podium deck sits there.
+7. **Segment length.** 64 m / 13 = **4.923 m** per precast rib segment. Every
+   other rib is divided into `round(arc / 4.923)` equal-arc segments, minimum 4.
+
+**Emergent, not imposed:** the model contains **2524 rib segments**
+(`rib_major + rib_minor + rib_rest + pedestal` in `results.json`) against a
+published &quot;over 2400&quot;, and 2392 tile-lid courses each standing for two lids,
+i.e. ≈ 4784 lids against a published 4253. The fan extents that produce these
+numbers were fitted by eye, so this is a sanity check, not a verification.
+
+---
+
+## 3. Derived vs reconstructed parameters
+
+### Derived from the published values (no freedom)
+
+| parameter | value |
+|---|---|
+| pedestal tangent tilt α | 3.9633° |
+| pedestal half-span, largest shell | 29.534 m (spacing 59.068 m) |
+| ridge arc radius | 59.784 m |
+| springing level above sea level | 12.400 m |
+| precast rib segment arc | 4.9231 m |
+| segment count per rib | `round(arc / 4.9231)`, min 4 |
+| rib longitudes | multiples of 3.65° |
+| every shell&#x27;s `d` ↔ crest height ↔ rib length relation | one-parameter family on the 75 m sphere |
+
+### Reconstructed — fitted by eye to the known silhouette
+
+The published sources give the sphere, the rib spacing and the heights. They do
+**not** give a full set of shell origins and orientations. These were chosen:
+
+| parameter | value | note |
+|---|---|---|
+| crest height of every shell except A1 | A2 44 m, A3 46 m, A4 34 m, D5 26 m, D6 15 m, D7 22 m, D8 13 m, C9 16 m, C10 11 m | only A1&#x27;s 54.6 m is published |
+| station of each shell along its hall axis | see `results.json → shells[*].station_x_m` | |
+| fan extent (which meridians are kept) | −62°…+7° for main shells, −56°…+26° / −40°…+40° for side shells | fixes where each sail&#x27;s tail is cut and where its mouth is |
+| **sail taper**: ribs past `TAPER_KNEE = −25°` are cut short of the ridge, the outermost keeping `1 − TAPER_DEPTH = 0.77` of its full arc, quadratically interpolated | knee −25°, depth 0.23 | **fitted to photographs, not derived.** Without it every rib runs to the ridge and the shell keeps its full 59 m width to the tail, which reads as a fan. With it the largest sail narrows from 59.07 m at the pedestal line to 18.4 m across the tail (outermost rib at −58.40°, keeping 0.813 of its arc, tip 42.1 m back and 24.5 m up from the pedestal) and its lower boundary becomes a curved free edge instead of one straight rib |
+| hall centre lines | y = −29.6 m (major), +29.6 m (minor) | follows from the derived 59.07 m span and the 120 m podium |
+| restaurant group origin | x = +46 m, y = +52 m | |
+| plan rotation of each group | 0° | the real halls are slightly splayed; not modelled |
+| side shells D6/D8 outboard offset | 22 m / 19 m | |
+| sail lean (`LEAN`) | 0° | a rigid tilt of a half-shell about its pedestal is available in the script and left at zero; see §7 |
+| mouth cut plane | vertical, through the pedestal (φ = 0 plus 2 ribs) | the real glass-wall plane is inclined |
+
+Everything in the second table is my reconstruction. Nothing in it should be
+cited as a property of the building.
+
+---
+
+## 4. Assumed, because it is not published in usable form
+
+**Rib sections.** A line element cannot carry a solid-T-to-open-Y section, so
+an *equivalent* section is used. With `s` the normalised arc from pedestal (0)
+to ridge (1) and `k = 0.55 + 0.45 · (rib arc / 64 m)` a size factor for smaller
+shells:
+
+```
+h(s) = k · (2.40 → 0.75) m        depth,  linear in s
+b(s) = k · (1.60 → 1.10) m        width,  linear in s
+A     = κ_A(s) · b h,             κ_A: 0.55 → 0.28
+I_z   = κ_I(s) · b h³/12,         κ_I: 0.62 → 0.30      (in the plane of the arch)
+I_y   = κ_I(s) · h b³/12,                               (out of plane)
+J     = 0.35 (I_z + I_y)
+```
+
+`κ_A` and `κ_I` are the &quot;solidity&quot; of the section relative to its enclosing
+rectangle: 0.55 / 0.62 stands for the solid T at the base, 0.28 / 0.30 for the
+open Y at the ridge, interpolated linearly. **These two ramps are invented.**
+The published record describes the transition qualitatively; the numbers here
+are a plausible engineering caricature of it, chosen so that material and
+bending stiffness both fall towards the ridge, and nothing more. The local
+strong axis of every rib element is set to the sphere&#x27;s radial direction, so
+bending is correctly resolved in and out of the shell surface.
+
+**Tile-lid ties.** The tile lids span between neighbouring ribs and are bolted
+to both, and that is what gives the shell its transverse stiffness — a fan of
+unconnected ribs is not a shell. Each pair of adjacent ribs is therefore tied
+at every segment station by one elastic beam-column standing for the lid course
+between them: rectangular, 0.16 m thick by the segment length wide. **The
+assumption is that the lid course acts as a fully continuous elastic tie in
+bending and axial force.** In reality the lids are discrete precast trays on
+bolted, mortared joints and the connection is much softer in bending than
+modelled. The last course, at the ridge or at the free small-circle edge, is
+given a 0.90 m deep section to stand for the ridge / edge beam. The two mirror
+half-shells of a main shell **share** their ridge nodes wherever both ribs
+reach the ridge, so the pair acts as an arch rather than as two independent
+cantilevers; past the taper knee the ribs stop short and the tie becomes a free
+edge beam instead.
+
+**Yes — the tile-lid ties carry the transverse stiffness of the shell in this
+model, and the modal result depends on them more than on anything else.** A fan
+of ribs with no ties is a set of independent arches, not a shell. Measured:
+halving the lid-tie thickness from 0.16 m to 0.08 m lengthens T₁ from
+**1.377 s to 1.728 s, +25.5 %** (`results.json → lid_tie_sensitivity`). The
+real ties are discrete precast trays on bolted, mortared joints, certainly
+softer in bending than the continuous elastic beam used here, so the real
+structure — if it could be measured — would sit somewhere on the soft side of
+the number quoted in §8. That is the single largest uncertainty in the modal
+result and it is an assumption, not a measurement.
+
+**The sail taper is a reconstruction, and it changes the shape.** The published
+sources give the sphere, the rib spacing and the rise; they do not give the plan
+outline of any shell. The taper rule above was fitted by eye against
+photographs, and it is the only place in the geometry where a *shape* decision
+was made that the sources do not support. It is stated here, in §3 and in
+`results.json` so that it can be undone: set `TAPER_DEPTH = 0` in
+`build_model.py` and every rib runs to the ridge again.
+
+**Masses.** Rib mass from section area × segment length × 2400 kg/m³. Tile-lid
+mass at a flat **100 kg/m²** of shell surface (roughly 35 mm of precast
+concrete plus tiles, bedding and joints), lumped to the tie&#x27;s end nodes.
+Podium deck at 600 kg/m². Total model mass **36 500 t**.
+
+**Materials.** E = 34 GPa, ν = 0.20, ρ = 2400 kg/m³ — plausible for the
+high-quality 1960s precast concrete used, but no published value was found.
+All elements are `elasticBeamColumn`; no cracking, no prestress, no creep, no
+construction sequence, no soil.
+
+**Podium.** Deliberately token, so the shells read as sitting on something. A
+line-member deck at 12.4 m with transverse support lines at the published 49 m
+and 41 m folded-beam spans (the remaining 30 m of the 120 m width is one edge
+bay, which is a made-up number), 13 longitudinal grid lines over 183 m, columns
+down to sea level, all fixed at the base. It is not a model of the podium.
+
+---
+
+## 5. Model size
+
+| | |
+|---|---|
+| nodes | **2 704** |
+| elements | **5 255** |
+| fixed supports (pedestals + podium columns) | 72 |
+| nodes carrying mass | 2 652 |
+| overall height | 67.0 m |
+| elements by type | ribs 2 132 (major 1 066 / minor 850 / restaurant 216) + 392 pedestal segments, 2 020 tile-lid ties, 372 ridge / free-edge beams, 339 podium |
+| total mass | 36 505 t |
+
+---
+
+## 6. Verification actually run
+
+All four checks run inside `build_model.py`; the first three are hard
+assertions and the run aborts if any fails. Results are in
+`results.json → verification`.
+
+| # | assertion | tolerance | measured | result |
+|---|---|---|---|---|
+| 1 | every rib node lies on the 75.000 m sphere of its own half-shell | &lt; 1 × 10⁻⁶ m | max deviation **1.4 × 10⁻¹⁴ m** over 2 916 rib nodes | **PASS** |
+| 2 | the tallest shell reaches 54.6 m above its springing point | ± 0.05 m | **54.6000 m**, error 0.0000 m | **PASS** |
+| 3 | the whole model fits the published 183 × 120 m envelope | ≤ 183.0 × 120.0 m | **183.00 × 120.00 m** | **PASS** |
+| 4 | renders are not blank **and the drawn structure fills the frame** — the library&#x27;s own sheet measure (row-median background, ink bounding box), taken over a horizontal band that excludes the height ruler and the north arrow, so it measures the structure and not the furniture | ink &gt; 3 % **and** the structure&#x27;s bounding box ≥ 55 % of frame height **and** ≥ 78 % of the band width | `paper/harbour.png` ink 36.8 %, band 90 % × 100 %; `paper/north.png` ink 21.9 %, band 90 % × 98 %; `studio/model.png` ink 20.8 %, band 88 % × 100 %; worst of the twelve is `paper/mode_01.png` at band 75 % × 100 % | **PASS**, 6 images × 2 themes |
+
+The criterion in row 4 was deliberately tightened after the first pass. The
+earlier threshold (ink &gt; 1 %, bbox &gt; 25 % / 35 % of the whole canvas) passed
+images in which the building filled a third of the frame with empty background
+around it, which is not a useful check. The cause was in the camera fit, not in
+the model — see §7.
+
+Assertion 1 is the important one: &quot;every shell is cut from one sphere&quot; is the
+defining property of the design, and it holds to machine precision because the
+geometry is generated from the sphere rather than fitted to it.
+
+---
+
+## 7. Drawing: what was changed, and does it read as the Opera House?
+
+### The library does this now — every runtime override is deleted
+
+This script used to set four things on the imported vbviz modules at import
+time. Since vbviz `eaede95` all four are in the library, and all four overrides
+have been **deleted** from `build_model.py`. Nothing under `vbviz/` is patched
+and nothing is monkey-patched at run time.
+
+| what the script used to patch | what it does now |
+|---|---|
+| `vbviz.render.pv.fit_camera = _fill_camera` — the library fitted the eight corners of the bounding box, and a 154 × 116 × 55 m roof lying diagonally in its box filled about a third of the frame | nothing. `fit_camera` fits the **node positions** and *solves* the zoom (it goes in as readily as out), with `fill=` and `lens_mm=` keywords for the callers that need them |
+| `palette.TYPE_COLOR.update(...)`, `themes.STUDIO_TYPE.update(...)`, `palette.TYPE_LABEL.update(...)`, `palette.TYPE_ORDER[:0] = [...]` | one `palette.register({...})` call with seven keys, each carrying its paper colour, its studio colour and its legend label. Both themes, the PNG legends and the HTML layer lists follow |
+| `pv._overlay` wrapped to cap the furniture dpi, because seven legend rows collided on a 900 px frame | nothing. The library solves the legend row pitch from the drawn text height |
+| — (the ground plate used to be a square 1.5 × the largest plan dimension, which ran off this building&#x27;s canvas, and the ghost was a flat alpha that a shell of thin ribs could not carry) | nothing. The plate is rectangular, plan-sized, 1.15 × the footprint and hard capped at 1.3 ×; the ghost scales its alpha and width with member density |
+
+The colour scheme itself is unchanged: one hue per shell group (**major hall
+terracotta / amber, minor hall steel blue / teal, restaurant olive / violet**),
+pale tile-lid ties, dark ridge and free-edge beams, near-black pedestal
+segments, neutral podium. Rib tubes are drawn at 0.42 × the section depth, so
+the solid-T-to-open-Y taper of §4 is visible in the render.
+
+**Effect on the numbers in `results.json`.** Nothing structural moved — the
+periods, the mass, the geometry and every geometric verification are
+byte-identical to the previous run. Only `verification.renders` moved, because
+the camera is now the library&#x27;s (fill 0.84 and the subject re-centred, against
+the override&#x27;s 0.80 and no re-centring): e.g. `paper/model.png` height fill
+0.883 → 0.968, `paper/mode_01.png` 0.805 → 0.751. Every one of the twelve still
+passes its threshold.
+
+### The modes page, checked on the page itself
+
+`verify_modes_page()` runs on every run and raises rather than warns. The
+framing is now measured **analytically on the written `modes.html`**: every
+point the file draws, projected through the camera the file itself carries —
+the measurement of vbviz `tests/test_nontower.py` section 10. The ground plate
+is the `ground` trace and the structure is everything else, so the two are
+measured apart without a second render. The companion shot written with
+`ground=False, ghost=False` is **gone**: it took a whole extra render to answer
+a question the page&#x27;s own camera already answers, and it could only see ink,
+not the plate corners the camera is fitted to. The grid and the ghost are still
+measured on the real page shots (`paper/preview/modes.png`,
+`studio/preview/modes.png`), each as its own colour at its own alpha over the
+local background, because those are pixel questions.
+
+| check | how it is measured | result |
+|---|---|---|
+| everything the page draws — the ground plate included — is inside the frame, and the camera is aimed at the drawing rather than past it | the projected margins of every trace on the written page, through that page&#x27;s own camera: each margin ≥ 0.02 of the canvas, and top vs bottom and left vs right within 0.06 of each other | top **0.171**, bottom **0.171**, left **0.040**, right **0.040** — centred to within 0.000 both ways — **PASS**, both themes |
+| the structure itself does not touch the viewport edge | the same measurement with the `ground` trace dropped, in the screenshot&#x27;s own aspect | structure bbox rows 0.171–0.758, cols 0.141–0.830; it fills 0.587 × 0.689 of the frame — **PASS**, both themes |
+| the ground grid stays within 1.3 × the plan extent | the plate the library sizes (`style.camera.ground_extent`) against the plan, and the grid&#x27;s drawn width against the structure&#x27;s drawn width on the screenshot | plate 1.15 × plan both ways; grid 1.14 × the structure across the frame — **PASS** |
+| the undeformed ghost is visible inside the structure band | the ghost colour at the ghost alpha over the local (gradient) background, counted inside the structure&#x27;s bounding box | paper 1.31 % of the band at contrast 0.175; studio 0.40 % at contrast 0.235 — **PASS** |
+| all three shell groups are drawn, and the page says that mode 1 is local | **not** on pixels: modes.html paints every member by its amplitude, so on studio a member at zero amplitude is the ramp&#x27;s own `#1b3b5a`, within 0.01 of the grid colour, and a minor-hall rib is the same colour as a restaurant rib. Asserted on the page&#x27;s own geometry payload instead — the segment list must carry every element of all three groups — and the info-box text must carry the local-mode sentence | `rib_major` 1066, `rib_minor` 850, `rib_rest` 216; 5 255 segments = 5 255 elements; the note “mode 1 is a LOCAL mode of the largest sail” is on the page — **PASS** |
+
+**Mode 1 is a local mode, and the page says so.** The three shells stand on
+their own pedestals, so the lowest eigenvalue belongs to the softest shell —
+the largest sail — and not to any global sway (§8). The info box of
+`modes.html` carries that sentence, and `verify_modes_page` asserts it is
+there, so a reader cannot meet the animation without the explanation.
+
+There is **no `fill` override any more**: the page is written at the library
+default (0.92 on the HTML pages, 0.84 on the PNGs). The earlier `fill = 0.86`
+— and the 0.82 before it — were working round a camera that fitted the union
+of the nodes and the 183 × 120 m plate but kept *looking* at the centre of the
+scene box, which dropped the plate&#x27;s near corner off the bottom of the page.
+Since vbviz `9701d68` the plotly camera aims at the centre of the cloud it
+fits, and since `99b754b` the grid is drawn out to the plate edge — the
+corners the camera reserves room for — so the default now leaves 0.171 above
+the drawing and 0.171 below it instead of 0.171 and 0.190.
+
+**Node count, reconciled.** The page says **2 704 nodes / 5 255 elements**,
+`results.json → size` says 2 704 / 5 255, and §5 of this report says 2 704. All
+three agree, and `verify_modes_page` asserts the page against the extracted
+model on every run, so they cannot drift apart silently.
+
+### The silhouette itself
+
+`harbour.png` now includes the podium, so the sails sit on their base instead of
+floating; `north.png` and `west.png` are the roof alone.
+
+My honest judgement, looking at the final images:
+
+* **`north.png` — a reader who knows the building would name it cold.** Two
+  clusters of nested pointed sails of falling height, the dark ridge beams
+  reading as the spines, the ribs fanning down into black pedestal feet, the two
+  small restaurant shells to one side. No caption needed.
+* **`harbour.png` — yes, with a second&#x27;s thought.** The stepped file of shells,
+  the mouths open toward the harbour, the ribs converging into the pedestals,
+  the whole thing sitting on a podium of the right proportions. It reads as the
+  Opera House rather than as generic vaults, but it is not the instant hit that
+  the north elevation is.
+* **`west.png` and `model.png` — recognisable but not compelling.** From due
+  west the sails read as leaning ribbed leaves.
+
+### What I changed after looking at renders and judging them wrong
+
+1. First attempt cut every rib at the ridge with the fan spread over 88°: closed
+   rounded humps, croissants not sails. Reduced the fan to −62°…+7°.
+2. First attempt put the mouth cut past the apex, so the shells closed over the
+   top and lost the pointed arch. Moving the cut to the apex plane produced the
+   nested pointed arches that make the north elevation work.
+3. First layout put the small side shells directly in front of the big mouths.
+   D6/D8 moved outboard to the flanks, the restaurant group to the north-east
+   corner.
+4. The podium deck sagged 0.96 m because the published 49 m and 41 m support
+   lines did not land on the deck grid. Rebuilt the grid from those spans.
+5. **The taper (§3, §4).** Without it every rib runs to the ridge, the shell
+   holds its full 59 m width all the way back, and the sails read as hand fans.
+   Tried three settings and looked at each: a deep taper (0.46 at −20°) made the
+   sails stubby, a wide fan with a deep taper (−78°, 0.33) made them into hoods
+   again; 0.23 at −25° over a −62° fan narrows the largest sail from 59.1 m at
+   the pedestal line to 24.6 m at the tail tip while keeping the lean.
+6. Colour and framing, above. This was the single biggest change to how the
+   images read.
+
+### What still is not right
+
+* The real sails **lean north** and their mouths are cut by an **inclined**
+  glass-wall plane, so the apex overhangs. Mine are upright with a vertical
+  mouth. A rigid lean of each half-shell about its pedestal is implemented
+  (`LEAN`) but left at 0°: leaning lifts the tail into the air and looked worse.
+  An inclined mouth plane through the pedestal cuts almost nothing, because near
+  the pedestal every rib rises at the same angle — the real cut plane does not
+  pass through the pedestal, and finding where it does pass is not supported by
+  the sources.
+* The shells are line elements. The real building is a continuous surface, and
+  no arrangement of tubes will read as white tile.
+* The podium is a token grid, so at close range it reads as scaffolding rather
+  than as the great stone base it is.
+
+---
+
+## 8. Analyses — indicative only
+
+**Gravity** (nodal self-weight, `LoadControl`, 10 steps). Reported for the real
+structure: maximum displacement **0.339 m**, at (−12.0, −29.6, 67.0) — the crown
+of the largest shell A1, at the apex of its mouth arch. That is a property of
+the model, not an artefact: it is the crest of a 59 m span, 54.6 m rise concrete
+arch whose ribs taper to 0.75 m deep at the ridge, and it is large because the
+model gives the mouth arch no extra stiffening, where the real building has a
+heavy edge member there.
+
+**186 nodes are excluded from that maximum**: the tips of every rib that the
+fitted taper cuts short of the ridge, plus the outermost rib of each half-shell.
+Those are cantilevered free corners created by the reconstruction, not by the
+building. Their own maximum is quoted separately as **0.341 m** — with the taper
+in place the artefact no longer dominates the result, which it did before
+(0.405 m against 0.339 m). The podium deck sags 0.095 m. Both numbers are in
+`results.json → gravity`.
+
+**Eigen** (`-genBandArpack`, 6 modes), **for demonstration of the toolchain
+only**:
+
+| mode | T (s) | f (Hz) |
+|---|---|---|
+| 1 | 1.377 | 0.726 |
+| 2 | 1.176 | 0.851 |
+| 3 | 0.969 | 1.032 |
+| 4 | 0.888 | 1.127 |
+| 5 | 0.844 | 1.185 |
+| 6 | 0.782 | 1.279 |
+
+**Mode 1 is a LOCAL mode of the largest sail, and that is physically expected.**
+The three shells stand on their own pedestals and are tied to nothing but the
+podium, so there is no global mode for this structure to have: the lowest
+eigenvalue belongs to whichever shell is softest, which is the largest sail.
+The same line is in the info box of `modes.html`, so a reader does not take it
+for a display fault.
+
+**These periods are not to be compared with anything.** There is no published
+measurement of this building&#x27;s dynamic behaviour, so there is no benchmark, no
+error, and no validation. They are dominated by two assumed quantities: the
+equivalent rib sections of §4 and the stiffness of the tile-lid ties. The lid
+ties were measured: halving their thickness gives **T₁ = 1.728 s, +25.5 %**. A
+quarter of the first period is sitting on one number that nobody published.
+
+---
+
+## 9. What could not be reproduced
+
+1. **Anything dynamic, measured.** No ambient or forced-vibration data for the
+   Sydney Opera House is public. No validation is possible.
+2. **The true rib cross-sections.** The solid-T-to-open-Y transition is
+   described qualitatively; no dimensioned section at any station was found.
+   The equivalent-section ramps in §4 are invented.
+3. **The rib-to-rib and lid-to-rib connections.** Modelled as continuous
+   elastic beams; in reality bolted, mortared, post-tensioned precast joints of
+   unknown and certainly lower rotational stiffness.
+4. **The shell origins and orientations.** Only the largest shell&#x27;s crest is
+   published. Every other shell&#x27;s size, station and fan extent is my
+   reconstruction (§3).
+5. **The plan outline of each shell.** The taper towards the tail is now
+   modelled, but as a two-parameter rule fitted by eye to photographs (§3, §4),
+   not from a published outline. The inclined glass-wall mouth planes are still
+   not reproduced.
+6. **The podium.** Two beam spans and a footprint are published; the rest —
+   grid, sections, column layout, the folded-beam geometry itself — is invented
+   to give the shells something to stand on.
+7. **The pedestals.** Modelled as fully fixed points. The real pedestals are
+   massive reinforced concrete blocks on the podium structure, with real
+   flexibility and real load paths into it.
+8. **Prestress, cracking, construction sequence, epoxy-glued precast joints,
+   soil–structure interaction, and the glass walls** — none of it is modelled.
+9. **The louvre shells C9/C10** are represented by the same main-shell rule at
+   small scale; their actual geometry as louvre shells is not reproduced.
+
+---
+
+## 10. Files
+
+| file | what |
+|---|---|
+| `build_model.py` | the whole model, verification and render pipeline |
+| `results.json` | published inputs, derived values, per-shell geometry, model size, mass, gravity, indicative periods, all verification results |
+| `paper/`, `studio/` | the vbviz product set per theme, with `preview/` screenshots and `index.html` |
+| `paper/harbour.png`, `north.png`, `west.png` | roof-only silhouette views, podium suppressed |
+
+```
+python build_model.py [--theme paper|studio|both] [--out DIR] [--modes N] [--no-render]
+```
+</pre>
+  </section>
+  <p class="back"><a href="../gallery.html"><span>&larr; All buildings</span></a></p>
+</div>
+</main>
+<footer class="site"><div class="wrap">
+  <p>Every analysis on this site is elastic and schematic. It is a demonstration
+    of a toolchain, not a substitute for engineering review.</p>
+  <p>Every model on this site was produced by the pipeline described in the paper. <a href="../paper.pdf">Read the paper (PDF)</a>.</p>
+</div></footer>
+
+<script type="module" src="../assets/js/site.js?v=12284be0"></script>
+</body>
+</html>
+

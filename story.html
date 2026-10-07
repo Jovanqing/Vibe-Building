@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vibe Building: a language model proposes, a physics engine disposes</title>
+<meta name="description" content="A deterministic physics engine holds sole acceptance authority over LLM-proposed building designs. 3,577 physics-adjudicated instances across six code families.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600;6..72,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/css/site.css?v=266f1eaa">
+<link rel="icon" href="assets/icon/favicon.svg?v=0b1456c9" type="image/svg+xml">
+<link rel="icon" href="assets/icon/favicon-32.png?v=143ad0cc" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/icon/apple-touch-icon.png?v=cffdc6c4">
+<meta name="theme-color" content="#0d8f85">
+</head>
+<body>
+
+<nav class="top">
+  <a class="brand" href="index.html"><svg class="brandmark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><g fill="currentColor"><rect x="8.00" y="25.00" width="14.50" height="3.0" rx="1.3"/><rect x="8.31" y="20.00" width="14.00" height="3.0" rx="1.3"/><rect x="9.25" y="15.00" width="13.50" height="3.0" rx="1.3"/><rect x="10.81" y="10.00" width="13.00" height="3.0" rx="1.3"/><rect x="13.00" y="5.00" width="12.50" height="3.0" rx="1.3"/></g><rect x="5.5" y="29" width="19" height="2" rx="1" fill="#0d8f85"/></svg>Vibe&nbsp;Building</a>
+  <span class="spacer"></span>
+  <a href="gallery.html"><span>Gallery</span></a>
+  <a href="paper.pdf"><span>Paper</span></a>
+</nav>
+
+<main>
+<section id="top" class="act hero" data-scrub data-scrub-from="0.62">
+  <div class="stick">
+    <div class="grid">
+      <div class="copy">
+        <p class="eyebrow">Physics-Engine-in-the-Loop</p>
+        <h1>Vibe Building</h1>
+        <p class="tag">A language model proposes.<br>A physics engine disposes.</p>
+        <p class="meter"><span class="num" data-count-to="7469">0</span> / 7&nbsp;469
+          <span>members placed</span></p>
+        <div class="cta">
+          <a class="btn primary" href="gallery.html"><span>See the 26 buildings</span></a>
+          <a class="btn" href="paper.pdf"><span>Read the paper</span></a>
+        </div>
+      </div>
+      <div class="stage">
+        <span class="glow"></span>
+        <img class="still" src="assets/media/hero/build_iso_poster.jpg?v=146a19bd"
+             alt="An OpenSeesPy frame part-way through assembling">
+        <video muted playsinline preload="auto"
+               src="assets/media/hero/build_iso_scrub.mp4?v=f6c14ca8#t=3.72"></video>
+      </div>
+    </div>
+    <p class="scrollhint">scroll</p>
+  </div>
+</section>
+
+<section id="stakes" class="act claim"><div class="wrap">
+  <p class="big">A faulty program is reverted in seconds.<br>A building is not.</p>
+  <p class="foot">Hand the verdict to a language model, all else fixed, and
+    <span class="punch num">58.43%</span> of the designs it accepts are not compliant.</p>
+</div></section>
+
+<section id="pipeline" class="act pipeline" data-stages>
+  <div class="stick">
+    <div class="screen">
+      <div data-stage="0" class="on"><img src="assets/media/pipeline/sketch.webp?v=6dccc5ee"
+        alt="A hand-drawn sketch given to the pipeline as input"></div>
+      <div data-stage="1"><video muted loop playsinline preload="metadata"
+        poster="assets/media/pipeline/rhino_poster.jpg?v=9612d5a5"
+        src="assets/media/pipeline/rhino.mp4?v=4f6c61a6"></video></div>
+      <div data-stage="2"><video muted loop playsinline preload="metadata"
+        poster="assets/media/pipeline/blender_poster.jpg?v=116a9638"
+        src="assets/media/pipeline/blender.mp4?v=c4844e2e"></video></div>
+      <div data-stage="3"><video muted loop playsinline preload="metadata"
+        poster="assets/media/pipeline/frame_poster.jpg?v=49d92ab8"
+        src="assets/media/pipeline/frame.mp4?v=d49ec972"></video></div>
+    </div>
+    <ol>
+      <li data-stage="0" class="on">
+        <span class="who">input</span>
+        <h3>Brief</h3>
+        <p>A hand sketch, a photograph, or one line of text.</p>
+</li>
+      <li data-stage="1">
+        <span class="who">geometry</span>
+        <h3>Rhino</h3>
+        <p>The brief becomes a massing.</p>
+</li>
+      <li data-stage="2">
+        <span class="who">render</span>
+        <h3>Blender</h3>
+        <p>The massing becomes a building.</p>
+</li>
+      <li data-stage="3">
+        <span class="who">physics</span>
+        <h3>OpenSeesPy</h3>
+        <p>The massing becomes a frame the physics engine can judge.</p>
+</li>
+    </ol>
+  </div>
+</section>
+
+<section id="loop" class="act loop"><div class="wrap">
+  <div class="head">
+    <h2>The loop</h2>
+    <p>The language model proposes discrete moves and pays nothing for them.
+      The physics engine decides, and every decision costs one evaluation of the budget.
+      The loop terminates only when every strength and serviceability constraint holds.</p>
+  </div>
+  <div class="body" data-reveal>
+    <svg viewBox="0 0 400 400" role="img"
+         aria-label="The PE-Loop cycle: two language-model phases and two physics phases">
+      <defs>
+        <marker id="tip-llm" viewBox="0 0 10 10" refX="6" refY="5"
+          markerWidth="2.6" markerHeight="2.6" orient="auto">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#3fd1c7"/></marker>
+        <marker id="tip-physics" viewBox="0 0 10 10" refX="6" refY="5"
+          markerWidth="2.6" markerHeight="2.6" orient="auto">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#f2b755"/></marker>
+      </defs>
+      <circle class="ring" cx="200" cy="200" r="132"/>
+      <path class="arc llm" style="--len:179.7" marker-end="url(#tip-llm)" d="M 213.8 68.7 A 132.0 132.0 0 0 1 331.3 186.2"/>
+      <path class="arc llm" style="--len:179.7" marker-end="url(#tip-llm)" d="M 331.3 213.8 A 132.0 132.0 0 0 1 213.8 331.3"/>
+      <path class="arc physics" style="--len:179.7" marker-end="url(#tip-physics)" d="M 186.2 331.3 A 132.0 132.0 0 0 1 68.7 213.8"/>
+      <path class="arc physics" style="--len:179.7" marker-end="url(#tip-physics)" d="M 68.7 186.2 A 132.0 132.0 0 0 1 186.2 68.7"/>
+      <text class="stepno" x="269.3" y="130.7">B0B2</text>
+      <text class="stepno" x="269.3" y="269.3">C1</text>
+      <text class="stepno" x="130.7" y="269.3">C2</text>
+      <text class="stepno" x="130.7" y="130.7">C3</text>
+      <text class="hub" x="200" y="196">PE-Loop</text>
+      <text class="hubsub" x="200" y="224">GENERATE · VERIFY · REFLECT</text>
+    </svg>
+    <ol class="phases">
+      <li class="llm">
+        <span class="who">language model · free</span>
+        <h3>B0–B2</h3>
+        <p>One vision-language call turns a sketch or an image into a massing. A second call fixes the intent (the lateral system, the governing load, and the strategy) and with it the initial discrete state. Neither call is charged to the evaluation budget.</p>
+</li>
+      <li class="llm">
+        <span class="who">language model · free</span>
+        <h3>C1</h3>
+        <p>Given only the set of violated constraints, the model picks one action: adjust the section triple, add a core or a shear wall, change the core plan, or change the lateral system. Three rounds, one lever level each.</p>
+</li>
+      <li class="physics">
+        <span class="who">physics · 1 NFE each</span>
+        <h3>C2</h3>
+        <p>With the discrete state fixed, the column side is searched on a 45-value, 50 mm grid by an upper-bound probe, six bisection steps, and a confirmation. This costs at most 9 oracle calls per round, and the first passing side is also the least-material one.</p>
+</li>
+      <li class="physics">
+        <span class="who">physics · 1 NFE each</span>
+        <h3>C3</h3>
+        <p>After a pass, a finite menu along the section triple is enumerated and a candidate is accepted only if it is still feasible and cheaper. The final design is re-measured, and the held-out analyses and the certificate are computed offline.</p>
+</li>
+    </ol>
+  </div>
+  <p class="legend">
+    <span class="llm"><i></i><span>language model proposes</span></span>
+    <span class="physics"><i></i><span>physics engine decides</span></span>
+  </p>
+</div></section>
+
+<section id="verdict" class="act verdict"><div class="wrap">
+  <div class="head">
+    <h2>Who holds the verdict</h2>
+    <p>Replace the physics verdict with a language-model judge that sees the brief,
+      the code limits and the design parameters but no simulator output. Everything else is fixed.
+      The bar is what each gate claims; the solid part is what physics confirms.</p>
+  </div>
+  <div class="bars">
+      <div class="row" data-reveal>
+        <div class="label">
+          <b>Margin oracle (ours)</b>
+          <span class="rhs">110.8 s · wasted NFE 0.00% · Jaccard 1.00</span>
+        </div>
+        <div class="track">
+          <div class="fill" style="--total:77.78%;
+               --solidshare:100.000%; --falseshare:0.000%">
+            <span class="solid"></span><span class="false"></span>
+          </div>
+          <span class="oracleline" style="--at:77.78%"></span>
+        </div>
+        <p class="readout">Claims <span class="num">77.78%</span> · <span class="num">77.78%</span> real · claims exactly what it delivers</p>
+      </div>
+      <div class="row" data-reveal>
+        <div class="label">
+          <b>LLM judge (same LLM)</b>
+          <span class="rhs">238.4 s · wasted NFE 44.41% · Jaccard 0.31</span>
+        </div>
+        <div class="track">
+          <div class="fill" style="--total:49.44%;
+               --solidshare:41.586%; --falseshare:58.414%">
+            <span class="solid"></span><span class="false"></span>
+          </div>
+          <span class="oracleline" style="--at:77.78%"></span>
+        </div>
+        <p class="readout">Claims <span class="num">49.44%</span> · <span class="num">20.56%</span> real · <span class="bad num">58.43%</span> of its acceptances false</p>
+      </div>
+      <div class="row" data-reveal>
+        <div class="label">
+          <b>LLM judge (stronger, disjoint)</b>
+          <span class="rhs">342.8 s · wasted NFE 45.19% · Jaccard 0.29</span>
+        </div>
+        <div class="track">
+          <div class="fill" style="--total:40.00%;
+               --solidshare:43.050%; --falseshare:56.950%">
+            <span class="solid"></span><span class="false"></span>
+          </div>
+          <span class="oracleline" style="--at:77.78%"></span>
+        </div>
+        <p class="readout">Claims <span class="num">40.00%</span> · <span class="num">17.22%</span> real · <span class="bad num">56.94%</span> of its acceptances false</p>
+      </div>
+  </div>
+  <p class="key">
+    <span class="k1"><i></i><span>confirmed by physics</span></span>
+    <span class="k2"><i></i><span>false acceptances</span></span>
+  </p>
+</div></section>
+
+<section id="backbones" class="act backbones"><div class="wrap">
+  <div class="head">
+    <h2>Swap the backbone, keep the reliability</h2>
+    <p>Because the verdict never depends on the proposer, the held-out pass rate barely
+      moves when the language model behind it changes. A baseline that judges itself inherits the
+      model's variance instead.</p>
+  </div>
+  <div class="spreads">
+      <div class="card ours">
+        <span class="cap">PE-Loop · held-out seismic</span>
+        <div class="val">3.3<small> pp</small></div>
+        <div class="sub">spread across the four backbones</div>
+      </div>
+      <div class="card ours">
+        <span class="cap">PE-Loop · held-out wind</span>
+        <div class="val">4.1<small> pp</small></div>
+        <div class="sub">spread across the four backbones</div>
+      </div>
+      <div class="card base">
+        <span class="cap">Best baseline · seismic</span>
+        <div class="val">23.8<small> pp</small></div>
+        <div class="sub">spread across the four backbones</div>
+      </div>
+      <div class="card base">
+        <span class="cap">Best baseline · wind</span>
+        <div class="val">27.7<small> pp</small></div>
+        <div class="sub">spread across the four backbones</div>
+      </div>
+  </div>
+  <div class="models">
+      <span>DeepSeek-V4-Flash</span>
+      <span>Qwen3.8-Flash</span>
+      <span>GLM 5.2 Fast</span>
+      <span>Kimi K3</span>
+  </div>
+</div></section>
+
+<section id="bench" class="act bench"><div class="wrap">
+  <div class="head">
+    <h2>VB-Bench</h2>
+    <p>Every instance is adjudicated by the physics engine, not by a rubric and not by
+      a model. Every code limit in the knowledge base is traceable to the clause it comes from.</p>
+  </div>
+  <div class="figures">
+    <div><div class="val num">3,577</div>
+      <div class="cap">physics-adjudicated instances</div>
+</div>
+    <div><div class="val num">6</div>
+      <div class="cap">code families</div>
+</div>
+    <div><div class="val num">1,311</div>
+      <div class="cap">gradable tasks</div>
+</div>
+  </div>
+  <div class="families">
+      <span>GB</span>
+      <span>EC8</span>
+      <span>ASCE 7</span>
+      <span>BSL</span>
+      <span>IS</span>
+      <span>NZS</span>
+  </div>
+</div></section>
+
+<section id="buildings" class="act evidence"><div class="wrap">
+  <div class="head">
+    <h2>Twenty-six buildings</h2>
+    <p>Every model below was produced by the pipeline and drawn by the same renderer.
+      Nothing here is a hand-built demo. Hover a card to watch its frame assemble.</p>
+  </div>
+  <div class="cards">
+    <a class="card inline" data-kind="tower" href="b/burj_khalifa_828m.html">
+      <div class="shot">
+        <img loading="lazy" src="assets/media/b/burj_khalifa_828m/thumb.webp?v=b2173b2b" alt="Burj Khalifa">
+        <img class="loop" loading="lazy" src="assets/media/b/burj_khalifa_828m/loop.webp?v=9bcd4c60" alt="Burj Khalifa assembling">
+      </div>
+      <div class="body">
+        <span class="kind">pipeline tower</span>
+        <b>Burj Khalifa</b>
+        <div class="facts">828.0 m · 20,736 elements</div>
+      </div>
+    </a>
+    <a class="card inline" data-kind="reproduction" href="b/shanghai_tower.html">
+      <div class="shot">
+        <img loading="lazy" src="assets/media/b/shanghai_tower/thumb.webp?v=9e23c66a" alt="Shanghai Tower">
+        <img class="loop" loading="lazy" src="assets/media/b/shanghai_tower/loop.webp?v=f325875e" alt="Shanghai Tower assembling">
+      </div>
+      <div class="body">
+        <span class="kind">reproduction</span>
+        <b>Shanghai Tower</b>
+        <div class="sub">elastic reproduction of Lu et al. 2011</div>
+        <div class="facts">632.0 m · 124 storeys · 3,308 elements</div>
+      </div>
+    </a>
+    <a class="card inline" data-kind="reproduction" href="b/republic_plaza.html">
+      <div class="shot">
+        <img loading="lazy" src="assets/media/b/republic_plaza/thumb.webp?v=600a8186" alt="280 m, 66-storey frame-tube building, Singapore (Pan et al. 2004)">
+        <img class="loop" loading="lazy" src="assets/media/b/republic_plaza/loop.webp?v=71dfd12e" alt="280 m, 66-storey frame-tube building, Singapore (Pan et al. 2004) assembling">
+      </div>
+      <div class="body">
+        <span class="kind">reproduction</span>
+        <b>280 m, 66-storey frame-tube building, Singapore (Pan et al. 2004)</b>
+        <div class="facts">280.0 m · 2,242 elements</div>
+      </div>
+    </a>
+    <a class="card inline" data-kind="classic" href="b/seagram_building.html">
+      <div class="shot">
+        <img loading="lazy" src="assets/media/b/seagram_building/thumb.webp?v=55f36e64" alt="International Style Bronze Tower">
+        <img class="loop" loading="lazy" src="assets/media/b/seagram_building/loop.webp?v=ef8a51aa" alt="International Style Bronze Tower assembling">
+      </div>
+      <div class="body">
+        <span class="kind">classic</span>
+        <b>International Style Bronze Tower</b>
+        <div class="facts">157.0 m · 38 storeys · 7,469 elements</div>
+      </div>
+    </a>
+    <a class="card inline" data-kind="landmark" href="b/centre_pompidou.html">
+      <div class="shot">
+        <img loading="lazy" src="assets/media/b/centre_pompidou/thumb.webp?v=48a57782" alt="Centre Georges Pompidou, Paris">
+        <img class="loop" loading="lazy" src="assets/media/b/centre_pompidou/loop.webp?v=acc560ff" alt="Centre Georges Pompidou, Paris assembling">
+      </div>
+      <div class="body">
+        <span class="kind">landmark</span>
+        <b>Centre Georges Pompidou, Paris</b>
+        <div class="sub">166 x 60 m exposed steel frame</div>
+        <div class="facts">50.0 m · 8,853 elements</div>
+      </div>
+    </a>
+    <a class="card inline" data-kind="classic" href="b/pirelli_tower.html">
+      <div class="shot">
+        <img loading="lazy" src="assets/media/b/pirelli_tower/thumb.webp?v=f38ea631" alt="Diamond Slab Tower">
+        <img class="loop" loading="lazy" src="assets/media/b/pirelli_tower/loop.webp?v=b3efda0d" alt="Diamond Slab Tower assembling">
+      </div>
+      <div class="body">
+        <span class="kind">classic</span>
+        <b>Diamond Slab Tower</b>
+        <div class="facts">127.0 m · 32 storeys · 5,340 elements</div>
+      </div>
+    </a>
+    <a class="card inline" data-kind="tower" href="b/design_shanghai_megaframe_632m.html">
+      <div class="shot">
+        <img loading="lazy" src="assets/media/b/design_shanghai_megaframe_632m/thumb.webp?v=32d39e65" alt="Design Shanghai Megaframe">
+        <video muted loop playsinline preload="metadata" poster="assets/media/b/design_shanghai_megaframe_632m/build_iso_poster.webp?v=3fab7b85" src="assets/media/b/design_shanghai_megaframe_632m/build_iso.mp4?v=3e00fbff"></video>
+      </div>
+      <div class="body">
+        <span class="kind">pipeline tower</span>
+        <b>Design Shanghai Megaframe</b>
+        <div class="facts">630.0 m · 17,964 elements</div>
+      </div>
+    </a>
+    <a class="card inline" data-kind="tower" href="b/canton_tower_600m.html">
+      <div class="shot">
+        <img loading="lazy" src="assets/media/b/canton_tower_600m/thumb.webp?v=61e5de2c" alt="Canton Tower">
+        <video muted loop playsinline preload="metadata" poster="assets/media/b/canton_tower_600m/build_iso_poster.webp?v=e691e32a" src="assets/media/b/canton_tower_600m/build_iso.mp4?v=5c4d054d"></video>
+      </div>
+      <div class="body">
+        <span class="kind">pipeline tower</span>
+        <b>Canton Tower</b>
+        <div class="facts">600.0 m · 10,000 elements</div>
+      </div>
+    </a>
+  </div>
+  <a class="more" href="gallery.html"><span>All 26 buildings &rarr;</span></a>
+</div></section>
+
+<section id="limits" class="act limits"><div class="wrap">
+  <div class="head">
+    <h2>Where the evidence stops</h2>
+    <p>Two buildings on this site are reproductions of published work. Only one of them
+      meets measured data. The distinction matters, so it is stated rather than blurred.</p>
+  </div>
+  <div class="tablewrap"><table class="data">
+    <thead><tr>
+      <th>building</th><th>mode</th><th>reference</th>
+      <th>ours, first pass</th><th>ours, best defensible</th><th>anything fitted?</th>
+    </tr></thead>
+    <tbody>
+      <tr><td>280 m frame-tube, Singapore (Pan et al. 2004)</td><td>fundamental X1</td>
+          <td class="ref">0.19 Hz measured</td><td class="num">0.2553 Hz (+34.4%)</td>
+          <td class="num">0.2021 Hz (+6.4%)</td><td>no</td></tr>
+      <tr><td>280 m frame-tube, Singapore (Pan et al. 2004)</td><td>1st torsion</td>
+          <td class="ref">0.57 Hz measured</td><td class="num">1.1124 Hz (+95.2%)</td>
+          <td class="num">0.5416 Hz (&minus;5.0%)</td><td>no</td></tr>
+      <tr><td>Shanghai Tower</td><td>fundamental</td>
+          <td class="ref">9.83 s simulated</td><td class="num">9.5353 s (&minus;3.0%)</td>
+          <td class="num">9.7527 s (&minus;0.8%)</td><td>no</td></tr>
+      <tr><td>Shanghai Tower</td><td>1st torsion</td>
+          <td class="ref">4.09 s simulated</td><td class="num">2.1060 s (&minus;48.5%)</td>
+          <td class="num">2.9992 s (&minus;26.7%)</td><td>no</td></tr>
+    </tbody>
+  </table></div>
+  <div class="notes">
+    <p>Pan et al. publish measured data; Lu et al. publish only their own simulation.
+      The Singapore building is therefore the only place on this site where a model meets reality.
+      Shanghai Tower is one model against another model, and nothing in it establishes either
+      against a real building.</p>
+    <p>The thirteen classics are each a frame idealisation of a massing, not a model
+      of a built building. There is no published structural data for them to compare against and
+      no validation is claimed.</p>
+  </div>
+</div></section>
+</main>
+
+<footer class="site"><div class="wrap">
+  <p>Every analysis on this site is elastic and schematic. It is a demonstration
+    of a toolchain, not a substitute for engineering review.</p>
+  <p>Every model on this site was produced by the pipeline described in the paper. <a href="paper.pdf">Read the paper (PDF)</a>.</p>
+</div></footer>
+
+<script type="module" src="assets/js/site.js?v=12284be0"></script>
+</body>
+</html>

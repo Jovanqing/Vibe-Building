@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>L-plan office tower, 220 m</title>
+<meta name="description" content="L-plan office tower, 220 m. 220.0 m · 8,850 elements. A frame produced by the Vibe Building pipeline and drawn by its renderer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/css/site.css?v=266f1eaa">
+<link rel="icon" href="../assets/icon/favicon.svg?v=0b1456c9" type="image/svg+xml">
+<link rel="icon" href="../assets/icon/favicon-32.png?v=143ad0cc" sizes="32x32">
+<link rel="apple-touch-icon" href="../assets/icon/apple-touch-icon.png?v=cffdc6c4">
+<meta name="theme-color" content="#0d8f85">
+</head>
+<body>
+
+<nav class="top">
+  <a class="brand" href="../index.html"><svg class="brandmark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><g fill="currentColor"><rect x="8.00" y="25.00" width="14.50" height="3.0" rx="1.3"/><rect x="8.31" y="20.00" width="14.00" height="3.0" rx="1.3"/><rect x="9.25" y="15.00" width="13.50" height="3.0" rx="1.3"/><rect x="10.81" y="10.00" width="13.00" height="3.0" rx="1.3"/><rect x="13.00" y="5.00" width="12.50" height="3.0" rx="1.3"/></g><rect x="5.5" y="29" width="19" height="2" rx="1" fill="#0d8f85"/></svg>Vibe&nbsp;Building</a>
+  <span class="spacer"></span>
+  <a href="../gallery.html"><span>Gallery</span></a>
+  <a href="../paper.pdf"><span>Paper</span></a>
+</nav>
+
+<main class="page detail">
+<div class="wrap">
+  <header class="pagehead">
+    <span class="kind"><span>showcase</span></span>
+    <h1>L-plan office tower, 220 m</h1>
+
+    <p class="facts num">220.0 m · 8,850 elements</p>
+  </header>
+  <div class="topsplit">
+  <figure class="hero-shot"><img src="../assets/media/b/demo_l_tower/light_model.webp?v=1530cb52" alt="L-plan office tower, 220 m"></figure>
+    <section class="facts-table">
+      <h2>The model</h2>
+      <div class="tablewrap"><table class="data"><tbody>
+      <tr><th><span>height</span></th><td class="num">220.0 m</td></tr>
+      <tr><th><span>nodes</span></th><td class="num">3,213</td></tr>
+      <tr><th><span>elements</span></th><td class="num">8,850</td></tr>
+      <tr><th><span>periods T1..T3</span></th><td class="num">5.352 s / 4.660 s / 3.446 s</td></tr>
+      <tr><th><span>element types</span></th><td class="num">beam 5,300, brace 400, core_1 200, wing_a 2,000, wing_b 950</td></tr>
+      </tbody></table></div>
+    </section>
+  </div>
+  <section class="clips">
+    <figure class="clip"><video controls muted loop playsinline preload="metadata" poster="../assets/media/b/demo_l_tower/build_iso_poster.webp?v=59dd3c00" src="../assets/media/b/demo_l_tower/build_iso.mp4?v=8cf0c6a4"></video><figcaption><span>OpenSeesPy · the frame assembles</span></figcaption></figure>
+    <figure class="clip"><video controls muted loop playsinline preload="metadata" poster="../assets/media/b/demo_l_tower/build_4view_poster.webp?v=cb3582ed" src="../assets/media/b/demo_l_tower/build_4view.mp4?v=ada5d452"></video><figcaption><span>Four views of the same assembly</span></figcaption></figure>
+    <figure class="clip"><video controls muted loop playsinline preload="metadata" poster="../assets/media/b/demo_l_tower/mode_01_poster.jpg?v=75cd6f42" src="../assets/media/b/demo_l_tower/mode_01.mp4?v=26496ec6"></video><figcaption><span>First mode</span></figcaption></figure>
+    <figure class="clip"><img loading="lazy" src="../assets/media/b/demo_l_tower/modes_png.webp?v=236cdcee" alt="First modes"><figcaption><span>First modes</span></figcaption></figure>
+    <figure class="clip"><img loading="lazy" src="../assets/media/b/demo_l_tower/deformed_png.webp?v=a0872b67" alt="Deformed shape under gravity"><figcaption><span>Deformed shape under gravity</span></figcaption></figure>
+  </section>
+
+  <section class="report">
+    <h2>Build report</h2>
+    <pre># demo_l_tower - an L-plan office tower, designed by the agent
+
+`demo_l_tower` &amp;middot; Shanghai &amp;middot; 50 storeys &amp;middot; 220 m &amp;middot;
+42 x 42 m envelope, one corner notched &amp;middot; frame-core &amp;middot; T1 = 5.352 s
+
+## What this is
+
+A 220 m, 50-storey concrete office tower on an L-shaped plan: two wings inside a
+42 x 42 m envelope with the north-east corner cut away, a single central core,
+1.55 m square columns, 3213 nodes and 8450 elements at 6 m bays and
+4.4 m floors, 201,481 t of mass (floor load plus RC self weight).
+
+It was **designed by the agent, not by hand**. The episode
+`demo_l_tower__vibe-pipeline__r0.json` finished PASS in one C2 round
+(`_trace` has round 0 and nothing after it, 8 solver evaluations) with
+**no topology change** (`_topo_changed: false`): the core is part of the
+frame-core system chosen at B2, not a repair bolted on after a failure. The
+whole returned design is six numbers - column side 1.55 m, one core at
+15% of the plan with aspect 1.0 and no offset, zero walls, beam scale 1.0,
+modulus scale 1.0, taper 0.0 - and this folder is that design rebuilt call for
+call by `build_model.py` and drawn by vbviz.
+
+## The governing constraint
+
+The **global stability index** (刚重比, `EJd/(H^2 * sum Gi)`, JGJ 3-2010 5.4.4).
+Limit **1.400**, achieved **1.4122** - a 0.9 % margin, and the only one of
+the five checks anywhere near its limit:
+
+| check | limit | achieved | margin |
+|---|---|---|---|
+| story drift ratio | 0.0017 (the harness target; JGJ 3 3.7.3 gives 0.001775 for frame-core at 220 m) | 0.00082 | 2.1x |
+| shear-weight ratio | 0.012 | 0.010724 | -10.6 %, within the 20 % that JGJ 3 4.3.12 lets you cover by amplifying the seismic action 1.119x |
+| torsional period ratio Tt/T1 | 0.90 | 0.6439 | 1.4x |
+| **global stability index** | **1.400** | **1.4122** | **+0.9 %** |
+| top acceleration | 0.25 m/s2 | 0.1489 m/s2 | 1.7x |
+
+That is what fixes the columns at 1.55 m: stability, not strength and not drift.
+Drift has a factor of two in hand.
+
+## Two honest notes
+
+* **The L notch is assumed, not given.** The brief says &quot;L-shaped plan, 42 x 42 m
+  envelope&quot; and no more. The harness&#x27;s own geometry synthesiser cuts a corner of
+  40 % x 40 % and tags the record `geom_source: &quot;exact+L_assumed40&quot;` - and its
+  own rule is that records carrying an `assumed` tag must not be used for
+  torsion conclusions. The torsional displacement ratio (1.2325) and period
+  ratio (0.6439) here are properties of that assumed notch, not of the brief.
+* **The comfort check uses the 10-year wind.** JGJ 3-2010 3.7.6 asks for the
+  10-year return pressure, which the original brief did not carry; the field
+  `basic_wind_pressure_10yr_kpa = 0.40` was added to this record for the demo
+  (0.40 kPa is Shanghai&#x27;s value under GB 50009, the same figure the four
+  Shanghai instances in the library use). Against the 50-year 0.55 kPa the top
+  acceleration would be 0.2047 m/s2 instead of 0.1489, still inside 0.25 but
+  with much less room.
+
+## Reproduction
+
+`build_model.py` asserts three numbers against the episode file, exactly as it
+was returned:
+
+| quantity | episode | rebuilt |
+|---|---|---|
+| nodes | 3213 | 3213 |
+| elements (`len(cols) + len(beams)`) | 8450 | 8450 |
+| T1 | 5.352164 s | 5.352164 s |
+
+Periods T1..T6: 5.352, 4.660, 3.446, 2.262, 1.502, 1.359 s. The third, 3.446 s, is the torsional one the
+episode reports as `T_torsional_s`. Sum of support reactions 1,976,525 kN
+against the episode&#x27;s `sigma_G` 1,976,525 kN.
+
+## The two drawings
+
+`figures.py` writes two orthographic drawings beside the camera pictures, both
+300 dpi on the studio theme, both measured back off the saved image into
+`figure/figures.json`.
+
+**`figure/plan.png` - typical floor framing plan, level 25 of 50, z = 110.0 m.**
+The L outline, the 63 columns of 1.55 m, the 106 beams at 6 m bays and the
+12.6 x 12.6 m core. *The core bracing is an X in the plane of each core face,
+so in plan it is only the dashed yellow line lying along that face - the X
+itself is in the elevation.* Measured back off the image: the drawn plate is
+41.85 x 41.88 m against the 42 m envelope, 0.3 % on each axis.
+
+**`figure/elevation.png` - north elevation, the lower ten storeys.**
+A partial elevation, cut by a break symbol, at 26.1 px/m - 115 px per storey,
+enough that the columns, the floor beams and the core&#x27;s X-bracing are each
+separately legible. The full 42 m x 220 m elevation does not survive a
+column-width figure: 50 floor lines land about a pixel apart and moire into a
+ribbon, and the frame gets a third of the sheet. The lower ten storeys are
+42 x 44 m, near square, and carry the same three facts - the two wings and
+where the notch takes one of them away, the braced core, the 4.4 m storey. The
+frame is identical all the way up, as the break note says. The full height is
+still drawn to true scale, as vector, in `studio/elevation.pdf`, and as a
+cutout in `cutouts/model_elevation.png`.
+
+**On the core share.** `figures.json` reports `core_share` 0.104 while the
+design parameter is `area_ratio` 0.15. The three numbers have three
+denominators and none of them is wrong: `run_pipeline.core_layout` takes 0.15
+against the **first massing box only** (42 x 25.2 m = 1058.4 m2), which gives
+158.8 m2 of core; that same core is 10.7 % of the whole 1481.8 m2 L floor
+(`core_share_geometric`); and the pixel count reads a shade lower again, 10.4 %,
+because the beams and columns drawn over the core zone count as members rather
+than as core. The model is untouched.
+
+## What is here
+
+* `figure/` - the two orthographic drawings above plus `figures.json`, their
+  own measurements read back off the saved images
+* `studio/` - the vbviz default product set plus `preview/`, `index.html` and
+  `manifest.json` ([open](studio/index.html))
+* `cutouts/` - isometric, elevation and plan on the studio theme plus a
+  studio_white isometric, 3000 px, RGBA, no ground plate
+* `process/` - `build_4view.mp4` (1920 px) and `build_iso.mp4` (1080 px), the
+  frame assembling itself from the ground up, with posters
+* `results.json` - the three checks, the design parameters, the five targets and
+  what the design achieved, the model&#x27;s own periods and mass, and the folder
+  read back off disk
+</pre>
+  </section>
+  <p class="back"><a href="../gallery.html"><span>&larr; All buildings</span></a></p>
+</div>
+</main>
+<footer class="site"><div class="wrap">
+  <p>Every analysis on this site is elastic and schematic. It is a demonstration
+    of a toolchain, not a substitute for engineering review.</p>
+  <p>Every model on this site was produced by the pipeline described in the paper. <a href="../paper.pdf">Read the paper (PDF)</a>.</p>
+</div></footer>
+
+<script type="module" src="../assets/js/site.js?v=12284be0"></script>
+</body>
+</html>
+

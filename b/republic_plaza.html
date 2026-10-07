@@ -1,0 +1,711 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>280 m, 66-storey frame-tube building, Singapore (Pan et al. 2004)</title>
+<meta name="description" content="280 m, 66-storey frame-tube building, Singapore (Pan et al. 2004). 280.0 m · 2,242 elements. A frame produced by the Vibe Building pipeline and drawn by its renderer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/css/site.css?v=266f1eaa">
+<link rel="icon" href="../assets/icon/favicon.svg?v=0b1456c9" type="image/svg+xml">
+<link rel="icon" href="../assets/icon/favicon-32.png?v=143ad0cc" sizes="32x32">
+<link rel="apple-touch-icon" href="../assets/icon/apple-touch-icon.png?v=cffdc6c4">
+<meta name="theme-color" content="#0d8f85">
+</head>
+<body>
+
+<nav class="top">
+  <a class="brand" href="../index.html"><svg class="brandmark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><g fill="currentColor"><rect x="8.00" y="25.00" width="14.50" height="3.0" rx="1.3"/><rect x="8.31" y="20.00" width="14.00" height="3.0" rx="1.3"/><rect x="9.25" y="15.00" width="13.50" height="3.0" rx="1.3"/><rect x="10.81" y="10.00" width="13.00" height="3.0" rx="1.3"/><rect x="13.00" y="5.00" width="12.50" height="3.0" rx="1.3"/></g><rect x="5.5" y="29" width="19" height="2" rx="1" fill="#0d8f85"/></svg>Vibe&nbsp;Building</a>
+  <span class="spacer"></span>
+  <a href="../gallery.html"><span>Gallery</span></a>
+  <a href="../paper.pdf"><span>Paper</span></a>
+</nav>
+
+<main class="page detail">
+<div class="wrap">
+  <header class="pagehead">
+    <span class="kind"><span>reproduction</span></span>
+    <h1>280 m, 66-storey frame-tube building, Singapore (Pan et al. 2004)</h1>
+
+    <p class="facts num">280.0 m · 2,242 elements</p>
+  </header>
+  <div class="topsplit">
+  <figure class="hero-shot"><img src="../assets/media/b/republic_plaza/light_model.webp?v=52f5bf2a" alt="280 m, 66-storey frame-tube building, Singapore (Pan et al. 2004)"></figure>
+    <section class="facts-table">
+      <h2>The model</h2>
+      <div class="tablewrap"><table class="data"><tbody>
+      <tr><th><span>height</span></th><td class="num">280.0 m</td></tr>
+      <tr><th><span>nodes</span></th><td class="num">1,139</td></tr>
+      <tr><th><span>elements</span></th><td class="num">2,242</td></tr>
+      <tr><th><span>periods T1..T3</span></th><td class="num">4.423 s / 4.346 s / 1.147 s</td></tr>
+      <tr><th><span>element types</span></th><td class="num">belt 64, column 1,056, core 66, outrigger 64, ring 992</td></tr>
+      </tbody></table></div>
+    </section>
+  </div>
+  <section class="clips">
+    <figure class="clip"><video controls muted loop playsinline preload="metadata" poster="../assets/media/b/republic_plaza/build_iso_poster.webp?v=8b2b6e97" src="../assets/media/b/republic_plaza/build_iso.mp4?v=e86c712c"></video><figcaption><span>OpenSeesPy · the frame assembles</span></figcaption></figure>
+    <figure class="clip"><video controls muted loop playsinline preload="metadata" poster="../assets/media/b/republic_plaza/build_4view_poster.webp?v=d03cd750" src="../assets/media/b/republic_plaza/build_4view.mp4?v=c5b35f57"></video><figcaption><span>Four views of the same assembly</span></figcaption></figure>
+    <figure class="clip"><video controls muted loop playsinline preload="metadata" poster="../assets/media/b/republic_plaza/mode_01_poster.jpg?v=84145d5a" src="../assets/media/b/republic_plaza/mode_01.mp4?v=d27d9401"></video><figcaption><span>First mode</span></figcaption></figure>
+    <figure class="clip"><img loading="lazy" src="../assets/media/b/republic_plaza/light_modes.webp?v=7c4613a7" alt="First modes"><figcaption><span>First modes</span></figcaption></figure>
+    <figure class="clip"><img loading="lazy" src="../assets/media/b/republic_plaza/light_deformed.webp?v=42335bba" alt="Deformed shape under gravity"><figcaption><span>Deformed shape under gravity</span></figcaption></figure>
+  </section>
+
+  <section class="report">
+    <h2>Build report</h2>
+    <pre># A 280 m, 66-storey frame-tube building in Singapore — OpenSeesPy reproduction
+
+**The paper never names the building.** A reference in its bibliography suggests
+a particular one, but that is an inference off a citation, not something the
+paper states, so nothing here identifies it. It is referred to throughout as the
+280 m Singapore frame-tube building of Pan et al. The directory name is a path,
+not a claim.
+
+Source: T.-C. Pan, J. M. W. Brownjohn, X.-T. You, *Correlating measured and simulated
+dynamic responses of a tall building to long-distance earthquakes*,
+Earthquake Engng Struct. Dyn. 2004; **33**:611–632 (DOI 10.1002/eqe.366).
+PDF page = printed page − 610 (verified: printed 611 is PDF page 1).
+
+Build: `python build_model.py` (runnable from any directory). One run produces all
+four cases: stick core untuned, stick core × 0.60, shell core untuned, shell core × 0.60.
+Products: `results.json`, `paper/`, `studio/` (this report is hand-written). A run also does the
+static twist test of §4.4 and the openings sweep of §5 (`--no-openings` skips it);
+about 110 s without renders, 3.5 min with.
+
+---
+
+## 1. What the paper actually says (re-verified against the PDF)
+
+| Orientation fact given to me | Verdict |
+|---|---|
+| 66 storeys, 280 m, frame-tube, RC central core, 16 CFT perimeter columns, steel framing every floor | correct — p.613 |
+| Core plan 21.5 m × 22.65 m | correct — p.613 |
+| Tapers at storeys 20–27 and 44–46, outriggers at those mechanical levels | correct — p.613 |
+| Total characteristic dead weight ≈ 760 000 kN | correct — p.626 |
+| Measured / FEM frequencies as listed | correct — Table II, p.617 |
+| Damping 0.52–0.87 %, average 0.73 % | correct — Table IV, p.619 |
+| SAP2000, 3185 frame + 2223 shell elements, 20 808 DOF, fixed base | correct — p.616, p.615 |
+| **&quot;Plan diagonal about 45 m&quot;** | **wrong.** In Figure 2 the 45 m label sits on the NE side of the dashed square, i.e. 45 m is the **side** of the enclosing 45°-rotated square. The full plan diagonal is 45·√2 ≈ 63.6 m, and the plan measures ≈ 48.4 m across the flats. Confirmed by scaling the core in the same figure: 20.9 × 22.7 m measured against the published 21.5 × 22.65 m. |
+
+### Geometry taken off Figure 2 (printed p.614)
+
+Figure 2 rendered at 400 dpi. The dashed NE side (the one carrying the 45 m label)
+measures 1119 px → **scale 24.88 px/m**. From that scale:
+
+* half-diagonal of the dashed square 791 px = 31.8 m (= 45/√2 ✓ internal check)
+* half-width across the flats 601 px = **24.2 m**
+* the four 45° faces lie on the line |x| + |y| = 762 px = **30.6 m**
+* the two intermediate columns on each 45° face at **(19.1, 11.5)** and **(11.5, 19.1)** m
+* the eight remaining columns at the octagon corners **(±a, ±(30.6−a))**, **(±(30.6−a), ±a)**
+
+So the footprint is a 45°-rotated square with its four points cut off — an
+irregular octagon, four long 45° faces and four short axis-parallel truncations —
+and 16 columns: one at each of the eight octagon corners plus two on each long face.
+Figure 2 marks &quot;taper&quot; at each of the four cut points, so the taper acts on the
+corner truncation only; the 45° faces do not move.
+
+### Taper taken off Figure 4 (printed p.616)
+
+Silhouette width measured per pixel row of the 3-D view: 233 px over the bottom
+third, 208 px in the middle, 204 px at the top, with 280 m spanning 1350 px. The
+two steps fall at the storeys the text names. Converting with the Figure 2 scale:
+
+| zone | storeys | half-width across flats `a` |
+|---|---|---|
+| base | 1–20 | 27.5 m |
+| taper 1 | 20→27 | 27.5 → 24.2 m, linear |
+| middle | 27–44 | 24.2 m (this is the &quot;typical floor plan&quot; of Figure 2) |
+| taper 2 | 44→46 | 24.2 → 23.4 m, linear |
+| top | 46–66 | 23.4 m |
+
+---
+
+## 2. The model
+
+| | |
+|---|---|
+| nodes | 1139 (67 levels × 17) |
+| elements | 2242 elastic beam-columns |
+| — core sticks | 66 |
+| — CFT perimeter columns | 1056 |
+| — perimeter spandrels / belt trusses | 1056 |
+| — outriggers | 64 (16 at each of storeys 20, 27, 44, 46) |
+| constraints | rigid diaphragm at all 66 floors, master at the core centroid |
+| base | fully fixed at z = 0 |
+| total mass | 77 472 t = 760 000 kN, **0.000 %** off the published total (asserted in the script) |
+| floor load implied | 6.62 kPa over 114 785 m² of gross plate |
+| paper&#x27;s model, for scale | 3185 frames + 2223 shells, 20 808 DOF |
+
+### How the core was substituted (reproducible recipe)
+
+No shell elements in this toolchain, so the core is an **equivalent stick**: one
+`elasticBeamColumn` per storey at the plan centroid, carrying the *exact*
+thin-walled-box properties of the published 21.5 × 22.65 m core with assumed wall
+thickness `t`:
+
+```
+A   = B·D − (B−2t)(D−2t)
+Ixx = [B·D³ − (B−2t)(D−2t)³] / 12          bending about global X
+Iyy = [D·B³ − (D−2t)(B−2t)³] / 12          bending about global Y
+J   = 4·Am²·t / pm     with  Am = (B−t)(D−t),  pm = 2[(B−t)+(D−t)]     (Bredt)
+```
+with B = 21.5 m, D = 22.65 m. For the base band (t = 0.90 m) this gives
+A = 76.2 m², Ixx = 5937 m⁴, Iyy = 5475 m⁴, J = 8532 m⁴.
+This substitution is *exact* for an uncracked closed tube in flexure and St-Venant
+torsion. It drops shear lag, the door and lift-shaft openings, the internal thin
+walls, and (because `elasticBeamColumn` is Bernoulli) the core&#x27;s shear flexibility.
+The single calibration below is applied to `Ixx`, `Iyy` and `J` of this stick and to
+nothing else.
+
+Perimeter columns are CFT, transformed to a steel-equivalent section
+(`A = As + (Ec/Es)·Ac`, `I = Is + (Ec/Es)·Ic`, `E = Es`). Perimeter spandrels carry
+their strong axis in the vertical plane, which is the only plane the diaphragm
+leaves free, so they supply the Vierendeel/tube action. Outriggers and belt trusses
+are 8.5 m deep two-storey trusses smeared into beams (A = 0.10 m², I = 1.80 m⁴).
+
+### Mass
+
+Published 760 000 kN split between floors **in proportion to floor area**, then split
+within each floor between the core node and the 16 perimeter nodes such that the 16
+point masses reproduce the polar radius of gyration of a uniform plate of that
+octagon (`m_p = M·r_g²/Σr_k²`, remainder at the centre). Nothing about the mass is
+invented; the total is asserted to be within 1 % of the published value and comes out
+exact.
+
+---
+
+## 3. Results
+
+**First pass** (core at gross uncracked stiffness, factor 1.00) — recorded before any
+change was made, exactly as it came out:
+
+**Calibrated pass** — one change only: core `I` and `J` × **0.60**. Nothing else was
+touched, and no search over the multiplier was run (see §4).
+
+| mode | measured (Hz) | paper FEM (Hz) | **ours, 1st pass** | Δ vs measured | **ours, calibrated** | Δ vs measured |
+|---|---|---|---|---|---|---|
+| X1 | 0.19 | 0.19 | 0.255 | **+34.4 %** | 0.226 | **+19.0 %** |
+| Y1 | 0.20 | 0.21 | 0.261 | **+30.5 %** | 0.230 | **+15.0 %** |
+| T1 | 0.57 | 0.60 | 1.112 | **+95.2 %** | 0.872 | **+53.0 %** |
+| X2 | 0.70 | 0.82 | 1.147 | +63.9 % | 0.932 | +33.1 % |
+| Y2 | 0.75 | 0.83 | 1.187 | +58.3 % | 0.962 | +28.2 % |
+| X3 | 1.55 | 1.70 | 2.885 | +86.1 % | 2.266 | +46.2 % |
+| Y3 | 1.73 | 1.90 | 2.997 | +73.2 % | 2.353 | +36.0 % |
+| T2 | 1.34 | 1.28 | 2.996 | +123.6 % | 2.346 | +75.1 % |
+| T3 | 2.31 | 2.26 | 4.932 | +113.5 % | 3.866 | +67.3 % |
+
+Periods, first three translational modes and the first torsional mode:
+
+| mode | measured T (s) | ours 1st pass (s) | ours calibrated (s) |
+|---|---|---|---|
+| X1 | 5.26 | 3.92 | 4.42 |
+| Y1 | 5.00 | 3.83 | 4.35 |
+| X2 | 1.43 | 0.87 | 1.07 |
+| T1 | 1.75 | 0.90 | 1.15 |
+
+Modal participating mass, calibrated model: X1 0.61, Y1 0.61, T1 0.77 (torsional
+fraction of the polar inertia), X2 0.19, Y2 0.19. The paper reports 62.6 % / 61.7 %
+for its modes 1 and 2 (Table III, p.619), so the mass distribution and the first-mode
+shape are close to the paper&#x27;s even though the stiffness is not. Full per-mode
+participation for all 20 modes is in `results.json`.
+
+**Plainly: this reproduction misses.** It is 15–19 % too stiff in the fundamental
+translational modes even after calibration, 53 % too stiff in the first torsional
+mode, and the miss grows with mode number. The frequency *ratios* point at the
+cause: measured f2/f1 = 3.7, the paper&#x27;s FEM 4.3, ours 4.1–4.5, an ideal uniform
+cantilever 6.3, an ideal shear beam 3.0. The measured building is markedly more
+shear-flexible than any of the models, and much more so than mine.
+
+My first reading of that was &quot;a stick core cannot carry a pierced core&#x27;s shear
+flexibility&quot;. **§4 tests that reading against a meshed shell core and largely refutes
+it**, and **§5 traces the shape of the residual to the core openings by inverse
+inference.**
+
+
+---
+
+## 4. Testing the diagnosis: the same model with a ShellMITC4 core
+
+The claim in §3 — that the stick core is what makes the model too stiff, and that
+torsion suffers most — is testable, so it was tested. A second variant replaces the
+66 core sticks with a meshed shell core and changes **nothing else**: same perimeter
+frame, same spandrels, same outriggers and belts at storeys 20/27/44/46, same rigid
+diaphragm at every floor, same tapers, same total mass and the same mass-distribution
+rule. Both variants come out of the one `build()` in the one script, which runs all four
+cases in sequence on every invocation.
+
+**The shell core.** The four core walls are meshed with `ShellMITC4` on an
+`ElasticMembranePlateSection` (E = 35 GPa, ν = 0.20, thickness 0.90/0.70/0.50 m by
+band — the same gross uncracked properties the stick first pass used). The mesh is
+**2 elements per storey height** (2.12 m) and **8 divisions along each of the four
+walls** (2.60 and 2.74 m panels), giving 32 nodes per ring, 133 rings, 4224 shells.
+The wall mid-surface is a constant 20.80 × 21.95 m rectangle sized on the mean wall
+thickness, so the mesh does not kink at the thickness steps; the resulting I is
+within 2.7 % of the exact band-by-band box the stick uses. Every core wall node at a
+floor level joins that floor&#x27;s rigid diaphragm — that is the connection to the floor
+framing — and one of them is the diaphragm master, so the master keeps its own
+out-of-plane stiffness. The outriggers at the four mechanical levels now spring from
+the nearest **core wall** node instead of the centroid, which is what a real
+outrigger does. Mass that used to sit on the single centroid node is spread over the
+32 wall nodes, and the perimeter/core split is re-solved so that the point masses
+still reproduce both the floor mass **and** the polar inertia of a uniform plate;
+the published 760 000 kN total is unchanged and still asserted.
+
+**Model size and run time (shell variant):** 5328 nodes, 4224 shell + 2176 frame
+elements = 6400 elements, ≈ 32 000 DOF before constraints (the paper&#x27;s model: 3185
+frames + 2223 shells, 20 808 DOF). Build under 0.1 s, **eigen for 20 modes 9.0 s**
+(`UmfPack` + `-genBandArpack`, 8-core laptop). The whole four-case script — stick
+untuned, stick × 0.60, shell untuned, shell × 0.60, 20 modes each — runs in 21 s wall
+clock.
+
+### 4.1 Four-way comparison
+
+Untuned columns first. &quot;stick&quot; and &quot;shell&quot; are both **first pass, no tuning at all**,
+gross uncracked properties. The two × 0.60 columns are the reduced-stiffness cases,
+labelled and kept separate; the 0.60 factor was *not* carried into the shell variant
+as a default — it is shown as its own row.
+
+| mode | measured (Hz) | paper FEM | Δ | **stick, untuned** | Δ | **shell, untuned** | Δ | stick × 0.60 | Δ | shell × 0.60 | Δ |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| X1 | 0.19 | 0.190 | +0.0 % | 0.255 | **+34.4 %** | 0.260 | **+36.6 %** | 0.226 | +19.0 % | 0.225 | +18.6 % |
+| Y1 | 0.20 | 0.210 | +5.0 % | 0.261 | **+30.5 %** | 0.267 | **+33.5 %** | 0.230 | +15.0 % | 0.231 | +15.6 % |
+| X2 | 0.70 | 0.820 | +17.1 % | 1.147 | **+63.9 %** | 1.085 | **+55.0 %** | 0.932 | +33.1 % | 0.874 | +24.9 % |
+| X3 | 1.55 | 1.700 | +9.7 % | 2.885 | **+86.1 %** | 2.467 | **+59.2 %** | 2.266 | +46.2 % | 1.937 | +25.0 % |
+| T1 | 0.57 | 0.600 | +5.3 % | 1.112 | **+95.2 %** | 1.125 | **+97.4 %** | 0.872 | +53.0 % | 0.882 | +54.7 % |
+
+### 4.2 Frequency ratios — the shear-flexibility argument as a number
+
+| | measured | paper FEM | stick, untuned | shell, untuned | stick × 0.60 | shell × 0.60 | uniform cantilever | shear beam |
+|---|---|---|---|---|---|---|---|---|
+| f(X2)/f(X1) | **3.68** | 4.32 | 4.49 | 4.18 | 4.12 | 3.88 | ≈ 6.27 | ≈ 3.00 |
+| f(Y2)/f(Y1) | **3.75** | 3.95 | 4.55 | 4.21 | 4.18 | 3.91 | ≈ 6.27 | ≈ 3.00 |
+| f(X3)/f(X1) | **8.16** | 8.95 | 11.30 | 9.50 | 10.02 | 8.59 | ≈ 17.5 | ≈ 5.00 |
+| f(T1)/f(X1) | **3.00** | 3.16 | 4.36 | 4.33 | 3.86 | 3.91 | — | — |
+
+### 4.3 What the shell core actually did — the diagnosis, tested
+
+**Confirmed, on the higher modes.** Meshing the core does add real shear flexibility,
+and it shows up exactly where beam theory says it should — in the higher modes, not
+the first. X2 dropped 5 %, X3 dropped 14 %, and f(X2)/f(X1) moved from 4.49 to 4.18,
+f(X3)/f(X1) from 11.30 to 9.50 — both toward the measured 3.68 and 8.16. That part
+of the argument is real and now has a number on it.
+
+**Refuted, on the fundamental mode.** X1 went from 0.255 Hz to **0.260 Hz — the shell
+core is 2 % *stiffer*, not softer.** The 34 % error on X1 survives the change
+completely. Two independent formulations of the same closed uncracked box — 66 sticks
+with analytic thin-walled properties, and 4224 MITC4 shells — agree to within 2 %.
+That is a useful cross-check of the stick&#x27;s section properties, and it is a flat
+refutation of &quot;the stick is why X1 is wrong&quot;. At an aspect ratio of 280 m over 22 m,
+first-mode shear deformation of a solid box core is worth a couple of per cent, and
+that is all.
+
+**Refuted, on torsion.** T1 went 1.112 → **1.125 Hz**, *up* by 1 %. f(T1)/f(X1) is
+4.36 stick and 4.33 shell against a measured 3.00. I had argued that torsion misses
+worst because a stick cannot sit between the closed-box and open-section limits.
+Wrong reason. A meshed **closed** box sits at the closed-box limit too — §4.4 measures
+it at 1.01 × the Bredt shear-flow value, mesh-converged. What puts the
+real core between the limits is the **openings**, not the element formulation — and
+the paper does not dimension a single opening, so neither variant can have any.
+The shell variant proves the point by elimination: give the shell core the openings
+and it would move; give it a finer mesh and it does not.
+
+**So the residual error is not in the core element.** It is, in order of likely size:
+(1) the core openings — lift shafts and corridor doors at every one of 66 floors,
+plus the major top-storey opening the paper names on p.613 — which soften both
+flexure and, far more, torsion; (2) the assumed wall thickness and modulus, which are
+mine, not the paper&#x27;s; (3) possibly the perimeter frame and the outriggers, whose
+sizes are also mine and which contribute the difference between the 0.188 Hz a bare
+core cantilever gives and the 0.255 Hz the assembled model gives. It is *not* the
+mass — that is the one quantity taken straight from the paper and it is exact.
+Note that the reduced-stiffness rows land X1 at 0.225–0.226 Hz either way: once the
+core is softened, the two formulations still agree to 0.5 %.
+
+### 4.4 Static twist test — effective GJ of the shell core against shear-flow theory
+
+Asked for by the coordinator because a second reproduction in this project has a
+stick core that matches its reference in the fundamental mode but is far too stiff in
+torsion, with the reference implying an effective torsional stiffness of about **0.22**
+of an opening-corrected closed-tube value. If a meshed wall core is intrinsically much
+softer in torsion than a Bredt cell, that would explain it and would be a general
+result. So it was measured here directly.
+
+**Method.** The shell core is isolated — no perimeter frame, no outriggers, no mass.
+Base ring fully fixed. A torque T = 10⁹ N·m is applied to the top ring as a
+self-equilibrating tangential force set (`F_k = c·(−y_k, x_k)`, zero resultant, moment
+`c·Σr²`). The top rotation is read as `θ = Σ(x·u_y − y·u_x)/Σr²`. The comparison
+value is the intact single-cell shear-flow (Bredt) twist for the *same* mid-surface
+rectangle and the *same* three thickness bands:
+
+```
+J_bredt(t) = 4·Am²·t / pm ,  Am = 20.80 × 21.95 m² ,  pm = 2(20.80 + 21.95) m
+theta_bredt = T · Σ_bands h_i /(G·J_bredt(t_i))          G = 14.58 GPa
+```
+`J_bredt` = **8777 / 6826 / 4876 m⁴** for t = 0.90 / 0.70 / 0.50 m, and
+`theta_bredt = 2.979e−3 rad`, i.e. an equivalent uniform **GJ = 9.398e13 N·m²**.
+
+| case | θ (rad) | GJ_eff (N·m²) | **GJ_eff / GJ_bredt** |
+|---|---|---|---|
+| shell core, floor diaphragms (**as modelled**) | 2.951e−3 | 9.488e13 | **1.010** |
+| shell core, refined mesh 16×16 panels, 4 layers/storey (16 896 shells) | 2.963e−3 | 9.450e13 | **1.006** |
+| shell core, **no** floor diaphragms | 3.902e−3 | 7.176e13 | 0.764 |
+| intact closed tube, Bredt shear flow | 2.979e−3 | 9.398e13 | 1.000 (definition) |
+| full model (core + perimeter + outriggers), shell core | 2.843e−3 | 9.849e13 | 1.048 |
+| full model, stick core | 2.857e−3 | 9.801e13 | 1.043 |
+
+**Answers to the three questions.**
+
+1. **Effective torsional stiffness of the shell core, backed out of the model:**
+   GJ_eff = **9.49 × 10¹³ N·m²** for the core alone with its floor diaphragms.
+   The core *can* be isolated, so it was; the perimeter frame and outriggers add only
+   **3.8 %** on top of it (full model 9.85 × 10¹³), so the core carries essentially
+   all of this building&#x27;s torsional stiffness.
+2. **Intact closed-tube value, same wall layout, shear-flow formula:**
+   GJ_bredt = **9.40 × 10¹³ N·m²** (J = 8777 / 6826 / 4876 m⁴ by band).
+3. **Ratio: 1.01.**
+
+**Verdict: the mechanism is not general, and the other building&#x27;s softness has a
+different cause.** A meshed wall core with floor diaphragms carries torsion at
+**101 % of shear-flow theory** — not several times softer, not softer at all. The
++1 % is base warping restraint, which stiffens; mesh refinement to 16 896 shells moves
+it by 0.4 %, so it is converged and not a discretisation artefact. An equivalent-stick
+substitution does **not** overestimate torsional stiffness: on the full model the stick
+and shell cores twist within 0.5 % of each other.
+
+The one thing that does make a meshed core torsionally soft is losing the closed cell.
+Delete the floor diaphragms and the same mesh drops to **0.76** of Bredt through
+in-plane distortion of the box section — and that is only the mild version, because the
+walls are still continuous. The theoretical floor is the open-section St-Venant value
+`(1/3)Σb·t³` = 20.8 m⁴ at t = 0.90 m, **0.0024** of the closed-cell 8777 m⁴, a factor
+of 400 below. An inverse-inferred 0.22 sits between those two limits, which is exactly where a
+core whose shear-flow cell is **broken by openings and only partly re-closed by
+coupling beams and slabs** should sit. So for the other building I would look at, in
+this order: (a) whether its core is genuinely a closed cell or a C / partly-open
+section — an open or single-slit section loses essentially all Bredt stiffness;
+(b) whether openings interrupt the shear flow around the cell on most floors, and
+whether its &quot;opening correction&quot; was applied to `I` rather than to the shear path;
+(c) whether its diaphragms actually close the section at every floor. None of those
+is an element-formulation effect, and none of them will show up by switching a stick
+for shells — which is the same conclusion §4.3 reached here from the modal side.
+
+**Caveat, so this number is not over-read.** The core meshed here is *intact* — the
+paper dimensions no openings, so there are none in either variant. This test therefore
+says &quot;shells and Bredt agree for a closed box&quot;; it does **not** say anything about how
+much a *pierced* core loses. That remains the largest unquantified item in both
+reproductions.
+
+### 4.5 Finding: a frame-only kernel applied to a wall-dominant building
+
+On this building a frame-only analysis kernel — elastic beam-columns and a rigid
+diaphragm, with the shear core replaced by an equivalent stick — reproduces a full
+shell model of the *same* core to within **2 % on the fundamental frequency, 1 % on
+the first torsional frequency, and 5–14 % on the second and third translational
+modes**. The direction is not uniform, and an earlier version of this paragraph
+said it was: on X1, Y1 and T1 the stick is marginally the *softer* of the two —
+0.2553 against 0.2596 Hz, 0.2610 against 0.2669, 1.1124 against 1.1253, i.e.
+−1.7 %, −2.2 % and −1.2 % — which is what §4.3 reports and what refutes &quot;the
+stick is why X1 is wrong&quot;. From the second mode up the stick is the stiffer one,
+by 5.7 % on X2 and 16.9 % on X3, because it drops shear deformation, and that
+part of the error is one-directional and grows with mode number as the curvature
+scale shortens. For a first-mode-dominated quantity — fundamental period,
+base shear from a code spectrum, wind acceleration at the top — a frame kernel is
+worth the same answer as a shell kernel on this class of structure and the discretisation
+choice is not what limits accuracy. For anything that lives in the higher modes —
+long-distance-earthquake response, which is precisely this paper&#x27;s subject, where the
+second mode is the trigger criterion for the instrumentation (p.614) — the frame
+kernel is optimistically stiff by of order 5–15 % per mode and that error compounds
+with mode number. The real accuracy limit on both kernels is an order of magnitude
+larger than either of those and lies entirely in the unpublished input: with the core
+openings absent, both kernels are 30–35 % stiff in X1 and about 95 % stiff in T1.
+A modelling-kernel choice cannot rescue a building description that is missing its
+openings.
+
+---
+
+## 5. Openings study — inverse inference, fitted on one mode only
+
+**This is not a reproduction and must not be quoted as one.** §1–§4 are the
+reproduction: they take what the paper publishes and report what comes out. This
+section runs the other way — it asks what the paper *omits* that would reconcile the
+model with the measurement. It identifies a missing input; it does not confirm a
+published one. The untuned stick and shell results of §3 and §4.1 remain the
+reproduction proper.
+
+### 5.1 Layout and the single parameter
+
+One opening centred on **each of the four core walls**, at **every storey**, one shell
+layer (2.121 m, half a storey) high, leaving a continuous 2.121 m deep lintel band
+above it. Doubly symmetric, so it cannot smuggle in an asymmetry that would flatter
+the torsional result. This is the lift-lobby arrangement of a centre-core tower: doors
+out of the core to the floor plate on every side, on every floor, with the wall above
+the head acting as a coupling beam. The paper&#x27;s &quot;major opening at the southeast part
+of a few top storeys&quot; (p.613) is **not** included — it is not dimensioned and it is
+not regular.
+
+The single parameter is the **opening width per wall per storey**, swept by removing
+`k` centred wall panels. The core wall mesh is refined to 16 panels per wall
+(1.300 m on the 20.80 m walls, 1.372 m on the 21.95 m walls) so the width resolves;
+at `k = 0` this mesh reproduces the §4 result to 1.5 % (X1 0.2562 vs 0.2596 Hz), so
+the refinement is not doing the work. Nothing else changes: same perimeter, same
+outriggers, same diaphragms, same tapers, same mass, gross uncracked E = 35 GPa.
+
+### 5.2 The sweep
+
+| k | width per wall (m) | opening area ratio | X1 | Y1 | X2 | X3 | T1 | GJ_eff/GJ_bredt |
+|---|---|---|---|---|---|---|---|---|
+| 0 | 0.00 | 0.0 % | 0.2562 | 0.2634 | 1.077 | 2.462 | 1.123 | 1.006 |
+| 2 | 2.60 | 6.2 % | 0.2497 | 0.2568 | 1.030 | 2.333 | 1.024 | 0.829 |
+| 4 | 5.20 | 12.5 % | 0.2408 | 0.2475 | 0.961 | 2.127 | 0.854 | 0.561 |
+| 6 | 7.80 | 18.8 % | 0.2301 | 0.2361 | 0.876 | 1.877 | 0.680 | 0.340 |
+| 8 | 10.40 | 25.0 % | 0.2174 | 0.2227 | 0.783 | 1.623 | 0.543 | 0.203 |
+| 10 | 13.00 | 31.2 % | 0.2027 | 0.2071 | 0.690 | 1.388 | 0.444 | 0.126 |
+| **12** | **15.60** | **37.5 %** | **0.1861** | 0.1896 | 0.600 | 1.176 | 0.373 | 0.081 |
+| — | measured | — | **0.19** | 0.20 | 0.70 | 1.55 | 0.57 | — |
+
+### 5.3 The fit, and the four held-out predictions
+
+Fitted on **X1 only**, nearest sweep point to 0.19 Hz: **k = 12**, X1 = 0.1861 Hz,
+**−2.0 %**. Everything below was not used in the fit.
+
+| held-out mode | measured | predicted at the X1-fitted k = 12 | error |
+|---|---|---|---|
+| Y1 | 0.20 | 0.1896 | **−5.2 %** |
+| X2 | 0.70 | 0.600 | **−14.3 %** |
+| X3 | 1.55 | 1.176 | **−24.1 %** |
+| T1 | 0.57 | 0.373 | **−34.6 %** |
+
+Every held-out mode overshoots — the fitted model is *too soft* everywhere except the
+mode it was fitted to, and the overshoot grows with mode number and is worst in
+torsion. That is the same signature as the untuned model, with the sign flipped.
+
+### 5.4 Is the fitted opening construction-plausible? No.
+
+k = 12 is **15.60 m of opening in a 20.80 m wall and 16.46 m in a 21.95 m wall, on all
+four walls, at every one of 66 storeys** — 75 % of every wall&#x27;s length, a **37.5 %
+opening area ratio** over the whole core surface. It leaves four corner piers about
+2.6 × 2.7 m linked by 2.1 m lintels. A lift core has solid shaft walls; published
+opening area ratios for centre cores of this type sit around 10–20 %. **37.5 % on all
+four walls is not a lift core, and I do not believe it.**
+
+**So the strong form of the openings hypothesis fails: openings alone do not explain
+the gap.** Stated plainly, because that was the deal.
+
+### 5.5 What survives, and it is the more useful half
+
+The frequency *ratios* are invariant to any uniform scaling of the core stiffness —
+thickness, modulus, cracked-section factor all cancel out of them. So the ratios
+isolate the openings from every unpublished stiffness assumption I made. Here they
+are:
+
+| | k = 0 (intact) | k = 4 | **k = 6** | k = 8 | k = 12 (X1-fitted) | **measured** | cantilever | shear beam |
+|---|---|---|---|---|---|---|---|---|
+| f(X2)/f(X1) | 4.20 | 3.99 | 3.81 | **3.60** | 3.22 | **3.68** | ≈6.27 | ≈3.00 |
+| f(X3)/f(X1) | 9.61 | 8.83 | **8.16** | 7.46 | 6.32 | **8.16** | ≈17.5 | ≈5.00 |
+| f(T1)/f(X1) | 4.38 | 3.55 | **2.95** | 2.50 | 2.00 | **3.00** | — | — |
+
+Three ratios, three independent measurements, and they all land on **k = 6 to 8** —
+7.8 to 10.4 m of opening per wall per storey, a **19–25 % opening area ratio**, which
+*is* construction-plausible for a lift core. f(X3)/f(X1) hits 8.16 against a measured
+8.16 exactly at k = 6; f(T1)/f(X1) gives 2.95 against 3.00; f(X2)/f(X1) wants k ≈ 7.
+Meanwhile X1 *absolute* wants k = 12. The two cannot both be right, and the way they
+disagree is diagnostic: at k = 6–8 the whole spectrum is uniformly 12–15 % too high,
+which is a **uniform stiffness excess**, not an openings problem. That points at my
+assumed wall thickness, my assumed modulus and my assumed perimeter sizes — the
+unpublished quantities of §6 — and not at the openings.
+
+The arithmetic closes: to bring k = 6 (X1 = 0.2301) down to 0.19 Hz needs a uniform
+core stiffness factor of (0.19/0.2301)² = **0.68**; for k = 8 it is 0.76. That bracket
+is the ACI 318 / PEER TBI effective-stiffness range for RC walls, 0.5–0.75 — the same
+independent source from which §6 picked 0.60, before any of this was run.
+
+**Confirmation run, two parameters, neither fitted to X1.** k = 6 (chosen by the
+ratios above) plus the core factor 0.60 already committed in §6 (chosen from
+ACI/TBI). Recorded in `results.json` as `openings_study.confirmation`:
+
+| mode | measured | k = 6 + core × 0.60 | error | paper&#x27;s own FEM, for scale |
+|---|---|---|---|---|
+| X1 | 0.19 | 0.202 | **+6.4 %** | +0.0 % |
+| Y1 | 0.20 | 0.207 | **+3.4 %** | +5.0 % |
+| X2 | 0.70 | 0.712 | **+1.8 %** | +17.1 % |
+| X3 | 1.55 | 1.485 | **−4.2 %** | +9.7 % |
+| T1 | 0.57 | 0.542 | **−5.0 %** | +5.3 % |
+
+Every mode within 7 %, and better than the paper&#x27;s SAP2000 model on X2 and X3, with
+**no parameter fitted to any measured frequency**. Caveat that keeps this honest: in
+§6 the 0.60 factor was justified partly *by* the openings. Used here alongside
+explicit openings it has to stand on cracked-section and modulus grounds alone —
+still inside the code range, but it is a re-justification, and this row is a five-mode
+consistency check, not a fit and not a reproduction.
+
+### 5.6 Effective torsional stiffness of a pierced core — the number for the other building
+
+The same static twist test as §4.4, run at every sweep point. `GJ_bredt` is the intact
+closed-cell value, 9.398 × 10¹³ N·m².
+
+| opening area ratio | 0 % | 6.2 % | 12.5 % | 18.8 % | **25.0 %** | 31.2 % | 37.5 % |
+|---|---|---|---|---|---|---|---|
+| GJ_eff / GJ_bredt | 1.006 | 0.829 | 0.561 | 0.340 | **0.203** | 0.126 | 0.081 |
+
+**An effective torsion constant of 0.22 of an opening-corrected closed-tube value
+corresponds to an opening area ratio of about 24 % — roughly 10 m of opening per wall
+per storey on a core of this size.** That is large but constructible, and it is
+exactly the range the mode ratios independently pick out here. The 0.22 is
+**inverse-inferred, not measured**: it comes from inverting the other reproduction&#x27;s
+model against its reference paper&#x27;s own *simulated* torsional period, and that
+building has no measured data at all. An earlier version of this section called it
+measured; it is not.
+
+Torsional stiffness collapses far faster than flexural. **Stated on a stiffness
+basis, which is the basis anyone importing these numbers needs:** at a 25 %
+opening area ratio the core keeps **0.72** of its X1 stiffness and **0.20** of
+its torsional stiffness — a factor of 3.5. The 0.72 is (0.2174/0.2562)², the
+square of the frequency ratio; **an earlier version of this line quoted the
+frequency ratio 0.85 as if it were the stiffness ratio, and a second
+reproduction in this project imported the 0.85 and built a flexural correction
+factor on it. That factor has been re-derived on 0.72 and that model re-run.**
+Note also that the 0.72 is the retained stiffness of the *whole model*, whose
+perimeter frame does not change with the openings, so it understates what the
+core alone loses. The curve is steep — 6 % opening already costs 17 % of GJ.
+
+So for the other building: its 0.22 is **fully explained by openings**, needs no
+exotic mechanism, and does *not* indicate anything wrong with its stick core as such.
+§4.4 rules out the element formulation (a meshed intact core sits at 1.01 × Bredt, and
+the stick and shell full models twist within 0.5 % of each other); this section shows
+openings alone will take you from 1.01 to 0.20 at a plausible width. The practical
+rule for both buildings: **apply an opening correction to the core&#x27;s torsion constant
+that is several times more severe than the one applied to its flexural inertia.** At
+25 % opening, flexure keeps 0.72 and torsion keeps 0.20 — a factor of 3.5 between
+them. Using one multiplier for both, as §6 does, is the error.
+
+### 5.7 Verdict
+
+* **Strong hypothesis — &quot;openings explain the whole gap&quot;: FAILS.** Fitting X1 alone
+  demands a 37.5 % opening area ratio, which is not a lift core, and all four held-out
+  modes then overshoot by 5–35 %.
+* **Weak hypothesis — &quot;openings explain the *shape* of the discrepancy&quot;: HOLDS, and
+  strongly.** Three frequency ratios, invariant to every unpublished stiffness
+  assumption, independently select 19–25 % opening area. The residual is a uniform
+  stiffness factor of 0.68–0.76, i.e. my assumed thickness and modulus, not the
+  openings.
+* **For the torsion question specifically: HOLDS outright.** Openings are a sufficient
+  and quantitatively sized explanation for a core at 0.20–0.22 of shear-flow theory,
+  and after §4.4 they are the only candidate left standing.
+
+---
+
+## 6. The calibration pass — before and after, and what was changed
+
+* **Quantity changed:** the effective flexural and torsional stiffness of the core
+  stick, i.e. one multiplier on `Ixx`, `Iyy` and `J`. `A`, `E`, the perimeter, the
+  outriggers, the geometry and the mass were untouched.
+* **Before → after:** 1.00 → **0.60**.
+* **Why 0.60, and why this is not tuning to the answer:** the modelled core is a
+  solid closed box; the real one is pierced by lift-shaft and corridor openings at
+  every floor and by &quot;a major opening at the southeast part of a few top storeys&quot;
+  (p.613), and the Bernoulli element also drops the core&#x27;s shear flexibility. The
+  paper publishes no core thickness, no modulus and no effective-stiffness factor, so
+  this is a quantity the paper does not give. 0.60 was taken from the effective
+  stiffness range codes prescribe for RC walls (ACI 318 / PEER TBI: 0.5–0.75 Ig) — a
+  source that has nothing to do with the measured frequencies. One value, one run.
+  No sweep was performed, and the first-pass numbers above stand in the report
+  whatever they are.
+* **Honest caveat on direction:** the *sign* of the correction (softer, not stiffer)
+  was obvious from the first pass. The *magnitude* came from the code range. If I had
+  been fitting, I would have needed roughly 0.35 on `I` for X1 and roughly 0.15 on `J`
+  for T1 — those numbers appear here only to show how far a fitted value would be
+  from the defensible one, and they are **not** in the model.
+
+---
+
+## 7. Assumptions table (everything the paper does not publish)
+
+| quantity | value assumed | basis |
+|---|---|---|
+| Storey height | 4.242 m uniform (280/66) | The paper gives only 66 storeys and 280 m — no storey schedule, no mechanical-floor heights, no crown. |
+| Core wall thickness | 900 mm st. 1–22, 700 mm 23–44, 500 mm 45–66 | Not published. Normal practice for a 280 m core of this plan size, stepped at the two mechanical zones. |
+| Core concrete modulus | 35 GPa, ν = 0.20 | Not published. C60 to EC2 gives Ecm ≈ 37 GPa; 35 is the low end of the defensible range for the gross section. |
+| Core idealisation | one elastic stick/storey at the centroid, exact thin-walled closed-box A, I, J | No shells available. Exact for a closed uncracked tube; drops shear lag, openings, internal walls, shear flexibility. |
+| Perimeter column section | CFT ⌀1400/32 mm (st. 1–22), ⌀1200/28 (23–44), ⌀1000/22 (45–66); C60 infill, Es = 200 GPa | Not published beyond &quot;16 large steel tubes filled with concrete&quot;. Sized for ≈17 MPa mean gross stress at the base. |
+| Perimeter spandrel | welded plate girder 900 × 300, 30 mm flanges, 16 mm web (Iy = 4.20×10⁻³ m⁴) | Not published. Typical steel edge beam for 7.5–10.3 m column spacing. |
+| Radial floor framing | not modelled; replaced by the rigid diaphragm | The paper calls it a &quot;horizontal steel framing system&quot;. Simply-supported steel floor framing transfers no moment, so under a rigid diaphragm it adds no lateral stiffness. |
+| Outrigger / belt truss | equivalent beam A = 0.10 m², I = 1.80 m⁴ (two-storey, 8.5 m deep truss, 0.05 m² chords), at storeys 20, 27, 44, 46 | The paper says outriggers exist at the two mechanical zones; it gives neither sizes nor exact levels. |
+| Floor mass split | 760 000 kN by floor area; within a floor, perimeter nodes carry the plate&#x27;s polar inertia, remainder at the core node | The total is published (p.626); the distribution is not. |
+| Base | fully fixed at z = 0 | The paper does the same (p.615). |
+| Vertical mass | equal to the horizontal mass | Keeps the participation calculation well posed; vertical modes are filtered out by their participation factors (mode 7 at 2.93 Hz is the first vertical mode and is excluded). |
+| Plan taper amounts | a = 27.5 / 24.2 / 23.4 m | Scaled off Figure 4&#x27;s silhouette; the paper gives only the storey ranges. |
+| Shell-core mesh | 2 shells per storey height, 8 divisions per wall, mid-surface a constant 20.80 × 21.95 m rectangle | Not published. Sized to resolve in-plane shear; the constant mid-surface avoids kinks at the thickness steps and costs under 2.7 % on I. |
+| Core openings | **none in the reproduction (§1–§4)**; §5 infers 19–25 % opening area ratio as a separate inverse study | The paper states openings and internal thin walls are in its model (p.616) but dimensions none of them. This is the single largest unreproducible input — see §4.3 and §5. |
+| Damping | not used — eigen analysis only | Measured 0.52–0.87 % (Table IV) is reported but no time-history was run (see §6). |
+
+### The three assumptions that matter most
+
+1. **Core torsional constant.** Bredt&#x27;s closed-tube `J` = 8532 m⁴ against an
+   open-section `(1/3)Σbt³` of 21.5 m⁴ — a factor of 400 between the two limits. The
+   real pierced core lies between them, and the paper&#x27;s shell model finds that value
+   automatically. This single assumption explains most of the +53 % torsional error;
+   it is why T1 misses far worse than X1.
+2. **Core wall thickness and modulus.** `f ∝ √(EI)` and `I` scales roughly with `t`,
+   so 900 mm vs 700 mm at the base is a ±12 % swing in the fundamental frequency all
+   by itself. Both numbers are pure assumption.
+3. **The stick core itself.** Replacing 2223 shells by 66 sticks removes shear lag,
+   openings, wall coupling and shear deformation — every one of which softens the real
+   building, and all of them in the same direction as the observed error.
+
+---
+
+## 8. What could not be reproduced
+
+* **The time-history correlation, which is the paper&#x27;s actual subject.** The recorded
+  basement accelerations from the 21 events of Table I (p.615) are not published as
+  data — only peak values in mm/s² and a frequency-response plot. Without those
+  records the recorded-vs-simulated roof time histories, the correlation
+  coefficients and the base-shear estimate cannot be recomputed. **Only the modal
+  comparison of §3 is reproducible from the paper.**
+* **Mode shapes.** Figure 5 (p.618) shows the paper&#x27;s six mode shapes as small
+  bitmaps with no ordinate scale, so no numerical MAC against our shapes is possible;
+  the comparison is by frequency and by mode character (X / Y / torsion) only.
+* **The x–torsion coupling the paper reports** (p.617: modes 3, 4 and 6 couple with x
+  translation because of the core&#x27;s major opening and the internal thin walls). Our
+  model is doubly symmetric by construction — the opening is not published in plan or
+  elevation — so our modes are uncoupled and the measured/FEM coupling cannot appear.
+* **Damping.** Measured 0.52–0.87 % (Table IV, p.619) is an identified quantity, not
+  something an undamped elastic model predicts. Nothing here reproduces it.
+* **The foundation.** Six 60 m caissons, a 5.5 m mat, eight 40 m exterior caissons
+  and transfer beams (p.613). Both the paper and this model assume a fixed base, so
+  neither reproduces any base flexibility that might be part of the measured 5.26 s.
+* **Internal core walls, openings, secondary members.** The paper states that its
+  model includes &quot;major openings, secondary openings and internal thin walls within
+  the central core&quot; (p.616). None of that is dimensioned in the paper, and none of it
+  is in this model.
+
+---
+
+## 9. Renders
+
+`paper/index.html` and `studio/index.html` — the full vbviz product set for each
+theme (model, modes 1–8, deformed shape, N/Vy/Mz force fields, plan sections,
+elevation, floor curves, panel sheet, interactive HTML), with `preview/*.png`
+screenshots of the interactive pages. Rendered from the **stick** model at the
+calibrated core factor.
+
+vbviz extracts frame elements only — `Model.Element` carries two node tags — so it
+cannot draw the shell core. The shell variant is therefore not rendered; its core
+would come out as 4224 two-node lines along the panel edges, which would be
+misleading rather than useful. The renders here are the frame model, and the shell
+variant exists as numbers in `results.json` (`shell_first_pass`, `shell_reduced`)
+only. No change was made to vbviz.
+</pre>
+  </section>
+  <p class="back"><a href="../gallery.html"><span>&larr; All buildings</span></a></p>
+</div>
+</main>
+<footer class="site"><div class="wrap">
+  <p>Every analysis on this site is elastic and schematic. It is a demonstration
+    of a toolchain, not a substitute for engineering review.</p>
+  <p>Every model on this site was produced by the pipeline described in the paper. <a href="../paper.pdf">Read the paper (PDF)</a>.</p>
+</div></footer>
+
+<script type="module" src="../assets/js/site.js?v=12284be0"></script>
+</body>
+</html>
+
